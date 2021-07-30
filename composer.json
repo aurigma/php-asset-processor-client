@@ -1,0 +1,36 @@
+{
+    "name": "aurigma/php-asset-processor-client",
+    "description": "PHP API Client for Asset Processor service of Customer's Canvas web-to-print system.",
+    "keywords": [
+        "customer's canvas",
+        "web-to-print",
+        "api client",
+        "asset processor"
+    ],
+    "homepage": "https://customerscanvas.com",
+    "license": "SEE LICENSE IN License.md",
+    "authors": [
+        {
+            "name": "Aurigma Inc",
+            "email": "info@aurigma.com",
+            "homepage": "https://customerscanvas.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0 || ^9.0",
+        "friendsofphp/php-cs-fixer": "^2.12"
+    },
+    "autoload": {
+        "psr-4": { "Aurigma\\AssetProcessor\\" : "lib/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Aurigma\\AssetProcessor\\Test\\" : "test/" }
+    }
+}
