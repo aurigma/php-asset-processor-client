@@ -2,13 +2,13 @@
     "name": "aurigma/php-asset-processor-client",
     "description": "PHP API Client for Asset Processor service of Customer's Canvas web-to-print system.",
     "keywords": [
-        "customer's canvas",
+        "customers canvas",
         "web-to-print",
         "api client",
         "asset processor"
     ],
     "homepage": "https://customerscanvas.com",
-    "license": "SEE LICENSE IN License.md",
+    "license": "proprietary",
     "authors": [
         {
             "name": "Aurigma Inc",
