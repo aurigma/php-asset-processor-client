@@ -83,7 +83,7 @@ Aurigma Inc <info@aurigma.com> (https://customerscanvas.com)
 
 ## API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://dm-assetprocessor.azurewebsites.net/*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
