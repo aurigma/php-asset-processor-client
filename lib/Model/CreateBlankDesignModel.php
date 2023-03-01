@@ -35,7 +35,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * CreateBlankDesignModel Class Doc Comment
  *
  * @category Class
- * @description Create blank design operation parameters
+ * @description Create blank design operation parameters.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

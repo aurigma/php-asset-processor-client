@@ -23,5 +23,6 @@
 #!docs/README.md
 
 /test
+.gitignore
 composer.json
 README.md

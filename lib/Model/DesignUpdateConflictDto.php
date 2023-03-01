@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignMetadata
+ * DesignUpdateConflictDto
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignMetadata Class Doc Comment
+ * DesignUpdateConflictDto Class Doc Comment
  *
  * @category Class
  * @package  Aurigma\AssetProcessor
@@ -42,7 +42,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class DesignUpdateConflictDto implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DesignMetadata';
+    protected static $openAPIModelName = 'DesignUpdateConflictDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +59,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fonts' => '\Aurigma\AssetProcessor\Model\DesignFontMetadata[]',
-        'surfaces' => '\Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]',
-        'print_areas' => '\Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]',
-        'has_data_schema' => 'bool',
-        'data_schema_id' => 'string',
-        'data_schema_name' => 'string'
+        'missing_fonts_conflict' => '\Aurigma\AssetProcessor\Model\MissingFontsConflictDto',
+        'missing_images_conflict' => '\Aurigma\AssetProcessor\Model\MissingImagesConflictDto',
+        'name_conflict' => '\Aurigma\AssetProcessor\Model\NameConflictDto'
     ];
 
     /**
@@ -75,12 +72,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fonts' => null,
-        'surfaces' => null,
-        'print_areas' => null,
-        'has_data_schema' => null,
-        'data_schema_id' => null,
-        'data_schema_name' => null
+        'missing_fonts_conflict' => null,
+        'missing_images_conflict' => null,
+        'name_conflict' => null
     ];
 
     /**
@@ -110,12 +104,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'fonts' => 'fonts',
-        'surfaces' => 'surfaces',
-        'print_areas' => 'printAreas',
-        'has_data_schema' => 'hasDataSchema',
-        'data_schema_id' => 'dataSchemaId',
-        'data_schema_name' => 'dataSchemaName'
+        'missing_fonts_conflict' => 'missingFontsConflict',
+        'missing_images_conflict' => 'missingImagesConflict',
+        'name_conflict' => 'nameConflict'
     ];
 
     /**
@@ -124,12 +115,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'fonts' => 'setFonts',
-        'surfaces' => 'setSurfaces',
-        'print_areas' => 'setPrintAreas',
-        'has_data_schema' => 'setHasDataSchema',
-        'data_schema_id' => 'setDataSchemaId',
-        'data_schema_name' => 'setDataSchemaName'
+        'missing_fonts_conflict' => 'setMissingFontsConflict',
+        'missing_images_conflict' => 'setMissingImagesConflict',
+        'name_conflict' => 'setNameConflict'
     ];
 
     /**
@@ -138,12 +126,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'fonts' => 'getFonts',
-        'surfaces' => 'getSurfaces',
-        'print_areas' => 'getPrintAreas',
-        'has_data_schema' => 'getHasDataSchema',
-        'data_schema_id' => 'getDataSchemaId',
-        'data_schema_name' => 'getDataSchemaName'
+        'missing_fonts_conflict' => 'getMissingFontsConflict',
+        'missing_images_conflict' => 'getMissingImagesConflict',
+        'name_conflict' => 'getNameConflict'
     ];
 
     /**
@@ -203,12 +188,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['fonts'] = $data['fonts'] ?? null;
-        $this->container['surfaces'] = $data['surfaces'] ?? null;
-        $this->container['print_areas'] = $data['print_areas'] ?? null;
-        $this->container['has_data_schema'] = $data['has_data_schema'] ?? null;
-        $this->container['data_schema_id'] = $data['data_schema_id'] ?? null;
-        $this->container['data_schema_name'] = $data['data_schema_name'] ?? null;
+        $this->container['missing_fonts_conflict'] = $data['missing_fonts_conflict'] ?? null;
+        $this->container['missing_images_conflict'] = $data['missing_images_conflict'] ?? null;
+        $this->container['name_conflict'] = $data['name_conflict'] ?? null;
     }
 
     /**
@@ -236,145 +218,73 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets fonts
+     * Gets missing_fonts_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null
+     * @return \Aurigma\AssetProcessor\Model\MissingFontsConflictDto|null
      */
-    public function getFonts()
+    public function getMissingFontsConflict()
     {
-        return $this->container['fonts'];
+        return $this->container['missing_fonts_conflict'];
     }
 
     /**
-     * Sets fonts
+     * Sets missing_fonts_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null $fonts fonts
+     * @param \Aurigma\AssetProcessor\Model\MissingFontsConflictDto|null $missing_fonts_conflict missing_fonts_conflict
      *
      * @return self
      */
-    public function setFonts($fonts)
+    public function setMissingFontsConflict($missing_fonts_conflict)
     {
-        $this->container['fonts'] = $fonts;
+        $this->container['missing_fonts_conflict'] = $missing_fonts_conflict;
 
         return $this;
     }
 
     /**
-     * Gets surfaces
+     * Gets missing_images_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null
+     * @return \Aurigma\AssetProcessor\Model\MissingImagesConflictDto|null
      */
-    public function getSurfaces()
+    public function getMissingImagesConflict()
     {
-        return $this->container['surfaces'];
+        return $this->container['missing_images_conflict'];
     }
 
     /**
-     * Sets surfaces
+     * Sets missing_images_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null $surfaces surfaces
+     * @param \Aurigma\AssetProcessor\Model\MissingImagesConflictDto|null $missing_images_conflict missing_images_conflict
      *
      * @return self
      */
-    public function setSurfaces($surfaces)
+    public function setMissingImagesConflict($missing_images_conflict)
     {
-        $this->container['surfaces'] = $surfaces;
+        $this->container['missing_images_conflict'] = $missing_images_conflict;
 
         return $this;
     }
 
     /**
-     * Gets print_areas
+     * Gets name_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null
+     * @return \Aurigma\AssetProcessor\Model\NameConflictDto|null
      */
-    public function getPrintAreas()
+    public function getNameConflict()
     {
-        return $this->container['print_areas'];
+        return $this->container['name_conflict'];
     }
 
     /**
-     * Sets print_areas
+     * Sets name_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null $print_areas print_areas
+     * @param \Aurigma\AssetProcessor\Model\NameConflictDto|null $name_conflict name_conflict
      *
      * @return self
      */
-    public function setPrintAreas($print_areas)
+    public function setNameConflict($name_conflict)
     {
-        $this->container['print_areas'] = $print_areas;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_data_schema
-     *
-     * @return bool|null
-     */
-    public function getHasDataSchema()
-    {
-        return $this->container['has_data_schema'];
-    }
-
-    /**
-     * Sets has_data_schema
-     *
-     * @param bool|null $has_data_schema has_data_schema
-     *
-     * @return self
-     */
-    public function setHasDataSchema($has_data_schema)
-    {
-        $this->container['has_data_schema'] = $has_data_schema;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_id
-     *
-     * @return string|null
-     */
-    public function getDataSchemaId()
-    {
-        return $this->container['data_schema_id'];
-    }
-
-    /**
-     * Sets data_schema_id
-     *
-     * @param string|null $data_schema_id data_schema_id
-     *
-     * @return self
-     */
-    public function setDataSchemaId($data_schema_id)
-    {
-        $this->container['data_schema_id'] = $data_schema_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_name
-     *
-     * @return string|null
-     */
-    public function getDataSchemaName()
-    {
-        return $this->container['data_schema_name'];
-    }
-
-    /**
-     * Sets data_schema_name
-     *
-     * @param string|null $data_schema_name data_schema_name
-     *
-     * @return self
-     */
-    public function setDataSchemaName($data_schema_name)
-    {
-        $this->container['data_schema_name'] = $data_schema_name;
+        $this->container['name_conflict'] = $name_conflict;
 
         return $this;
     }

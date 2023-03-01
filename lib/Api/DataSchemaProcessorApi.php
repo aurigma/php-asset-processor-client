@@ -406,6 +406,23 @@ class DataSchemaProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -761,6 +778,23 @@ class DataSchemaProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
@@ -1130,6 +1164,23 @@ class DataSchemaProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3

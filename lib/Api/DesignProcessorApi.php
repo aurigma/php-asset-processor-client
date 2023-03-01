@@ -406,6 +406,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -716,6 +733,23 @@ class DesignProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
@@ -1036,6 +1070,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -1355,6 +1406,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -1627,6 +1695,23 @@ class DesignProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
@@ -1947,6 +2032,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -1979,7 +2081,7 @@ class DesignProcessorApi
      *
      * Imports design from source file and saves it to storage.
      *
-     * @param  \SplFileObject $source_file Design source file (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $design_params_name Design name (optional)
      * @param  string $design_params_path Design location (folder path) (optional)
@@ -1991,14 +2093,15 @@ class DesignProcessorApi
      * @param  int $preview_settings_height Preview image heigth (optional)
      * @param  bool $preview_settings_stub Preview stub contnent switcher  Indicates whether to show stub content in preview (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format preview_settings_format (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\DesignImportConflictDto
      */
-    public function designProcessorImportDesign($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null)
+    public function designProcessorImportDesign($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null)
     {
-        list($response) = $this->designProcessorImportDesignWithHttpInfo($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format);
+        list($response) = $this->designProcessorImportDesignWithHttpInfo($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file);
         return $response;
     }
 
@@ -2007,7 +2110,7 @@ class DesignProcessorApi
      *
      * Imports design from source file and saves it to storage.
      *
-     * @param  \SplFileObject $source_file Design source file (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $design_params_name Design name (optional)
      * @param  string $design_params_path Design location (folder path) (optional)
@@ -2019,14 +2122,15 @@ class DesignProcessorApi
      * @param  int $preview_settings_height Preview image heigth (optional)
      * @param  bool $preview_settings_stub Preview stub contnent switcher  Indicates whether to show stub content in preview (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\DesignImportConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function designProcessorImportDesignWithHttpInfo($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null)
+    public function designProcessorImportDesignWithHttpInfo($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null)
     {
-        $request = $this->designProcessorImportDesignRequest($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format);
+        $request = $this->designProcessorImportDesignRequest($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2124,7 +2228,7 @@ class DesignProcessorApi
      *
      * Imports design from source file and saves it to storage.
      *
-     * @param  \SplFileObject $source_file Design source file (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $design_params_name Design name (optional)
      * @param  string $design_params_path Design location (folder path) (optional)
@@ -2136,13 +2240,14 @@ class DesignProcessorApi
      * @param  int $preview_settings_height Preview image heigth (optional)
      * @param  bool $preview_settings_stub Preview stub contnent switcher  Indicates whether to show stub content in preview (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function designProcessorImportDesignAsync($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null)
+    public function designProcessorImportDesignAsync($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null)
     {
-        return $this->designProcessorImportDesignAsyncWithHttpInfo($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format)
+        return $this->designProcessorImportDesignAsyncWithHttpInfo($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2155,7 +2260,7 @@ class DesignProcessorApi
      *
      * Imports design from source file and saves it to storage.
      *
-     * @param  \SplFileObject $source_file Design source file (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $design_params_name Design name (optional)
      * @param  string $design_params_path Design location (folder path) (optional)
@@ -2167,14 +2272,15 @@ class DesignProcessorApi
      * @param  int $preview_settings_height Preview image heigth (optional)
      * @param  bool $preview_settings_stub Preview stub contnent switcher  Indicates whether to show stub content in preview (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function designProcessorImportDesignAsyncWithHttpInfo($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null)
+    public function designProcessorImportDesignAsyncWithHttpInfo($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null)
     {
         $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
-        $request = $this->designProcessorImportDesignRequest($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format);
+        $request = $this->designProcessorImportDesignRequest($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2212,7 +2318,7 @@ class DesignProcessorApi
     /**
      * Create request for operation 'designProcessorImportDesign'
      *
-     * @param  \SplFileObject $source_file Design source file (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $design_params_name Design name (optional)
      * @param  string $design_params_path Design location (folder path) (optional)
@@ -2224,11 +2330,12 @@ class DesignProcessorApi
      * @param  int $preview_settings_height Preview image heigth (optional)
      * @param  bool $preview_settings_stub Preview stub contnent switcher  Indicates whether to show stub content in preview (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function designProcessorImportDesignRequest($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null)
+    public function designProcessorImportDesignRequest($source_file, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null)
     {
         // verify the required parameter 'source_file' is set
         if ($source_file === null || (is_array($source_file) && count($source_file) === 0)) {
@@ -2316,6 +2423,20 @@ class DesignProcessorApi
                 );
             }
         }
+        // aurigmafix 5
+        $multipart = true;
+        // form params
+        if ($marker_shortcuts_file !== null) {
+            $multipart = true;
+            $formParams['markerShortcutsFile'] = [];
+            $paramFiles = is_array($marker_shortcuts_file) ? $marker_shortcuts_file : [$marker_shortcuts_file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['markerShortcutsFile'][] = \GuzzleHttp\Psr7\try_fopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -2365,6 +2486,23 @@ class DesignProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
@@ -2695,6 +2833,23 @@ class DesignProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
@@ -3155,6 +3310,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -3614,6 +3786,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -3635,6 +3824,406 @@ class DesignProcessorApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'GET',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation designProcessorReimportDesign
+     *
+     * Re-imports design from source file and updates design file and metadata in storage.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignImportConflictDto
+     */
+    public function designProcessorReimportDesign($id, $source_file, $tenant_id = null, $marker_shortcuts_file = null)
+    {
+        list($response) = $this->designProcessorReimportDesignWithHttpInfo($id, $source_file, $tenant_id, $marker_shortcuts_file);
+        return $response;
+    }
+
+    /**
+     * Operation designProcessorReimportDesignWithHttpInfo
+     *
+     * Re-imports design from source file and updates design file and metadata in storage.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignImportConflictDto, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function designProcessorReimportDesignWithHttpInfo($id, $source_file, $tenant_id = null, $marker_shortcuts_file = null)
+    {
+        $request = $this->designProcessorReimportDesignRequest($id, $source_file, $tenant_id, $marker_shortcuts_file);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\DesignImportConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignImportConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignImportConflictDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation designProcessorReimportDesignAsync
+     *
+     * Re-imports design from source file and updates design file and metadata in storage.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorReimportDesignAsync($id, $source_file, $tenant_id = null, $marker_shortcuts_file = null)
+    {
+        return $this->designProcessorReimportDesignAsyncWithHttpInfo($id, $source_file, $tenant_id, $marker_shortcuts_file)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation designProcessorReimportDesignAsyncWithHttpInfo
+     *
+     * Re-imports design from source file and updates design file and metadata in storage.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorReimportDesignAsyncWithHttpInfo($id, $source_file, $tenant_id = null, $marker_shortcuts_file = null)
+    {
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->designProcessorReimportDesignRequest($id, $source_file, $tenant_id, $marker_shortcuts_file);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'designProcessorReimportDesign'
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  \SplFileObject $source_file Design source file. (required)
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function designProcessorReimportDesignRequest($id, $source_file, $tenant_id = null, $marker_shortcuts_file = null)
+    {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling designProcessorReimportDesign'
+            );
+        }
+        // verify the required parameter 'source_file' is set
+        if ($source_file === null || (is_array($source_file) && count($source_file) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $source_file when calling designProcessorReimportDesign'
+            );
+        }
+
+        $resourcePath = '/api/processor/v1/designs/{id}/re-import';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($tenant_id !== null) {
+            if('form' === 'form' && is_array($tenant_id)) {
+                foreach($tenant_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['tenantId'] = $tenant_id;
+            }
+        }
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+        // aurigmafix 5
+        $multipart = true;
+        // form params
+        if ($source_file !== null) {
+            $multipart = true;
+            $formParams['sourceFile'] = [];
+            $paramFiles = is_array($source_file) ? $source_file : [$source_file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['sourceFile'][] = \GuzzleHttp\Psr7\try_fopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+        // aurigmafix 5
+        $multipart = true;
+        // form params
+        if ($marker_shortcuts_file !== null) {
+            $multipart = true;
+            $formParams['markerShortcutsFile'] = [];
+            $paramFiles = is_array($marker_shortcuts_file) ? $marker_shortcuts_file : [$marker_shortcuts_file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['markerShortcutsFile'][] = \GuzzleHttp\Psr7\try_fopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        // aurigmafix 6
+                        if (gettype($formParamValueItem) === 'object') {
+                            if (!($formParamValueItem instanceof StreamInterface 
+                            || $formParamValueItem instanceof \Iterator 
+                            || method_exists($formParamValueItem, '__toString'))) {
+                                $formParamValueItem = json_encode($formParamValueItem);
+                            }
+                        } 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
@@ -3933,6 +4522,23 @@ class DesignProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -3974,7 +4580,7 @@ class DesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto
      */
     public function designProcessorUpdate($id, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $file = null)
     {
@@ -3996,7 +4602,7 @@ class DesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function designProcessorUpdateWithHttpInfo($id, $tenant_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $file = null)
     {
@@ -4055,6 +4661,18 @@ class DesignProcessorApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
@@ -4084,6 +4702,14 @@ class DesignProcessorApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Aurigma\AssetProcessor\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4301,6 +4927,339 @@ class DesignProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation designProcessorValidateDesignImportSettings
+     *
+     * Validates the design import settings.
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Aurigma\AssetProcessor\Model\ValidationResultDto
+     */
+    public function designProcessorValidateDesignImportSettings($tenant_id = null, $marker_shortcuts_file = null)
+    {
+        list($response) = $this->designProcessorValidateDesignImportSettingsWithHttpInfo($tenant_id, $marker_shortcuts_file);
+        return $response;
+    }
+
+    /**
+     * Operation designProcessorValidateDesignImportSettingsWithHttpInfo
+     *
+     * Validates the design import settings.
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Aurigma\AssetProcessor\Model\ValidationResultDto, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function designProcessorValidateDesignImportSettingsWithHttpInfo($tenant_id = null, $marker_shortcuts_file = null)
+    {
+        $request = $this->designProcessorValidateDesignImportSettingsRequest($tenant_id, $marker_shortcuts_file);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Aurigma\AssetProcessor\Model\ValidationResultDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ValidationResultDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Aurigma\AssetProcessor\Model\ValidationResultDto';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\ValidationResultDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation designProcessorValidateDesignImportSettingsAsync
+     *
+     * Validates the design import settings.
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorValidateDesignImportSettingsAsync($tenant_id = null, $marker_shortcuts_file = null)
+    {
+        return $this->designProcessorValidateDesignImportSettingsAsyncWithHttpInfo($tenant_id, $marker_shortcuts_file)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation designProcessorValidateDesignImportSettingsAsyncWithHttpInfo
+     *
+     * Validates the design import settings.
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorValidateDesignImportSettingsAsyncWithHttpInfo($tenant_id = null, $marker_shortcuts_file = null)
+    {
+        $returnType = '\Aurigma\AssetProcessor\Model\ValidationResultDto';
+        $request = $this->designProcessorValidateDesignImportSettingsRequest($tenant_id, $marker_shortcuts_file);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'designProcessorValidateDesignImportSettings'
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function designProcessorValidateDesignImportSettingsRequest($tenant_id = null, $marker_shortcuts_file = null)
+    {
+
+        $resourcePath = '/api/processor/v1/designs/validate-import-settings';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($tenant_id !== null) {
+            if('form' === 'form' && is_array($tenant_id)) {
+                foreach($tenant_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['tenantId'] = $tenant_id;
+            }
+        }
+
+
+
+        // aurigmafix 5
+        $multipart = true;
+        // form params
+        if ($marker_shortcuts_file !== null) {
+            $multipart = true;
+            $formParams['markerShortcutsFile'] = [];
+            $paramFiles = is_array($marker_shortcuts_file) ? $marker_shortcuts_file : [$marker_shortcuts_file];
+            foreach ($paramFiles as $paramFile) {
+                $formParams['markerShortcutsFile'][] = \GuzzleHttp\Psr7\try_fopen(
+                    ObjectSerializer::toFormValue($paramFile),
+                    'rb'
+                );
+            }
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        // aurigmafix 6
+                        if (gettype($formParamValueItem) === 'object') {
+                            if (!($formParamValueItem instanceof StreamInterface 
+                            || $formParamValueItem instanceof \Iterator 
+                            || method_exists($formParamValueItem, '__toString'))) {
+                                $formParamValueItem = json_encode($formParamValueItem);
+                            }
+                        } 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3

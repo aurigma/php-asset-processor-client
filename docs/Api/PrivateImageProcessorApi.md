@@ -13,7 +13,7 @@ Method | HTTP request | Description
 ## `privateImageProcessorImportImage()`
 
 ```php
-privateImageProcessorImportImage($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background): \Aurigma\AssetProcessor\Model\ImageDto
+privateImageProcessorImportImage($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background): \Aurigma\AssetProcessor\Model\ImageDto
 ```
 
 Imports image from source file and saves it to private storage.
@@ -32,7 +32,18 @@ $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2
+// Configure API key authorization: jwtBearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -44,7 +55,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateImageProcessorApi(
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Image source file
 $tenant_id = 56; // int | Tenant identifier
-$user_id = 'user_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier
 $name = 'name_example'; // string | Image name
 $path = 'path_example'; // string | Image location (folder path)
 $custom_fields = NULL; // mixed
@@ -59,7 +70,7 @@ $preview_settings_interpolation_mode = new \Aurigma\AssetProcessor\Model\ImagePr
 $preview_settings_background = 'preview_settings_background_example'; // string | Background color for transparent images
 
 try {
-    $result = $apiInstance->privateImageProcessorImportImage($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+    $result = $apiInstance->privateImageProcessorImportImage($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateImageProcessorApi->privateImageProcessorImportImage: ', $e->getMessage(), PHP_EOL;
@@ -72,7 +83,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **source_file** | **\SplFileObject****\SplFileObject**| Image source file |
  **tenant_id** | **int**| Tenant identifier | [optional]
- **user_id** | **string**| Private storage owner identifier | [optional]
+ **owner_id** | **string**| Private storage owner identifier | [optional]
  **name** | **string**| Image name | [optional]
  **path** | **string**| Image location (folder path) | [optional]
  **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
@@ -92,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [oauth2](../../README.md#oauth2)
+[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -106,7 +117,7 @@ Name | Type | Description  | Notes
 ## `privateImageProcessorPreparePreview()`
 
 ```php
-privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id): \SplFileObject
+privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id): \SplFileObject
 ```
 
 Creates preview image for image taken from private storage.
@@ -125,7 +136,18 @@ $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2
+// Configure API key authorization: jwtBearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -146,10 +168,10 @@ $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\
 $background = 'background_example'; // string | Background color for transparent images
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
 $tenant_id = 56; // int | Tenant identifier
-$user_id = 'user_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier
 
 try {
-    $result = $apiInstance->privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+    $result = $apiInstance->privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateImageProcessorApi->privateImageProcessorPreparePreview: ', $e->getMessage(), PHP_EOL;
@@ -171,7 +193,7 @@ Name | Type | Description  | Notes
  **background** | **string**| Background color for transparent images | [optional]
  **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false]
  **tenant_id** | **int**| Tenant identifier | [optional]
- **user_id** | **string**| Private storage owner identifier | [optional]
+ **owner_id** | **string**| Private storage owner identifier | [optional]
 
 ### Return type
 
@@ -179,7 +201,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [oauth2](../../README.md#oauth2)
+[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -193,7 +215,7 @@ Name | Type | Description  | Notes
 ## `privateImageProcessorPreparePreviewUrl()`
 
 ```php
-privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id): string
+privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id): string
 ```
 
 Creates preview image for image taken from private storage.
@@ -212,7 +234,18 @@ $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2
+// Configure API key authorization: jwtBearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -233,10 +266,10 @@ $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\
 $background = 'background_example'; // string | Background color for transparent images
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
 $tenant_id = 56; // int | Tenant identifier
-$user_id = 'user_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier
 
 try {
-    $result = $apiInstance->privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+    $result = $apiInstance->privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateImageProcessorApi->privateImageProcessorPreparePreviewUrl: ', $e->getMessage(), PHP_EOL;
@@ -258,7 +291,7 @@ Name | Type | Description  | Notes
  **background** | **string**| Background color for transparent images | [optional]
  **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false]
  **tenant_id** | **int**| Tenant identifier | [optional]
- **user_id** | **string**| Private storage owner identifier | [optional]
+ **owner_id** | **string**| Private storage owner identifier | [optional]
 
 ### Return type
 
@@ -266,7 +299,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [oauth2](../../README.md#oauth2)
+[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -280,7 +313,7 @@ Name | Type | Description  | Notes
 ## `privateImageProcessorUpdate()`
 
 ```php
-privateImageProcessorUpdate($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\ImageDto
+privateImageProcessorUpdate($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\ImageDto
 ```
 
 Updates image file and metadata in private storage
@@ -299,7 +332,18 @@ $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAp
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2
+// Configure API key authorization: jwtBearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
@@ -311,14 +355,14 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateImageProcessorApi(
 );
 $id = 'id_example'; // string | Image entity unique identifier
 $tenant_id = 56; // int | Tenant identifier
-$user_id = 'user_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier
 $name = 'name_example'; // string | Image name
 $path = 'path_example'; // string | Image location (folder path)
 $custom_fields = NULL; // mixed
 $file = "/path/to/file.txt"; // \SplFileObject | Image source file
 
 try {
-    $result = $apiInstance->privateImageProcessorUpdate($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file);
+    $result = $apiInstance->privateImageProcessorUpdate($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateImageProcessorApi->privateImageProcessorUpdate: ', $e->getMessage(), PHP_EOL;
@@ -331,7 +375,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**| Image entity unique identifier |
  **tenant_id** | **int**| Tenant identifier | [optional]
- **user_id** | **string**| Private storage owner identifier | [optional]
+ **owner_id** | **string**| Private storage owner identifier | [optional]
  **name** | **string**| Image name | [optional]
  **path** | **string**| Image location (folder path) | [optional]
  **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
@@ -343,7 +387,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [oauth2](../../README.md#oauth2)
+[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 

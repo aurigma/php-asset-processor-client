@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignMetadata
+ * ValidationResultDto
  *
  * PHP version 7.2
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignMetadata Class Doc Comment
+ * ValidationResultDto Class Doc Comment
  *
  * @category Class
+ * @description Validation result.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class ValidationResultDto implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DesignMetadata';
+    protected static $openAPIModelName = 'ValidationResultDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +60,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fonts' => '\Aurigma\AssetProcessor\Model\DesignFontMetadata[]',
-        'surfaces' => '\Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]',
-        'print_areas' => '\Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]',
-        'has_data_schema' => 'bool',
-        'data_schema_id' => 'string',
-        'data_schema_name' => 'string'
+        'is_valid' => 'bool',
+        'errors' => 'string[]'
     ];
 
     /**
@@ -75,12 +72,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fonts' => null,
-        'surfaces' => null,
-        'print_areas' => null,
-        'has_data_schema' => null,
-        'data_schema_id' => null,
-        'data_schema_name' => null
+        'is_valid' => null,
+        'errors' => null
     ];
 
     /**
@@ -110,12 +103,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'fonts' => 'fonts',
-        'surfaces' => 'surfaces',
-        'print_areas' => 'printAreas',
-        'has_data_schema' => 'hasDataSchema',
-        'data_schema_id' => 'dataSchemaId',
-        'data_schema_name' => 'dataSchemaName'
+        'is_valid' => 'isValid',
+        'errors' => 'errors'
     ];
 
     /**
@@ -124,12 +113,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'fonts' => 'setFonts',
-        'surfaces' => 'setSurfaces',
-        'print_areas' => 'setPrintAreas',
-        'has_data_schema' => 'setHasDataSchema',
-        'data_schema_id' => 'setDataSchemaId',
-        'data_schema_name' => 'setDataSchemaName'
+        'is_valid' => 'setIsValid',
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -138,12 +123,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'fonts' => 'getFonts',
-        'surfaces' => 'getSurfaces',
-        'print_areas' => 'getPrintAreas',
-        'has_data_schema' => 'getHasDataSchema',
-        'data_schema_id' => 'getDataSchemaId',
-        'data_schema_name' => 'getDataSchemaName'
+        'is_valid' => 'getIsValid',
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -203,12 +184,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['fonts'] = $data['fonts'] ?? null;
-        $this->container['surfaces'] = $data['surfaces'] ?? null;
-        $this->container['print_areas'] = $data['print_areas'] ?? null;
-        $this->container['has_data_schema'] = $data['has_data_schema'] ?? null;
-        $this->container['data_schema_id'] = $data['data_schema_id'] ?? null;
-        $this->container['data_schema_name'] = $data['data_schema_name'] ?? null;
+        $this->container['is_valid'] = $data['is_valid'] ?? null;
+        $this->container['errors'] = $data['errors'] ?? null;
     }
 
     /**
@@ -236,145 +213,49 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets fonts
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null
-     */
-    public function getFonts()
-    {
-        return $this->container['fonts'];
-    }
-
-    /**
-     * Sets fonts
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null $fonts fonts
-     *
-     * @return self
-     */
-    public function setFonts($fonts)
-    {
-        $this->container['fonts'] = $fonts;
-
-        return $this;
-    }
-
-    /**
-     * Gets surfaces
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null
-     */
-    public function getSurfaces()
-    {
-        return $this->container['surfaces'];
-    }
-
-    /**
-     * Sets surfaces
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null $surfaces surfaces
-     *
-     * @return self
-     */
-    public function setSurfaces($surfaces)
-    {
-        $this->container['surfaces'] = $surfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets print_areas
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null
-     */
-    public function getPrintAreas()
-    {
-        return $this->container['print_areas'];
-    }
-
-    /**
-     * Sets print_areas
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null $print_areas print_areas
-     *
-     * @return self
-     */
-    public function setPrintAreas($print_areas)
-    {
-        $this->container['print_areas'] = $print_areas;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_data_schema
+     * Gets is_valid
      *
      * @return bool|null
      */
-    public function getHasDataSchema()
+    public function getIsValid()
     {
-        return $this->container['has_data_schema'];
+        return $this->container['is_valid'];
     }
 
     /**
-     * Sets has_data_schema
+     * Sets is_valid
      *
-     * @param bool|null $has_data_schema has_data_schema
+     * @param bool|null $is_valid Indicates if the validation was successful.
      *
      * @return self
      */
-    public function setHasDataSchema($has_data_schema)
+    public function setIsValid($is_valid)
     {
-        $this->container['has_data_schema'] = $has_data_schema;
+        $this->container['is_valid'] = $is_valid;
 
         return $this;
     }
 
     /**
-     * Gets data_schema_id
+     * Gets errors
      *
-     * @return string|null
+     * @return string[]|null
      */
-    public function getDataSchemaId()
+    public function getErrors()
     {
-        return $this->container['data_schema_id'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets data_schema_id
+     * Sets errors
      *
-     * @param string|null $data_schema_id data_schema_id
+     * @param string[]|null $errors List of validation errors.
      *
      * @return self
      */
-    public function setDataSchemaId($data_schema_id)
+    public function setErrors($errors)
     {
-        $this->container['data_schema_id'] = $data_schema_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_name
-     *
-     * @return string|null
-     */
-    public function getDataSchemaName()
-    {
-        return $this->container['data_schema_name'];
-    }
-
-    /**
-     * Sets data_schema_name
-     *
-     * @param string|null $data_schema_name data_schema_name
-     *
-     * @return self
-     */
-    public function setDataSchemaName($data_schema_name)
-    {
-        $this->container['data_schema_name'] = $data_schema_name;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

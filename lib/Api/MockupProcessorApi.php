@@ -1,6 +1,6 @@
 <?php
 /**
- * ImageProcessorApi
+ * MockupProcessorApi
  * PHP version 7.2
  *
  * @category Class
@@ -39,14 +39,14 @@ use Aurigma\AssetProcessor\HeaderSelector;
 use Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * ImageProcessorApi Class Doc Comment
+ * MockupProcessorApi Class Doc Comment
  *
  * @category Class
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ImageProcessorApi
+class MockupProcessorApi
 {
     /**
      * @var ClientInterface
@@ -115,62 +115,64 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorImportImage
+     * Operation mockupProcessorImportMockup
      *
-     * Imports image from source file and saves it to storage.
+     * Imports a mockup from the source file and saves it to the storage.
      *
-     * @param  \SplFileObject $source_file Image source file (required)
+     * @param  \SplFileObject $source_file Mockup source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields custom_fields (optional)
-     * @param  bool $preview_settings_make_preview Force make preview (optional)
-     * @param  string $preview_settings_namespace Preview namespace (optional)
-     * @param  string $preview_settings_name Preview name (optional)
-     * @param  int $preview_settings_width Preview image width (optional)
-     * @param  int $preview_settings_height Preview image heigth (optional)
-     * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode preview_settings_fit_mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode preview_settings_interpolation_mode (optional)
-     * @param  string $preview_settings_background Background color for transparent images (optional)
+     * @param  bool $preview_settings_make_preview Indicates if a preview is needed. (optional)
+     * @param  string $preview_settings_namespace Preview namespace. (optional)
+     * @param  string $preview_settings_name Preview name. (optional)
+     * @param  int $preview_settings_width Preview width. (optional)
+     * @param  int $preview_settings_height Preview height. (optional)
+     * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode preview_settings_fit_mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode preview_settings_interpolation_mode (optional)
+     * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type type (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\NameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\NameConflictDto
      */
-    public function imageProcessorImportImage($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function mockupProcessorImportMockup($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null)
     {
-        list($response) = $this->imageProcessorImportImageWithHttpInfo($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        list($response) = $this->mockupProcessorImportMockupWithHttpInfo($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $type);
         return $response;
     }
 
     /**
-     * Operation imageProcessorImportImageWithHttpInfo
+     * Operation mockupProcessorImportMockupWithHttpInfo
      *
-     * Imports image from source file and saves it to storage.
+     * Imports a mockup from the source file and saves it to the storage.
      *
-     * @param  \SplFileObject $source_file Image source file (required)
+     * @param  \SplFileObject $source_file Mockup source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  bool $preview_settings_make_preview Force make preview (optional)
-     * @param  string $preview_settings_namespace Preview namespace (optional)
-     * @param  string $preview_settings_name Preview name (optional)
-     * @param  int $preview_settings_width Preview image width (optional)
-     * @param  int $preview_settings_height Preview image heigth (optional)
-     * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode (optional)
-     * @param  string $preview_settings_background Background color for transparent images (optional)
+     * @param  bool $preview_settings_make_preview Indicates if a preview is needed. (optional)
+     * @param  string $preview_settings_namespace Preview namespace. (optional)
+     * @param  string $preview_settings_name Preview name. (optional)
+     * @param  int $preview_settings_width Preview width. (optional)
+     * @param  int $preview_settings_height Preview height. (optional)
+     * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode (optional)
+     * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\NameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\NameConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorImportImageWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function mockupProcessorImportMockupWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null)
     {
-        $request = $this->imageProcessorImportImageRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        $request = $this->mockupProcessorImportMockupRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -202,14 +204,14 @@ class ImageProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\ImageDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\MockupDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ImageDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MockupDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -227,7 +229,7 @@ class ImageProcessorApi
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -245,7 +247,7 @@ class ImageProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\ImageDto',
+                        '\Aurigma\AssetProcessor\Model\MockupDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -264,31 +266,32 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorImportImageAsync
+     * Operation mockupProcessorImportMockupAsync
      *
-     * Imports image from source file and saves it to storage.
+     * Imports a mockup from the source file and saves it to the storage.
      *
-     * @param  \SplFileObject $source_file Image source file (required)
+     * @param  \SplFileObject $source_file Mockup source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  bool $preview_settings_make_preview Force make preview (optional)
-     * @param  string $preview_settings_namespace Preview namespace (optional)
-     * @param  string $preview_settings_name Preview name (optional)
-     * @param  int $preview_settings_width Preview image width (optional)
-     * @param  int $preview_settings_height Preview image heigth (optional)
-     * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode (optional)
-     * @param  string $preview_settings_background Background color for transparent images (optional)
+     * @param  bool $preview_settings_make_preview Indicates if a preview is needed. (optional)
+     * @param  string $preview_settings_namespace Preview namespace. (optional)
+     * @param  string $preview_settings_name Preview name. (optional)
+     * @param  int $preview_settings_width Preview width. (optional)
+     * @param  int $preview_settings_height Preview height. (optional)
+     * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode (optional)
+     * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorImportImageAsync($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function mockupProcessorImportMockupAsync($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null)
     {
-        return $this->imageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background)
+        return $this->mockupProcessorImportMockupAsyncWithHttpInfo($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -297,32 +300,33 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorImportImageAsyncWithHttpInfo
+     * Operation mockupProcessorImportMockupAsyncWithHttpInfo
      *
-     * Imports image from source file and saves it to storage.
+     * Imports a mockup from the source file and saves it to the storage.
      *
-     * @param  \SplFileObject $source_file Image source file (required)
+     * @param  \SplFileObject $source_file Mockup source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  bool $preview_settings_make_preview Force make preview (optional)
-     * @param  string $preview_settings_namespace Preview namespace (optional)
-     * @param  string $preview_settings_name Preview name (optional)
-     * @param  int $preview_settings_width Preview image width (optional)
-     * @param  int $preview_settings_height Preview image heigth (optional)
-     * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode (optional)
-     * @param  string $preview_settings_background Background color for transparent images (optional)
+     * @param  bool $preview_settings_make_preview Indicates if a preview is needed. (optional)
+     * @param  string $preview_settings_namespace Preview namespace. (optional)
+     * @param  string $preview_settings_name Preview name. (optional)
+     * @param  int $preview_settings_width Preview width. (optional)
+     * @param  int $preview_settings_height Preview height. (optional)
+     * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode (optional)
+     * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function mockupProcessorImportMockupAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null)
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
-        $request = $this->imageProcessorImportImageRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
+        $request = $this->mockupProcessorImportMockupRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -358,40 +362,41 @@ class ImageProcessorApi
     }
 
     /**
-     * Create request for operation 'imageProcessorImportImage'
+     * Create request for operation 'mockupProcessorImportMockup'
      *
-     * @param  \SplFileObject $source_file Image source file (required)
+     * @param  \SplFileObject $source_file Mockup source file. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  bool $preview_settings_make_preview Force make preview (optional)
-     * @param  string $preview_settings_namespace Preview namespace (optional)
-     * @param  string $preview_settings_name Preview name (optional)
-     * @param  int $preview_settings_width Preview image width (optional)
-     * @param  int $preview_settings_height Preview image heigth (optional)
-     * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode (optional)
-     * @param  string $preview_settings_background Background color for transparent images (optional)
+     * @param  bool $preview_settings_make_preview Indicates if a preview is needed. (optional)
+     * @param  string $preview_settings_namespace Preview namespace. (optional)
+     * @param  string $preview_settings_name Preview name. (optional)
+     * @param  int $preview_settings_width Preview width. (optional)
+     * @param  int $preview_settings_height Preview height. (optional)
+     * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode (optional)
+     * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorImportImageRequest($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function mockupProcessorImportMockupRequest($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null)
     {
         // verify the required parameter 'source_file' is set
         if ($source_file === null || (is_array($source_file) && count($source_file) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $source_file when calling imageProcessorImportImage'
+                'Missing the required parameter $source_file when calling mockupProcessorImportMockup'
             );
         }
         if ($name !== null && !preg_match("/[^\/:*?\"<>|]*/", $name)) {
-            throw new \InvalidArgumentException("invalid value for \"name\" when calling ImageProcessorApi.imageProcessorImportImage, must conform to the pattern /[^\/:*?\"<>|]*/.");
+            throw new \InvalidArgumentException("invalid value for \"name\" when calling MockupProcessorApi.mockupProcessorImportMockup, must conform to the pattern /[^\/:*?\"<>|]*/.");
         }
 
 
-        $resourcePath = '/api/processor/v1/images/import';
+        $resourcePath = '/api/processor/v1/mockups/import';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -473,6 +478,10 @@ class ImageProcessorApi
                     'rb'
                 );
             }
+        }
+        // form params
+        if ($type !== null) {
+            $formParams['type'] = ObjectSerializer::toFormValue($type);
         }
 
         if ($multipart) {
@@ -569,56 +578,56 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreview
+     * Operation mockupProcessorPreparePreview
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        list($response) = $this->imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        list($response) = $this->mockupProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
         return $response;
     }
 
     /**
-     * Operation imageProcessorPreparePreviewWithHttpInfo
+     * Operation mockupProcessorPreparePreviewWithHttpInfo
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        $request = $this->mockupProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -712,28 +721,28 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreviewAsync
+     * Operation mockupProcessorPreparePreviewAsync
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        return $this->imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id)
+        return $this->mockupProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -742,29 +751,29 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreviewAsyncWithHttpInfo
+     * Operation mockupProcessorPreparePreviewAsyncWithHttpInfo
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        $request = $this->mockupProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -800,57 +809,57 @@ class ImageProcessorApi
     }
 
     /**
-     * Create request for operation 'imageProcessorPreparePreview'
+     * Create request for operation 'mockupProcessorPreparePreview'
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling imageProcessorPreparePreview'
+                'Missing the required parameter $id when calling mockupProcessorPreparePreview'
             );
         }
         // verify the required parameter 'namespace' is set
         if ($namespace === null || (is_array($namespace) && count($namespace) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $namespace when calling imageProcessorPreparePreview'
+                'Missing the required parameter $namespace when calling mockupProcessorPreparePreview'
             );
         }
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $name when calling imageProcessorPreparePreview'
+                'Missing the required parameter $name when calling mockupProcessorPreparePreview'
             );
         }
         // verify the required parameter 'width' is set
         if ($width === null || (is_array($width) && count($width) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $width when calling imageProcessorPreparePreview'
+                'Missing the required parameter $width when calling mockupProcessorPreparePreview'
             );
         }
         // verify the required parameter 'height' is set
         if ($height === null || (is_array($height) && count($height) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $height when calling imageProcessorPreparePreview'
+                'Missing the required parameter $height when calling mockupProcessorPreparePreview'
             );
         }
 
-        $resourcePath = '/api/processor/v1/images/{id}/preview/{namespace}/{name}/{width}x{height}';
+        $resourcePath = '/api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1061,56 +1070,56 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreviewUrl
+     * Operation mockupProcessorPreparePreviewUrl
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        list($response) = $this->imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        list($response) = $this->mockupProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
         return $response;
     }
 
     /**
-     * Operation imageProcessorPreparePreviewUrlWithHttpInfo
+     * Operation mockupProcessorPreparePreviewUrlWithHttpInfo
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        $request = $this->mockupProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1204,28 +1213,28 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreviewUrlAsync
+     * Operation mockupProcessorPreparePreviewUrlAsync
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
-        return $this->imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id)
+        return $this->mockupProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1234,29 +1243,29 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorPreparePreviewUrlAsyncWithHttpInfo
+     * Operation mockupProcessorPreparePreviewUrlAsyncWithHttpInfo
      *
-     * Creates preview image for image taken from storage.
+     * Creates a preview for the mockup taken from the storage.
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
         $returnType = 'string';
-        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
+        $request = $this->mockupProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1292,57 +1301,57 @@ class ImageProcessorApi
     }
 
     /**
-     * Create request for operation 'imageProcessorPreparePreviewUrl'
+     * Create request for operation 'mockupProcessorPreparePreviewUrl'
      *
-     * @param  string $id Source image entity identifier (required)
-     * @param  string $namespace Preview namespace (required)
-     * @param  string $name Preview name (required)
-     * @param  int $width Preview image width (required)
-     * @param  int $height Preview image height (required)
-     * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
-     * @param  string $background Background color for transparent images (optional)
-     * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
+     * @param  string $id Source mockup entity ID. (required)
+     * @param  string $namespace Preview namespace. (required)
+     * @param  string $name Preview name. (required)
+     * @param  int $width Preview mockup width. (required)
+     * @param  int $height Preview mockup height. (required)
+     * @param  int $jpeg_quality Jpeg preview quality. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
+     * @param  bool $force If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
+    public function mockupProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling imageProcessorPreparePreviewUrl'
+                'Missing the required parameter $id when calling mockupProcessorPreparePreviewUrl'
             );
         }
         // verify the required parameter 'namespace' is set
         if ($namespace === null || (is_array($namespace) && count($namespace) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $namespace when calling imageProcessorPreparePreviewUrl'
+                'Missing the required parameter $namespace when calling mockupProcessorPreparePreviewUrl'
             );
         }
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $name when calling imageProcessorPreparePreviewUrl'
+                'Missing the required parameter $name when calling mockupProcessorPreparePreviewUrl'
             );
         }
         // verify the required parameter 'width' is set
         if ($width === null || (is_array($width) && count($width) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $width when calling imageProcessorPreparePreviewUrl'
+                'Missing the required parameter $width when calling mockupProcessorPreparePreviewUrl'
             );
         }
         // verify the required parameter 'height' is set
         if ($height === null || (is_array($height) && count($height) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $height when calling imageProcessorPreparePreviewUrl'
+                'Missing the required parameter $height when calling mockupProcessorPreparePreviewUrl'
             );
         }
 
-        $resourcePath = '/api/processor/v1/images/{id}/preview/{namespace}/{name}/{width}x{height}/url';
+        $resourcePath = '/api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height}/url';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1553,46 +1562,46 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorUpdate
+     * Operation mockupProcessorUpdate
      *
-     * Updates image file and metadata in storage
+     * Updates the mockup file and metadata in the storage.
      *
-     * @param  string $id Image entity unique identifier (required)
+     * @param  string $id Mockup entity ID. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields custom_fields (optional)
-     * @param  \SplFileObject $file Image source file (optional)
+     * @param  \SplFileObject $file Mockup source file. (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function imageProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function mockupProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        list($response) = $this->imageProcessorUpdateWithHttpInfo($id, $tenant_id, $name, $path, $custom_fields, $file);
+        list($response) = $this->mockupProcessorUpdateWithHttpInfo($id, $tenant_id, $name, $path, $custom_fields, $file);
         return $response;
     }
 
     /**
-     * Operation imageProcessorUpdateWithHttpInfo
+     * Operation mockupProcessorUpdateWithHttpInfo
      *
-     * Updates image file and metadata in storage
+     * Updates the mockup file and metadata in the storage.
      *
-     * @param  string $id Image entity unique identifier (required)
+     * @param  string $id Mockup entity ID. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  \SplFileObject $file Image source file (optional)
+     * @param  \SplFileObject $file Mockup source file. (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function mockupProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        $request = $this->imageProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file);
+        $request = $this->mockupProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1624,14 +1633,14 @@ class ImageProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\ImageDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\MockupDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ImageDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MockupDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1649,7 +1658,7 @@ class ImageProcessorApi
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1667,7 +1676,7 @@ class ImageProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\ImageDto',
+                        '\Aurigma\AssetProcessor\Model\MockupDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1686,23 +1695,23 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorUpdateAsync
+     * Operation mockupProcessorUpdateAsync
      *
-     * Updates image file and metadata in storage
+     * Updates the mockup file and metadata in the storage.
      *
-     * @param  string $id Image entity unique identifier (required)
+     * @param  string $id Mockup entity ID. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  \SplFileObject $file Image source file (optional)
+     * @param  \SplFileObject $file Mockup source file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorUpdateAsync($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function mockupProcessorUpdateAsync($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        return $this->imageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id, $name, $path, $custom_fields, $file)
+        return $this->mockupProcessorUpdateAsyncWithHttpInfo($id, $tenant_id, $name, $path, $custom_fields, $file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1711,24 +1720,24 @@ class ImageProcessorApi
     }
 
     /**
-     * Operation imageProcessorUpdateAsyncWithHttpInfo
+     * Operation mockupProcessorUpdateAsyncWithHttpInfo
      *
-     * Updates image file and metadata in storage
+     * Updates the mockup file and metadata in the storage.
      *
-     * @param  string $id Image entity unique identifier (required)
+     * @param  string $id Mockup entity ID. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  \SplFileObject $file Image source file (optional)
+     * @param  \SplFileObject $file Mockup source file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function mockupProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
-        $request = $this->imageProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file);
+        $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
+        $request = $this->mockupProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1764,32 +1773,32 @@ class ImageProcessorApi
     }
 
     /**
-     * Create request for operation 'imageProcessorUpdate'
+     * Create request for operation 'mockupProcessorUpdate'
      *
-     * @param  string $id Image entity unique identifier (required)
+     * @param  string $id Mockup entity ID. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $name Image name (optional)
-     * @param  string $path Image location (folder path) (optional)
+     * @param  string $name Mockup name. (optional)
+     * @param  string $path Mockup location (folder path). (optional)
      * @param  mixed $custom_fields (optional)
-     * @param  \SplFileObject $file Image source file (optional)
+     * @param  \SplFileObject $file Mockup source file. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorUpdateRequest($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function mockupProcessorUpdateRequest($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling imageProcessorUpdate'
+                'Missing the required parameter $id when calling mockupProcessorUpdate'
             );
         }
         if ($name !== null && !preg_match("/[^\/:*?\"<>|]*/", $name)) {
-            throw new \InvalidArgumentException("invalid value for \"name\" when calling ImageProcessorApi.imageProcessorUpdate, must conform to the pattern /[^\/:*?\"<>|]*/.");
+            throw new \InvalidArgumentException("invalid value for \"name\" when calling MockupProcessorApi.mockupProcessorUpdate, must conform to the pattern /[^\/:*?\"<>|]*/.");
         }
 
 
-        $resourcePath = '/api/processor/v1/images/{id}/update';
+        $resourcePath = '/api/processor/v1/mockups/{id}/update';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

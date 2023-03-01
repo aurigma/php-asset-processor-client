@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignMetadata
+ * DesignPrintAreaMetadata
  *
  * PHP version 7.2
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignMetadata Class Doc Comment
+ * DesignPrintAreaMetadata Class Doc Comment
  *
  * @category Class
  * @package  Aurigma\AssetProcessor
@@ -42,7 +42,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class DesignPrintAreaMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DesignMetadata';
+    protected static $openAPIModelName = 'DesignPrintAreaMetadata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +59,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fonts' => '\Aurigma\AssetProcessor\Model\DesignFontMetadata[]',
-        'surfaces' => '\Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]',
-        'print_areas' => '\Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]',
-        'has_data_schema' => 'bool',
-        'data_schema_id' => 'string',
-        'data_schema_name' => 'string'
+        'width' => 'float',
+        'height' => 'float'
     ];
 
     /**
@@ -75,12 +71,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fonts' => null,
-        'surfaces' => null,
-        'print_areas' => null,
-        'has_data_schema' => null,
-        'data_schema_id' => null,
-        'data_schema_name' => null
+        'width' => 'float',
+        'height' => 'float'
     ];
 
     /**
@@ -110,12 +102,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'fonts' => 'fonts',
-        'surfaces' => 'surfaces',
-        'print_areas' => 'printAreas',
-        'has_data_schema' => 'hasDataSchema',
-        'data_schema_id' => 'dataSchemaId',
-        'data_schema_name' => 'dataSchemaName'
+        'width' => 'width',
+        'height' => 'height'
     ];
 
     /**
@@ -124,12 +112,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'fonts' => 'setFonts',
-        'surfaces' => 'setSurfaces',
-        'print_areas' => 'setPrintAreas',
-        'has_data_schema' => 'setHasDataSchema',
-        'data_schema_id' => 'setDataSchemaId',
-        'data_schema_name' => 'setDataSchemaName'
+        'width' => 'setWidth',
+        'height' => 'setHeight'
     ];
 
     /**
@@ -138,12 +122,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'fonts' => 'getFonts',
-        'surfaces' => 'getSurfaces',
-        'print_areas' => 'getPrintAreas',
-        'has_data_schema' => 'getHasDataSchema',
-        'data_schema_id' => 'getDataSchemaId',
-        'data_schema_name' => 'getDataSchemaName'
+        'width' => 'getWidth',
+        'height' => 'getHeight'
     ];
 
     /**
@@ -203,12 +183,8 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['fonts'] = $data['fonts'] ?? null;
-        $this->container['surfaces'] = $data['surfaces'] ?? null;
-        $this->container['print_areas'] = $data['print_areas'] ?? null;
-        $this->container['has_data_schema'] = $data['has_data_schema'] ?? null;
-        $this->container['data_schema_id'] = $data['data_schema_id'] ?? null;
-        $this->container['data_schema_name'] = $data['data_schema_name'] ?? null;
+        $this->container['width'] = $data['width'] ?? null;
+        $this->container['height'] = $data['height'] ?? null;
     }
 
     /**
@@ -236,145 +212,49 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets fonts
+     * Gets width
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null
+     * @return float|null
      */
-    public function getFonts()
+    public function getWidth()
     {
-        return $this->container['fonts'];
+        return $this->container['width'];
     }
 
     /**
-     * Sets fonts
+     * Sets width
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null $fonts fonts
+     * @param float|null $width width
      *
      * @return self
      */
-    public function setFonts($fonts)
+    public function setWidth($width)
     {
-        $this->container['fonts'] = $fonts;
+        $this->container['width'] = $width;
 
         return $this;
     }
 
     /**
-     * Gets surfaces
+     * Gets height
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null
+     * @return float|null
      */
-    public function getSurfaces()
+    public function getHeight()
     {
-        return $this->container['surfaces'];
+        return $this->container['height'];
     }
 
     /**
-     * Sets surfaces
+     * Sets height
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null $surfaces surfaces
+     * @param float|null $height height
      *
      * @return self
      */
-    public function setSurfaces($surfaces)
+    public function setHeight($height)
     {
-        $this->container['surfaces'] = $surfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets print_areas
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null
-     */
-    public function getPrintAreas()
-    {
-        return $this->container['print_areas'];
-    }
-
-    /**
-     * Sets print_areas
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null $print_areas print_areas
-     *
-     * @return self
-     */
-    public function setPrintAreas($print_areas)
-    {
-        $this->container['print_areas'] = $print_areas;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_data_schema
-     *
-     * @return bool|null
-     */
-    public function getHasDataSchema()
-    {
-        return $this->container['has_data_schema'];
-    }
-
-    /**
-     * Sets has_data_schema
-     *
-     * @param bool|null $has_data_schema has_data_schema
-     *
-     * @return self
-     */
-    public function setHasDataSchema($has_data_schema)
-    {
-        $this->container['has_data_schema'] = $has_data_schema;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_id
-     *
-     * @return string|null
-     */
-    public function getDataSchemaId()
-    {
-        return $this->container['data_schema_id'];
-    }
-
-    /**
-     * Sets data_schema_id
-     *
-     * @param string|null $data_schema_id data_schema_id
-     *
-     * @return self
-     */
-    public function setDataSchemaId($data_schema_id)
-    {
-        $this->container['data_schema_id'] = $data_schema_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_name
-     *
-     * @return string|null
-     */
-    public function getDataSchemaName()
-    {
-        return $this->container['data_schema_name'];
-    }
-
-    /**
-     * Sets data_schema_name
-     *
-     * @param string|null $data_schema_name data_schema_name
-     *
-     * @return self
-     */
-    public function setDataSchemaName($data_schema_name)
-    {
-        $this->container['data_schema_name'] = $data_schema_name;
+        $this->container['height'] = $height;
 
         return $this;
     }

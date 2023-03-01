@@ -121,7 +121,7 @@ class PrivateImageProcessorApi
      *
      * @param  \SplFileObject $source_file Image source file (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields custom_fields (optional)
@@ -139,9 +139,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\NameConflictDto
      */
-    public function privateImageProcessorImportImage($source_file, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function privateImageProcessorImportImage($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
     {
-        list($response) = $this->privateImageProcessorImportImageWithHttpInfo($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        list($response) = $this->privateImageProcessorImportImageWithHttpInfo($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
         return $response;
     }
 
@@ -152,7 +152,7 @@ class PrivateImageProcessorApi
      *
      * @param  \SplFileObject $source_file Image source file (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -170,9 +170,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\NameConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateImageProcessorImportImageWithHttpInfo($source_file, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function privateImageProcessorImportImageWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
     {
-        $request = $this->privateImageProcessorImportImageRequest($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        $request = $this->privateImageProcessorImportImageRequest($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
 
         try {
             $options = $this->createHttpClientOption();
@@ -272,7 +272,7 @@ class PrivateImageProcessorApi
      *
      * @param  \SplFileObject $source_file Image source file (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -289,9 +289,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorImportImageAsync($source_file, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function privateImageProcessorImportImageAsync($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
     {
-        return $this->privateImageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background)
+        return $this->privateImageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -306,7 +306,7 @@ class PrivateImageProcessorApi
      *
      * @param  \SplFileObject $source_file Image source file (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -323,10 +323,10 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function privateImageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
     {
         $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
-        $request = $this->privateImageProcessorImportImageRequest($source_file, $tenant_id, $user_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
+        $request = $this->privateImageProcessorImportImageRequest($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,7 +366,7 @@ class PrivateImageProcessorApi
      *
      * @param  \SplFileObject $source_file Image source file (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -383,7 +383,7 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateImageProcessorImportImageRequest($source_file, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
+    public function privateImageProcessorImportImageRequest($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null)
     {
         // verify the required parameter 'source_file' is set
         if ($source_file === null || (is_array($source_file) && count($source_file) === 0)) {
@@ -415,14 +415,14 @@ class PrivateImageProcessorApi
             }
         }
         // query params
-        if ($user_id !== null) {
-            if('form' === 'form' && is_array($user_id)) {
-                foreach($user_id as $key => $value) {
+        if ($owner_id !== null) {
+            if('form' === 'form' && is_array($owner_id)) {
+                foreach($owner_id as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['userId'] = $user_id;
+                $queryParams['ownerId'] = $owner_id;
             }
         }
 
@@ -540,6 +540,23 @@ class PrivateImageProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -583,15 +600,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        list($response) = $this->privateImageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        list($response) = $this->privateImageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
         return $response;
     }
 
@@ -611,15 +628,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateImageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        $request = $this->privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        $request = $this->privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -728,14 +745,14 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        return $this->privateImageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id)
+        return $this->privateImageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -759,15 +776,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        $request = $this->privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -816,12 +833,12 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -928,14 +945,14 @@ class PrivateImageProcessorApi
             }
         }
         // query params
-        if ($user_id !== null) {
-            if('form' === 'form' && is_array($user_id)) {
-                foreach($user_id as $key => $value) {
+        if ($owner_id !== null) {
+            if('form' === 'form' && is_array($owner_id)) {
+                foreach($owner_id as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['userId'] = $user_id;
+                $queryParams['ownerId'] = $owner_id;
             }
         }
 
@@ -1031,6 +1048,23 @@ class PrivateImageProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -1074,15 +1108,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        list($response) = $this->privateImageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        list($response) = $this->privateImageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
         return $response;
     }
 
@@ -1102,15 +1136,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateImageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        $request = $this->privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        $request = $this->privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1219,14 +1253,14 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
-        return $this->privateImageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id)
+        return $this->privateImageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1250,15 +1284,15 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
         $returnType = 'string';
-        $request = $this->privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $user_id);
+        $request = $this->privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $force, $tenant_id, $owner_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1307,12 +1341,12 @@ class PrivateImageProcessorApi
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $user_id = null)
+    public function privateImageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1419,14 +1453,14 @@ class PrivateImageProcessorApi
             }
         }
         // query params
-        if ($user_id !== null) {
-            if('form' === 'form' && is_array($user_id)) {
-                foreach($user_id as $key => $value) {
+        if ($owner_id !== null) {
+            if('form' === 'form' && is_array($owner_id)) {
+                foreach($owner_id as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['userId'] = $user_id;
+                $queryParams['ownerId'] = $owner_id;
             }
         }
 
@@ -1522,6 +1556,23 @@ class PrivateImageProcessorApi
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
         }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3
         $token = $this->config->getAccessToken();
@@ -1556,7 +1607,7 @@ class PrivateImageProcessorApi
      *
      * @param  string $id Image entity unique identifier (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields custom_fields (optional)
@@ -1566,9 +1617,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function privateImageProcessorUpdate($id, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function privateImageProcessorUpdate($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        list($response) = $this->privateImageProcessorUpdateWithHttpInfo($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file);
+        list($response) = $this->privateImageProcessorUpdateWithHttpInfo($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file);
         return $response;
     }
 
@@ -1579,7 +1630,7 @@ class PrivateImageProcessorApi
      *
      * @param  string $id Image entity unique identifier (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -1589,9 +1640,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateImageProcessorUpdateWithHttpInfo($id, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function privateImageProcessorUpdateWithHttpInfo($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        $request = $this->privateImageProcessorUpdateRequest($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file);
+        $request = $this->privateImageProcessorUpdateRequest($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1691,7 +1742,7 @@ class PrivateImageProcessorApi
      *
      * @param  string $id Image entity unique identifier (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -1700,9 +1751,9 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorUpdateAsync($id, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function privateImageProcessorUpdateAsync($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
-        return $this->privateImageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file)
+        return $this->privateImageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1717,7 +1768,7 @@ class PrivateImageProcessorApi
      *
      * @param  string $id Image entity unique identifier (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -1726,10 +1777,10 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateImageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function privateImageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
         $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
-        $request = $this->privateImageProcessorUpdateRequest($id, $tenant_id, $user_id, $name, $path, $custom_fields, $file);
+        $request = $this->privateImageProcessorUpdateRequest($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1769,7 +1820,7 @@ class PrivateImageProcessorApi
      *
      * @param  string $id Image entity unique identifier (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  string $user_id Private storage owner identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
      * @param  string $name Image name (optional)
      * @param  string $path Image location (folder path) (optional)
      * @param  mixed $custom_fields (optional)
@@ -1778,7 +1829,7 @@ class PrivateImageProcessorApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateImageProcessorUpdateRequest($id, $tenant_id = null, $user_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
+    public function privateImageProcessorUpdateRequest($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -1810,14 +1861,14 @@ class PrivateImageProcessorApi
             }
         }
         // query params
-        if ($user_id !== null) {
-            if('form' === 'form' && is_array($user_id)) {
-                foreach($user_id as $key => $value) {
+        if ($owner_id !== null) {
+            if('form' === 'form' && is_array($owner_id)) {
+                foreach($owner_id as $key => $value) {
                     $queryParams[$key] = $value;
                 }
             }
             else {
-                $queryParams['userId'] = $user_id;
+                $queryParams['ownerId'] = $owner_id;
             }
         }
 
@@ -1906,6 +1957,23 @@ class PrivateImageProcessorApi
         $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
         if ($apiKey !== null) {
             $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
         }
         // this endpoint requires OAuth (access token)
         // aurigmafix 3

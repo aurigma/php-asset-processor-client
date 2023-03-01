@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignMetadata
+ * CopyDesignFromPublicDesignModel
  *
  * PHP version 7.2
  *
@@ -32,9 +32,10 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignMetadata Class Doc Comment
+ * CopyDesignFromPublicDesignModel Class Doc Comment
  *
  * @category Class
+ * @description Copy design from public design operation parameters.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -42,7 +43,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
+class CopyDesignFromPublicDesignModel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DesignMetadata';
+    protected static $openAPIModelName = 'CopyDesignFromPublicDesignModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,12 +60,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fonts' => '\Aurigma\AssetProcessor\Model\DesignFontMetadata[]',
-        'surfaces' => '\Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]',
-        'print_areas' => '\Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]',
-        'has_data_schema' => 'bool',
-        'data_schema_id' => 'string',
-        'data_schema_name' => 'string'
+        'public_design_id' => 'string',
+        'result_design_id' => 'string',
+        'result_design_params' => '\Aurigma\AssetProcessor\Model\DesignParamsModel'
     ];
 
     /**
@@ -75,12 +73,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'fonts' => null,
-        'surfaces' => null,
-        'print_areas' => null,
-        'has_data_schema' => null,
-        'data_schema_id' => null,
-        'data_schema_name' => null
+        'public_design_id' => null,
+        'result_design_id' => null,
+        'result_design_params' => null
     ];
 
     /**
@@ -110,12 +105,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'fonts' => 'fonts',
-        'surfaces' => 'surfaces',
-        'print_areas' => 'printAreas',
-        'has_data_schema' => 'hasDataSchema',
-        'data_schema_id' => 'dataSchemaId',
-        'data_schema_name' => 'dataSchemaName'
+        'public_design_id' => 'publicDesignId',
+        'result_design_id' => 'resultDesignId',
+        'result_design_params' => 'resultDesignParams'
     ];
 
     /**
@@ -124,12 +116,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'fonts' => 'setFonts',
-        'surfaces' => 'setSurfaces',
-        'print_areas' => 'setPrintAreas',
-        'has_data_schema' => 'setHasDataSchema',
-        'data_schema_id' => 'setDataSchemaId',
-        'data_schema_name' => 'setDataSchemaName'
+        'public_design_id' => 'setPublicDesignId',
+        'result_design_id' => 'setResultDesignId',
+        'result_design_params' => 'setResultDesignParams'
     ];
 
     /**
@@ -138,12 +127,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'fonts' => 'getFonts',
-        'surfaces' => 'getSurfaces',
-        'print_areas' => 'getPrintAreas',
-        'has_data_schema' => 'getHasDataSchema',
-        'data_schema_id' => 'getDataSchemaId',
-        'data_schema_name' => 'getDataSchemaName'
+        'public_design_id' => 'getPublicDesignId',
+        'result_design_id' => 'getResultDesignId',
+        'result_design_params' => 'getResultDesignParams'
     ];
 
     /**
@@ -203,12 +189,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['fonts'] = $data['fonts'] ?? null;
-        $this->container['surfaces'] = $data['surfaces'] ?? null;
-        $this->container['print_areas'] = $data['print_areas'] ?? null;
-        $this->container['has_data_schema'] = $data['has_data_schema'] ?? null;
-        $this->container['data_schema_id'] = $data['data_schema_id'] ?? null;
-        $this->container['data_schema_name'] = $data['data_schema_name'] ?? null;
+        $this->container['public_design_id'] = $data['public_design_id'] ?? null;
+        $this->container['result_design_id'] = $data['result_design_id'] ?? null;
+        $this->container['result_design_params'] = $data['result_design_params'] ?? null;
     }
 
     /**
@@ -220,6 +203,9 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['public_design_id'] === null) {
+            $invalidProperties[] = "'public_design_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -236,145 +222,73 @@ class DesignMetadata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets fonts
+     * Gets public_design_id
      *
-     * @return \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null
+     * @return string
      */
-    public function getFonts()
+    public function getPublicDesignId()
     {
-        return $this->container['fonts'];
+        return $this->container['public_design_id'];
     }
 
     /**
-     * Sets fonts
+     * Sets public_design_id
      *
-     * @param \Aurigma\AssetProcessor\Model\DesignFontMetadata[]|null $fonts fonts
+     * @param string $public_design_id Public design identifier (defines copy source).
      *
      * @return self
      */
-    public function setFonts($fonts)
+    public function setPublicDesignId($public_design_id)
     {
-        $this->container['fonts'] = $fonts;
+        $this->container['public_design_id'] = $public_design_id;
 
         return $this;
     }
 
     /**
-     * Gets surfaces
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null
-     */
-    public function getSurfaces()
-    {
-        return $this->container['surfaces'];
-    }
-
-    /**
-     * Sets surfaces
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignSurfaceMetadata[]|null $surfaces surfaces
-     *
-     * @return self
-     */
-    public function setSurfaces($surfaces)
-    {
-        $this->container['surfaces'] = $surfaces;
-
-        return $this;
-    }
-
-    /**
-     * Gets print_areas
-     *
-     * @return \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null
-     */
-    public function getPrintAreas()
-    {
-        return $this->container['print_areas'];
-    }
-
-    /**
-     * Sets print_areas
-     *
-     * @param \Aurigma\AssetProcessor\Model\DesignPrintAreaMetadata[]|null $print_areas print_areas
-     *
-     * @return self
-     */
-    public function setPrintAreas($print_areas)
-    {
-        $this->container['print_areas'] = $print_areas;
-
-        return $this;
-    }
-
-    /**
-     * Gets has_data_schema
-     *
-     * @return bool|null
-     */
-    public function getHasDataSchema()
-    {
-        return $this->container['has_data_schema'];
-    }
-
-    /**
-     * Sets has_data_schema
-     *
-     * @param bool|null $has_data_schema has_data_schema
-     *
-     * @return self
-     */
-    public function setHasDataSchema($has_data_schema)
-    {
-        $this->container['has_data_schema'] = $has_data_schema;
-
-        return $this;
-    }
-
-    /**
-     * Gets data_schema_id
+     * Gets result_design_id
      *
      * @return string|null
      */
-    public function getDataSchemaId()
+    public function getResultDesignId()
     {
-        return $this->container['data_schema_id'];
+        return $this->container['result_design_id'];
     }
 
     /**
-     * Sets data_schema_id
+     * Sets result_design_id
      *
-     * @param string|null $data_schema_id data_schema_id
+     * @param string|null $result_design_id Design identifier (defines desired identifier of a result design).
      *
      * @return self
      */
-    public function setDataSchemaId($data_schema_id)
+    public function setResultDesignId($result_design_id)
     {
-        $this->container['data_schema_id'] = $data_schema_id;
+        $this->container['result_design_id'] = $result_design_id;
 
         return $this;
     }
 
     /**
-     * Gets data_schema_name
+     * Gets result_design_params
      *
-     * @return string|null
+     * @return \Aurigma\AssetProcessor\Model\DesignParamsModel|null
      */
-    public function getDataSchemaName()
+    public function getResultDesignParams()
     {
-        return $this->container['data_schema_name'];
+        return $this->container['result_design_params'];
     }
 
     /**
-     * Sets data_schema_name
+     * Sets result_design_params
      *
-     * @param string|null $data_schema_name data_schema_name
+     * @param \Aurigma\AssetProcessor\Model\DesignParamsModel|null $result_design_params result_design_params
      *
      * @return self
      */
-    public function setDataSchemaName($data_schema_name)
+    public function setResultDesignParams($result_design_params)
     {
-        $this->container['data_schema_name'] = $data_schema_name;
+        $this->container['result_design_params'] = $result_design_params;
 
         return $this;
     }
