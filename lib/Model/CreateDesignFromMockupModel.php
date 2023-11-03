@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModel
+ * CreateDesignFromMockupModel
  *
  * PHP version 7.2
  *
@@ -32,10 +32,10 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * CreateBlankDesignModel Class Doc Comment
+ * CreateDesignFromMockupModel Class Doc Comment
  *
  * @category Class
- * @description &#39;Create blank design&#39; operation parameters.
+ * @description &#39;Create design from mockup&#39; operation parameters.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -43,7 +43,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateDesignFromMockupModel implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CreateBlankDesignModel';
+    protected static $openAPIModelName = 'CreateDesignFromMockupModel';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -62,7 +62,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'design_params' => '\Aurigma\AssetProcessor\Model\DesignParamsModel',
         'preview_settings' => '\Aurigma\AssetProcessor\Model\DesignPreviewSettingsModel',
-        'blank_design_settings' => '\Aurigma\AssetProcessor\Model\BlankDesignSettingsModel'
+        'mockup_id' => 'string'
     ];
 
     /**
@@ -75,7 +75,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'design_params' => null,
         'preview_settings' => null,
-        'blank_design_settings' => null
+        'mockup_id' => null
     ];
 
     /**
@@ -107,7 +107,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'design_params' => 'designParams',
         'preview_settings' => 'previewSettings',
-        'blank_design_settings' => 'blankDesignSettings'
+        'mockup_id' => 'mockupId'
     ];
 
     /**
@@ -118,7 +118,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'design_params' => 'setDesignParams',
         'preview_settings' => 'setPreviewSettings',
-        'blank_design_settings' => 'setBlankDesignSettings'
+        'mockup_id' => 'setMockupId'
     ];
 
     /**
@@ -129,7 +129,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'design_params' => 'getDesignParams',
         'preview_settings' => 'getPreviewSettings',
-        'blank_design_settings' => 'getBlankDesignSettings'
+        'mockup_id' => 'getMockupId'
     ];
 
     /**
@@ -191,7 +191,7 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->container['design_params'] = $data['design_params'] ?? null;
         $this->container['preview_settings'] = $data['preview_settings'] ?? null;
-        $this->container['blank_design_settings'] = $data['blank_design_settings'] ?? null;
+        $this->container['mockup_id'] = $data['mockup_id'] ?? null;
     }
 
     /**
@@ -206,8 +206,8 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
         if ($this->container['design_params'] === null) {
             $invalidProperties[] = "'design_params' can't be null";
         }
-        if ($this->container['blank_design_settings'] === null) {
-            $invalidProperties[] = "'blank_design_settings' can't be null";
+        if ($this->container['mockup_id'] === null) {
+            $invalidProperties[] = "'mockup_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -273,25 +273,25 @@ class CreateBlankDesignModel implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
-     * Gets blank_design_settings
+     * Gets mockup_id
      *
-     * @return \Aurigma\AssetProcessor\Model\BlankDesignSettingsModel
+     * @return string
      */
-    public function getBlankDesignSettings()
+    public function getMockupId()
     {
-        return $this->container['blank_design_settings'];
+        return $this->container['mockup_id'];
     }
 
     /**
-     * Sets blank_design_settings
+     * Sets mockup_id
      *
-     * @param \Aurigma\AssetProcessor\Model\BlankDesignSettingsModel $blank_design_settings blank_design_settings
+     * @param string $mockup_id Mockup identifier.
      *
      * @return self
      */
-    public function setBlankDesignSettings($blank_design_settings)
+    public function setMockupId($mockup_id)
     {
-        $this->container['blank_design_settings'] = $blank_design_settings;
+        $this->container['mockup_id'] = $mockup_id;
 
         return $this;
     }

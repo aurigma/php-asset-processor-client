@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModelTest
+ * DesignUpdateConflictDtoTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBlankDesignModelTest Class Doc Comment
+ * DesignUpdateConflictDtoTest Class Doc Comment
  *
  * @category    Class
- * @description Create blank design operation parameters.
+ * @description DesignUpdateConflictDto
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBlankDesignModelTest extends TestCase
+class DesignUpdateConflictDtoTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class CreateBlankDesignModelTest extends TestCase
     }
 
     /**
-     * Test "CreateBlankDesignModel"
+     * Test "DesignUpdateConflictDto"
      */
-    public function testCreateBlankDesignModel()
+    public function testDesignUpdateConflictDto()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "design_params"
+     * Test attribute "missing_fonts_conflict"
      */
-    public function testPropertyDesignParams()
+    public function testPropertyMissingFontsConflict()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preview_settings"
+     * Test attribute "missing_images_conflict"
      */
-    public function testPropertyPreviewSettings()
+    public function testPropertyMissingImagesConflict()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "blank_design_settings"
+     * Test attribute "name_conflict"
      */
-    public function testPropertyBlankDesignSettings()
+    public function testPropertyNameConflict()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

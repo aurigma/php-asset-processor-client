@@ -1559,6 +1559,350 @@ class PrivateDesignProcessorApi
     }
 
     /**
+     * Operation privateDesignProcessorCreateDesignFromMockup
+     *
+     * Creates design compatible to specified mockup and saves it to storage
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\NameConflictDto
+     */
+    public function privateDesignProcessorCreateDesignFromMockup($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null)
+    {
+        list($response) = $this->privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id, $owner_id, $create_design_from_mockup_model);
+        return $response;
+    }
+
+    /**
+     * Operation privateDesignProcessorCreateDesignFromMockupWithHttpInfo
+     *
+     * Creates design compatible to specified mockup and saves it to storage
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters (optional)
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\NameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null)
+    {
+        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $create_design_from_mockup_model);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 201:
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\NameConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\NameConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 201:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\NameConflictDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation privateDesignProcessorCreateDesignFromMockupAsync
+     *
+     * Creates design compatible to specified mockup and saves it to storage
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function privateDesignProcessorCreateDesignFromMockupAsync($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null)
+    {
+        return $this->privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id, $owner_id, $create_design_from_mockup_model)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo
+     *
+     * Creates design compatible to specified mockup and saves it to storage
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null)
+    {
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $create_design_from_mockup_model);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'privateDesignProcessorCreateDesignFromMockup'
+     *
+     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  string $owner_id Private storage owner identifier (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function privateDesignProcessorCreateDesignFromMockupRequest($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null)
+    {
+
+        $resourcePath = '/api/processor/v1/private-designs/from-mockup';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($tenant_id !== null) {
+            if('form' === 'form' && is_array($tenant_id)) {
+                foreach($tenant_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['tenantId'] = $tenant_id;
+            }
+        }
+        // query params
+        if ($owner_id !== null) {
+            if('form' === 'form' && is_array($owner_id)) {
+                foreach($owner_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['ownerId'] = $owner_id;
+            }
+        }
+
+
+
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json'],
+                ['application/json']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($create_design_from_mockup_model)) {
+            if ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode(ObjectSerializer::sanitizeForSerialization($create_design_from_mockup_model));
+            } else {
+                $httpBody = $create_design_from_mockup_model;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        // aurigmafix 6
+                        if (gettype($formParamValueItem) === 'object') {
+                            if (!($formParamValueItem instanceof StreamInterface 
+                            || $formParamValueItem instanceof \Iterator 
+                            || method_exists($formParamValueItem, '__toString'))) {
+                                $formParamValueItem = json_encode($formParamValueItem);
+                            }
+                        } 
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        // aurigmafix 3
+        $token = $this->config->getAccessToken();
+        if ($token !== null && $token !== '' && !ctype_space($token)) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation privateDesignProcessorEmbedDataSchema
      *
      * Embeds linked data schema to the design file

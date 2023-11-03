@@ -84,6 +84,30 @@ class PrivateDesignProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for privateDesignProcessorCopyDesignFromPublicDesign
+     *
+     * Copies design file from specified public design and saves it to private storage..
+     *
+     */
+    public function testPrivateDesignProcessorCopyDesignFromPublicDesign()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateDesignProcessorCopyDesignFromPublicResource
+     *
+     * Copies design file from specified public resource and saves it to storage..
+     *
+     */
+    public function testPrivateDesignProcessorCopyDesignFromPublicResource()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for privateDesignProcessorCreateBlankDesign
      *
      * Creates design by product model and saves it to private storage.
@@ -192,6 +216,18 @@ class PrivateDesignProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for privateDesignProcessorReimportDesign
+     *
+     * Re-imports design from source file and updates design file and metadata in private storage..
+     *
+     */
+    public function testPrivateDesignProcessorReimportDesign()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for privateDesignProcessorRemoveDataSchema
      *
      * Removes data schema from the design file.
@@ -210,6 +246,18 @@ class PrivateDesignProcessorApiTest extends TestCase
      *
      */
     public function testPrivateDesignProcessorUpdate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateDesignProcessorValidateDesignImportSettings
+     *
+     * Validates the design import settings..
+     *
+     */
+    public function testPrivateDesignProcessorValidateDesignImportSettings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

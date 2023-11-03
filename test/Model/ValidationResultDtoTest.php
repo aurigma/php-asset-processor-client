@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModelTest
+ * ValidationResultDtoTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBlankDesignModelTest Class Doc Comment
+ * ValidationResultDtoTest Class Doc Comment
  *
  * @category    Class
- * @description Create blank design operation parameters.
+ * @description Validation result.
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBlankDesignModelTest extends TestCase
+class ValidationResultDtoTest extends TestCase
 {
 
     /**
@@ -71,36 +71,27 @@ class CreateBlankDesignModelTest extends TestCase
     }
 
     /**
-     * Test "CreateBlankDesignModel"
+     * Test "ValidationResultDto"
      */
-    public function testCreateBlankDesignModel()
+    public function testValidationResultDto()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "design_params"
+     * Test attribute "is_valid"
      */
-    public function testPropertyDesignParams()
+    public function testPropertyIsValid()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preview_settings"
+     * Test attribute "errors"
      */
-    public function testPropertyPreviewSettings()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "blank_design_settings"
-     */
-    public function testPropertyBlankDesignSettings()
+    public function testPropertyErrors()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

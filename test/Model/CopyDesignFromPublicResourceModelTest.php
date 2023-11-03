@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModelTest
+ * CopyDesignFromPublicResourceModelTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBlankDesignModelTest Class Doc Comment
+ * CopyDesignFromPublicResourceModelTest Class Doc Comment
  *
  * @category    Class
- * @description Create blank design operation parameters.
+ * @description Copy design from public resource operation parameters.
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBlankDesignModelTest extends TestCase
+class CopyDesignFromPublicResourceModelTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class CreateBlankDesignModelTest extends TestCase
     }
 
     /**
-     * Test "CreateBlankDesignModel"
+     * Test "CopyDesignFromPublicResourceModel"
      */
-    public function testCreateBlankDesignModel()
+    public function testCopyDesignFromPublicResourceModel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "design_params"
+     * Test attribute "public_resource_id"
      */
-    public function testPropertyDesignParams()
+    public function testPropertyPublicResourceId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preview_settings"
+     * Test attribute "result_design_id"
      */
-    public function testPropertyPreviewSettings()
+    public function testPropertyResultDesignId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "blank_design_settings"
+     * Test attribute "result_design_params"
      */
-    public function testPropertyBlankDesignSettings()
+    public function testPropertyResultDesignParams()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

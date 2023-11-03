@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignMetadataTest
+ * MockupDtoTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DesignMetadataTest Class Doc Comment
+ * MockupDtoTest Class Doc Comment
  *
  * @category    Class
- * @description DesignMetadata
+ * @description MockupDto
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DesignMetadataTest extends TestCase
+class MockupDtoTest extends TestCase
 {
 
     /**
@@ -71,63 +71,117 @@ class DesignMetadataTest extends TestCase
     }
 
     /**
-     * Test "DesignMetadata"
+     * Test "MockupDto"
      */
-    public function testDesignMetadata()
+    public function testMockupDto()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "fonts"
+     * Test attribute "metadata"
      */
-    public function testPropertyFonts()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "surfaces"
+     * Test attribute "private"
      */
-    public function testPropertySurfaces()
+    public function testPropertyPrivate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "print_areas"
+     * Test attribute "type"
      */
-    public function testPropertyPrintAreas()
+    public function testPropertyType()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "has_data_schema"
+     * Test attribute "previews"
      */
-    public function testPropertyHasDataSchema()
+    public function testPropertyPreviews()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "data_schema_id"
+     * Test attribute "size"
      */
-    public function testPropertyDataSchemaId()
+    public function testPropertySize()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "data_schema_name"
+     * Test attribute "folder_id"
      */
-    public function testPropertyDataSchemaName()
+    public function testPropertyFolderId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "tenant_id"
+     */
+    public function testPropertyTenantId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id"
+     */
+    public function testPropertyId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "owner_id"
+     */
+    public function testPropertyOwnerId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "custom_fields"
+     */
+    public function testPropertyCustomFields()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "last_modified"
+     */
+    public function testPropertyLastModified()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

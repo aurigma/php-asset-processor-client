@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModelTest
+ * DesignPrintAreaMetadataTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBlankDesignModelTest Class Doc Comment
+ * DesignPrintAreaMetadataTest Class Doc Comment
  *
  * @category    Class
- * @description Create blank design operation parameters.
+ * @description DesignPrintAreaMetadata
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBlankDesignModelTest extends TestCase
+class DesignPrintAreaMetadataTest extends TestCase
 {
 
     /**
@@ -71,36 +71,27 @@ class CreateBlankDesignModelTest extends TestCase
     }
 
     /**
-     * Test "CreateBlankDesignModel"
+     * Test "DesignPrintAreaMetadata"
      */
-    public function testCreateBlankDesignModel()
+    public function testDesignPrintAreaMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "design_params"
+     * Test attribute "width"
      */
-    public function testPropertyDesignParams()
+    public function testPropertyWidth()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preview_settings"
+     * Test attribute "height"
      */
-    public function testPropertyPreviewSettings()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "blank_design_settings"
-     */
-    public function testPropertyBlankDesignSettings()
+    public function testPropertyHeight()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

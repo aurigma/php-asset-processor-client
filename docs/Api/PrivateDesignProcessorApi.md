@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**privateDesignProcessorCopyDesignFromPublicDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorCopyDesignFromPublicDesign) | **POST** /api/processor/v1/private-designs/from-design | Copies design file from specified public design and saves it to private storage.
 [**privateDesignProcessorCopyDesignFromPublicResource()**](PrivateDesignProcessorApi.md#privateDesignProcessorCopyDesignFromPublicResource) | **POST** /api/processor/v1/private-designs/from-resource | Copies design file from specified public resource and saves it to storage.
 [**privateDesignProcessorCreateBlankDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateBlankDesign) | **POST** /api/processor/v1/private-designs/blank | Creates design by product model and saves it to private storage
+[**privateDesignProcessorCreateDesignFromMockup()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateDesignFromMockup) | **POST** /api/processor/v1/private-designs/from-mockup | Creates design compatible to specified mockup and saves it to storage
 [**privateDesignProcessorEmbedDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorEmbedDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/embed | Embeds linked data schema to the design file
 [**privateDesignProcessorExportDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorExportDesign) | **GET** /api/processor/v1/private-designs/{id}/export | Exports design file
 [**privateDesignProcessorExtractDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorExtractDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/extract | Extracts data schema from design file and saves it to the specified folder
@@ -320,6 +321,84 @@ Name | Type | Description  | Notes
  **tenant_id** | **int**| Tenant identifier | [optional]
  **owner_id** | **string**| Private storage owner identifier | [optional]
  **create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankDesignModel**](../Model/CreateBlankDesignModel.md)| Operation parameters | [optional]
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+
+### Authorization
+
+[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorCreateDesignFromMockup()`
+
+```php
+privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $create_design_from_mockup_model): \Aurigma\AssetProcessor\Model\DesignDto
+```
+
+Creates design compatible to specified mockup and saves it to storage
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: apiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure API key authorization: jwtBearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: oauth2-implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel | Operation parameters
+
+try {
+    $result = $apiInstance->privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $create_design_from_mockup_model);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCreateDesignFromMockup: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **tenant_id** | **int**| Tenant identifier | [optional]
+ **owner_id** | **string**| Private storage owner identifier | [optional]
+ **create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel**](../Model/CreateDesignFromMockupModel.md)| Operation parameters | [optional]
 
 ### Return type
 

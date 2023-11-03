@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateBlankDesignModelTest
+ * CopyDesignFromPublicDesignModelTest
  *
  * PHP version 7.2
  *
@@ -31,15 +31,15 @@ namespace Aurigma\AssetProcessor\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CreateBlankDesignModelTest Class Doc Comment
+ * CopyDesignFromPublicDesignModelTest Class Doc Comment
  *
  * @category    Class
- * @description Create blank design operation parameters.
+ * @description Copy design from public design operation parameters.
  * @package     Aurigma\AssetProcessor
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CreateBlankDesignModelTest extends TestCase
+class CopyDesignFromPublicDesignModelTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class CreateBlankDesignModelTest extends TestCase
     }
 
     /**
-     * Test "CreateBlankDesignModel"
+     * Test "CopyDesignFromPublicDesignModel"
      */
-    public function testCreateBlankDesignModel()
+    public function testCopyDesignFromPublicDesignModel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "design_params"
+     * Test attribute "public_design_id"
      */
-    public function testPropertyDesignParams()
+    public function testPropertyPublicDesignId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "preview_settings"
+     * Test attribute "result_design_id"
      */
-    public function testPropertyPreviewSettings()
+    public function testPropertyResultDesignId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "blank_design_settings"
+     * Test attribute "result_design_params"
      */
-    public function testPropertyBlankDesignSettings()
+    public function testPropertyResultDesignParams()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

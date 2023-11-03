@@ -192,6 +192,18 @@ class DesignProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for designProcessorReimportDesign
+     *
+     * Re-imports design from source file and updates design file and metadata in storage..
+     *
+     */
+    public function testDesignProcessorReimportDesign()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for designProcessorRemoveDataSchema
      *
      * Removes data schema from the design file.
@@ -210,6 +222,18 @@ class DesignProcessorApiTest extends TestCase
      *
      */
     public function testDesignProcessorUpdate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for designProcessorValidateDesignImportSettings
+     *
+     * Validates the design import settings..
+     *
+     */
+    public function testDesignProcessorValidateDesignImportSettings()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
