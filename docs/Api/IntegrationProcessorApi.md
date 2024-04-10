@@ -1,11 +1,11 @@
 # Aurigma\AssetProcessor\IntegrationProcessorApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**integrationProcessorPull()**](IntegrationProcessorApi.md#integrationProcessorPull) | **GET** /api/processor/v1/integration/pull/{tenantId}/{userId}/{designId} | Loads design from storage (private or public)
-[**integrationProcessorPush()**](IntegrationProcessorApi.md#integrationProcessorPush) | **POST** /api/processor/v1/integration/push/{tenantId}/{userId}/{designId} | Saves design to private storage
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**integrationProcessorPull()**](IntegrationProcessorApi.md#integrationProcessorPull) | **GET** /api/processor/v1/integration/pull/{tenantId}/{userId}/{designId} | Loads design from storage (private or public) |
+| [**integrationProcessorPush()**](IntegrationProcessorApi.md#integrationProcessorPush) | **POST** /api/processor/v1/integration/push/{tenantId}/{userId}/{designId} | Saves design to private storage |
 
 
 ## `integrationProcessorPull()`
@@ -25,21 +25,21 @@ At first it tries to find design in public storage,  and if it is not found, che
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -65,19 +65,19 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenant_id** | **int**| Tenant identifier |
- **user_id** | **string**| Design owner identifier |
- **design_id** | **string**| Design identifier |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **int**| Tenant identifier | |
+| **user_id** | **string**| Design owner identifier | |
+| **design_id** | **string**| Design identifier | |
 
 ### Return type
 
-[**\SplFileObject**](../Model/\SplFileObject.md)
+**\SplFileObject**
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -105,21 +105,21 @@ If design with specified identifier is not found then new design will be created
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -146,12 +146,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tenant_id** | **int**| Tenant identifier |
- **user_id** | **string**| Design owner identifier |
- **design_id** | **string**| Design identifier |
- **uploaded_file** | **\SplFileObject****\SplFileObject**| Design source file |
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **tenant_id** | **int**| Tenant identifier | |
+| **user_id** | **string**| Design owner identifier | |
+| **design_id** | **string**| Design identifier | |
+| **uploaded_file** | **\SplFileObject****\SplFileObject**| Design source file | |
 
 ### Return type
 
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 

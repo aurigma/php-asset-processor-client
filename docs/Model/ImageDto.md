@@ -15,6 +15,6 @@ Name | Type | Description | Notes
 **owner_id** | **string** |  | [optional]
 **name** | **string** |  | [optional]
 **custom_fields** | **array<string,mixed>** |  | [optional]
-**last_modified** | [**\DateTime**](\DateTime.md) |  | [optional]
+**last_modified** | **\DateTime** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

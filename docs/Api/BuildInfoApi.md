@@ -1,11 +1,11 @@
 # Aurigma\AssetProcessor\BuildInfoApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**buildInfoGetInfo()**](BuildInfoApi.md#buildInfoGetInfo) | **GET** /api/processor/v1/info | Gets assembly build info
-[**buildInfoHeadInfo()**](BuildInfoApi.md#buildInfoHeadInfo) | **HEAD** /api/processor/v1/info | Gets assembly build info
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**buildInfoGetInfo()**](BuildInfoApi.md#buildInfoGetInfo) | **GET** /api/processor/v1/info | Gets assembly build info |
+| [**buildInfoHeadInfo()**](BuildInfoApi.md#buildInfoHeadInfo) | **HEAD** /api/processor/v1/info | Gets assembly build info |
 
 
 ## `buildInfoGetInfo()`

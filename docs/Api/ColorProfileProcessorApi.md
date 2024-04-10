@@ -1,11 +1,11 @@
 # Aurigma\AssetProcessor\ColorProfileProcessorApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**colorProfileProcessorImportColorProfile()**](ColorProfileProcessorApi.md#colorProfileProcessorImportColorProfile) | **POST** /api/processor/v1/colorProfiles/import | Imports color profile and saves it to storage.
-[**colorProfileProcessorUpdate()**](ColorProfileProcessorApi.md#colorProfileProcessorUpdate) | **POST** /api/processor/v1/colorProfiles/{id}/update | Updates color profile file and metadata in storage
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**colorProfileProcessorImportColorProfile()**](ColorProfileProcessorApi.md#colorProfileProcessorImportColorProfile) | **POST** /api/processor/v1/colorProfiles/import | Imports color profile and saves it to storage. |
+| [**colorProfileProcessorUpdate()**](ColorProfileProcessorApi.md#colorProfileProcessorUpdate) | **POST** /api/processor/v1/colorProfiles/{id}/update | Updates color profile file and metadata in storage |
 
 
 ## `colorProfileProcessorImportColorProfile()`
@@ -23,21 +23,21 @@ Imports color profile and saves it to storage.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -53,7 +53,7 @@ $source_file = "/path/to/file.txt"; // \SplFileObject | Color profile source fil
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Color profile name
 $path = 'path_example'; // string | Color profile location (folder path)
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Color profile custom attributes
 
 try {
     $result = $apiInstance->colorProfileProcessorImportColorProfile($source_file, $tenant_id, $name, $path, $custom_fields);
@@ -65,13 +65,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source_file** | **\SplFileObject****\SplFileObject**| Color profile source file |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Color profile name | [optional]
- **path** | **string**| Color profile location (folder path) | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **source_file** | **\SplFileObject****\SplFileObject**| Color profile source file | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Color profile name | [optional] |
+| **path** | **string**| Color profile location (folder path) | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Color profile custom attributes | [optional] |
 
 ### Return type
 
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -107,21 +107,21 @@ If file is not provided metadata will be updated using file taken from storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -137,7 +137,7 @@ $id = 'id_example'; // string | Color profile entity unique identifier
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Color profile name
 $path = 'path_example'; // string | Color profile location (folder path)
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Color profile custom attributes
 $file = "/path/to/file.txt"; // \SplFileObject | Color profile source file
 
 try {
@@ -150,14 +150,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Color profile entity unique identifier |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Color profile name | [optional]
- **path** | **string**| Color profile location (folder path) | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
- **file** | **\SplFileObject****\SplFileObject**| Color profile source file | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Color profile entity unique identifier | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Color profile name | [optional] |
+| **path** | **string**| Color profile location (folder path) | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Color profile custom attributes | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| Color profile source file | [optional] |
 
 ### Return type
 
@@ -165,7 +165,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 

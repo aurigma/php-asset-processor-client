@@ -1,13 +1,13 @@
 # Aurigma\AssetProcessor\FontProcessorApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**fontProcessorImportFont()**](FontProcessorApi.md#fontProcessorImportFont) | **POST** /api/processor/v1/fonts/import | Imports font from source file and saves it to storage.
-[**fontProcessorPreparePreview()**](FontProcessorApi.md#fontProcessorPreparePreview) | **GET** /api/processor/v1/fonts/{id}/preview/{namespace}/{name}/{width}x{height} | Creates preview image for font taken from storage.
-[**fontProcessorPreparePreviewUrl()**](FontProcessorApi.md#fontProcessorPreparePreviewUrl) | **GET** /api/processor/v1/fonts/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates preview image for font taken from storage.
-[**fontProcessorUpdate()**](FontProcessorApi.md#fontProcessorUpdate) | **POST** /api/processor/v1/fonts/{id}/update | Updates font file and metadata in storage
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**fontProcessorImportFont()**](FontProcessorApi.md#fontProcessorImportFont) | **POST** /api/processor/v1/fonts/import | Imports font from source file and saves it to storage. |
+| [**fontProcessorPreparePreview()**](FontProcessorApi.md#fontProcessorPreparePreview) | **GET** /api/processor/v1/fonts/{id}/preview/{namespace}/{name}/{width}x{height} | Creates preview image for font taken from storage. |
+| [**fontProcessorPreparePreviewUrl()**](FontProcessorApi.md#fontProcessorPreparePreviewUrl) | **GET** /api/processor/v1/fonts/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates preview image for font taken from storage. |
+| [**fontProcessorUpdate()**](FontProcessorApi.md#fontProcessorUpdate) | **POST** /api/processor/v1/fonts/{id}/update | Updates font file and metadata in storage |
 
 
 ## `fontProcessorImportFont()`
@@ -27,21 +27,21 @@ Additionally makes font preview if requested.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -57,7 +57,7 @@ $source_file = "/path/to/file.txt"; // \SplFileObject | Font source file
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Font name
 $path = 'path_example'; // string | Font location (folder path)
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Font custom attributes
 $preview_settings_make_preview = True; // bool | Force make preview
 $preview_settings_namespace = 'preview_settings_namespace_example'; // string | Preview namespace
 $preview_settings_name = 'preview_settings_name_example'; // string | Preview name
@@ -82,26 +82,26 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source_file** | **\SplFileObject****\SplFileObject**| Font source file |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Font name | [optional]
- **path** | **string**| Font location (folder path) | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
- **preview_settings_make_preview** | **bool**| Force make preview | [optional]
- **preview_settings_namespace** | **string**| Preview namespace | [optional]
- **preview_settings_name** | **string**| Preview name | [optional]
- **preview_settings_width** | **int**| Preview image width | [optional]
- **preview_settings_height** | **int**| Preview image heigth | [optional]
- **preview_settings_text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional]
- **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/FontPreviewFormat.md)|  | [optional]
- **preview_settings_max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional]
- **preview_settings_font_size** | **float**| Font size for text visualization in preview image | [optional]
- **preview_settings_horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/FontPreviewHorizontalAlignment.md)|  | [optional]
- **preview_settings_vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/FontPreviewVerticalAlignment.md)|  | [optional]
- **preview_settings_background** | **string**| Background color for preview image | [optional]
- **preview_settings_text_color** | **string**| Text color for preview image | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **source_file** | **\SplFileObject****\SplFileObject**| Font source file | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Font name | [optional] |
+| **path** | **string**| Font location (folder path) | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Font custom attributes | [optional] |
+| **preview_settings_make_preview** | **bool**| Force make preview | [optional] |
+| **preview_settings_namespace** | **string**| Preview namespace | [optional] |
+| **preview_settings_name** | **string**| Preview name | [optional] |
+| **preview_settings_width** | **int**| Preview image width | [optional] |
+| **preview_settings_height** | **int**| Preview image heigth | [optional] |
+| **preview_settings_text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/FontPreviewFormat.md)|  | [optional] |
+| **preview_settings_max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
+| **preview_settings_font_size** | **float**| Font size for text visualization in preview image | [optional] |
+| **preview_settings_horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/FontPreviewHorizontalAlignment.md)|  | [optional] |
+| **preview_settings_vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/FontPreviewVerticalAlignment.md)|  | [optional] |
+| **preview_settings_background** | **string**| Background color for preview image | [optional] |
+| **preview_settings_text_color** | **string**| Text color for preview image | [optional] |
 
 ### Return type
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -137,21 +137,21 @@ In case when preview is already existed returns existed preview
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -169,11 +169,11 @@ $name = 'name_example'; // string | Preview name
 $width = 56; // int | Preview image width
 $height = 56; // int | Preview image height
 $text = 'text_example'; // string | Text, that will be visualized with selected font in preview image, e.g. 'Abg'
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewFormat(); // \Aurigma\AssetProcessor\Model\FontPreviewFormat | Preview image format
+$format = new \Aurigma\AssetProcessor\Model\FontPreviewFormat(); // FontPreviewFormat | Preview image format
 $max_width = 56; // int | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
 $font_size = 3.4; // float | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
-$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
-$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
+$horizontal_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
+$vertical_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
@@ -189,31 +189,31 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Source font entity identifier |
- **namespace** | **string**| Preview namespace |
- **name** | **string**| Preview name |
- **width** | **int**| Preview image width |
- **height** | **int**| Preview image height |
- **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional]
- **format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/.md)| Preview image format | [optional]
- **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional]
- **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional]
- **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional]
- **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional]
- **background** | **string**| Background color for preview image | [optional]
- **text_color** | **string**| Text color for preview image | [optional]
- **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false]
- **tenant_id** | **int**| Tenant identifier | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Source font entity identifier | |
+| **namespace** | **string**| Preview namespace | |
+| **name** | **string**| Preview name | |
+| **width** | **int**| Preview image width | |
+| **height** | **int**| Preview image height | |
+| **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional] |
+| **format** | [**FontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
+| **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
+| **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
+| **horizontal_alignment** | [**FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
+| **vertical_alignment** | [**FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
+| **background** | **string**| Background color for preview image | [optional] |
+| **text_color** | **string**| Text color for preview image | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false] |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
 
 ### Return type
 
-[**\SplFileObject**](../Model/\SplFileObject.md)
+**\SplFileObject**
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -241,21 +241,21 @@ In case when preview is already existed returns existed preview
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -273,11 +273,11 @@ $name = 'name_example'; // string | Preview name
 $width = 56; // int | Preview image width
 $height = 56; // int | Preview image height
 $text = 'text_example'; // string | Text, that will be visualized with selected font in preview image, e.g. 'Abg'
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewFormat(); // \Aurigma\AssetProcessor\Model\FontPreviewFormat | Preview image format
+$format = new \Aurigma\AssetProcessor\Model\FontPreviewFormat(); // FontPreviewFormat | Preview image format
 $max_width = 56; // int | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
 $font_size = 3.4; // float | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
-$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
-$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
+$horizontal_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
+$vertical_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
@@ -293,23 +293,23 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Source font entity identifier |
- **namespace** | **string**| Preview namespace |
- **name** | **string**| Preview name |
- **width** | **int**| Preview image width |
- **height** | **int**| Preview image height |
- **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional]
- **format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/.md)| Preview image format | [optional]
- **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional]
- **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional]
- **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional]
- **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional]
- **background** | **string**| Background color for preview image | [optional]
- **text_color** | **string**| Text color for preview image | [optional]
- **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false]
- **tenant_id** | **int**| Tenant identifier | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Source font entity identifier | |
+| **namespace** | **string**| Preview namespace | |
+| **name** | **string**| Preview name | |
+| **width** | **int**| Preview image width | |
+| **height** | **int**| Preview image height | |
+| **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional] |
+| **format** | [**FontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
+| **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
+| **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
+| **horizontal_alignment** | [**FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
+| **vertical_alignment** | [**FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
+| **background** | **string**| Background color for preview image | [optional] |
+| **text_color** | **string**| Text color for preview image | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false] |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
 
 ### Return type
 
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -345,21 +345,21 @@ If file is not provided metadata will be updated using file taken from storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -375,7 +375,7 @@ $id = 'id_example'; // string | Font entity unique identifier
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Font name
 $path = 'path_example'; // string | Font location (folder path)
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Font custom attributes
 $file = "/path/to/file.txt"; // \SplFileObject | Font source file
 
 try {
@@ -388,14 +388,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Font entity unique identifier |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Font name | [optional]
- **path** | **string**| Font location (folder path) | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
- **file** | **\SplFileObject****\SplFileObject**| Font source file | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Font entity unique identifier | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Font name | [optional] |
+| **path** | **string**| Font location (folder path) | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Font custom attributes | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| Font source file | [optional] |
 
 ### Return type
 
@@ -403,7 +403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
