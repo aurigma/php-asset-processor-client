@@ -1,13 +1,13 @@
 # Aurigma\AssetProcessor\MockupProcessorApi
 
-All URIs are relative to http://localhost.
+All URIs are relative to http://localhost, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**mockupProcessorImportMockup()**](MockupProcessorApi.md#mockupProcessorImportMockup) | **POST** /api/processor/v1/mockups/import | Imports a mockup from the source file and saves it to the storage.
-[**mockupProcessorPreparePreview()**](MockupProcessorApi.md#mockupProcessorPreparePreview) | **GET** /api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height} | Creates a preview for the mockup taken from the storage.
-[**mockupProcessorPreparePreviewUrl()**](MockupProcessorApi.md#mockupProcessorPreparePreviewUrl) | **GET** /api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates a preview for the mockup taken from the storage.
-[**mockupProcessorUpdate()**](MockupProcessorApi.md#mockupProcessorUpdate) | **POST** /api/processor/v1/mockups/{id}/update | Updates the mockup file and metadata in the storage.
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**mockupProcessorImportMockup()**](MockupProcessorApi.md#mockupProcessorImportMockup) | **POST** /api/processor/v1/mockups/import | Imports a mockup from the source file and saves it to the storage. |
+| [**mockupProcessorPreparePreview()**](MockupProcessorApi.md#mockupProcessorPreparePreview) | **GET** /api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height} | Creates a preview for the mockup taken from the storage. |
+| [**mockupProcessorPreparePreviewUrl()**](MockupProcessorApi.md#mockupProcessorPreparePreviewUrl) | **GET** /api/processor/v1/mockups/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates a preview for the mockup taken from the storage. |
+| [**mockupProcessorUpdate()**](MockupProcessorApi.md#mockupProcessorUpdate) | **POST** /api/processor/v1/mockups/{id}/update | Updates the mockup file and metadata in the storage. |
 
 
 ## `mockupProcessorImportMockup()`
@@ -27,21 +27,21 @@ Additionally makes the preview of mockup, if required.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -57,7 +57,7 @@ $source_file = "/path/to/file.txt"; // \SplFileObject | Mockup source file.
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Mockup name.
 $path = 'path_example'; // string | Mockup location (folder path).
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Mockup custom attributes.
 $preview_settings_make_preview = True; // bool | Indicates if a preview is needed.
 $preview_settings_namespace = 'preview_settings_namespace_example'; // string | Preview namespace.
 $preview_settings_name = 'preview_settings_name_example'; // string | Preview name.
@@ -79,23 +79,23 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **source_file** | **\SplFileObject****\SplFileObject**| Mockup source file. |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Mockup name. | [optional]
- **path** | **string**| Mockup location (folder path). | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
- **preview_settings_make_preview** | **bool**| Indicates if a preview is needed. | [optional]
- **preview_settings_namespace** | **string**| Preview namespace. | [optional]
- **preview_settings_name** | **string**| Preview name. | [optional]
- **preview_settings_width** | **int**| Preview width. | [optional]
- **preview_settings_height** | **int**| Preview height. | [optional]
- **preview_settings_jpeg_quality** | **int**| Jpeg preview quality. | [optional]
- **preview_settings_fit_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewFitMode**](../Model/MockupPreviewFitMode.md)|  | [optional]
- **preview_settings_interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/MockupPreviewInterpolationMode.md)|  | [optional]
- **preview_settings_background** | **string**| Color to replace transparent background (e.g. &#39;white&#39;). | [optional]
- **type** | [**\Aurigma\AssetProcessor\Model\ImportMockupType**](../Model/ImportMockupType.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **source_file** | **\SplFileObject****\SplFileObject**| Mockup source file. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Mockup name. | [optional] |
+| **path** | **string**| Mockup location (folder path). | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Mockup custom attributes. | [optional] |
+| **preview_settings_make_preview** | **bool**| Indicates if a preview is needed. | [optional] |
+| **preview_settings_namespace** | **string**| Preview namespace. | [optional] |
+| **preview_settings_name** | **string**| Preview name. | [optional] |
+| **preview_settings_width** | **int**| Preview width. | [optional] |
+| **preview_settings_height** | **int**| Preview height. | [optional] |
+| **preview_settings_jpeg_quality** | **int**| Jpeg preview quality. | [optional] |
+| **preview_settings_fit_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewFitMode**](../Model/MockupPreviewFitMode.md)|  | [optional] |
+| **preview_settings_interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/MockupPreviewInterpolationMode.md)|  | [optional] |
+| **preview_settings_background** | **string**| Color to replace transparent background (e.g. &#39;white&#39;). | [optional] |
+| **type** | [**\Aurigma\AssetProcessor\Model\ImportMockupType**](../Model/ImportMockupType.md)|  | [optional] |
 
 ### Return type
 
@@ -103,7 +103,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -131,21 +131,21 @@ In the case when the preview already exists, returns the existing preview.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -163,8 +163,8 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview mockup width.
 $height = 56; // int | Preview mockup height.
 $jpeg_quality = 56; // int | Jpeg preview quality.
-$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewFitMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewFitMode | Preview fit mode.
-$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode | Preview interpolation mode.
+$fit_mode = new \Aurigma\AssetProcessor\Model\MockupPreviewFitMode(); // MockupPreviewFitMode | Preview fit mode.
+$interpolation_mode = new \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // MockupPreviewInterpolationMode | Preview interpolation mode.
 $background = 'background_example'; // string | Color to replace transparent background (e.g. 'White').
 $force = false; // bool | If set to 'true', a new preview will be prepared, even if the preview already existed.
 $tenant_id = 56; // int | Tenant identifier
@@ -179,27 +179,27 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Source mockup entity ID. |
- **namespace** | **string**| Preview namespace. |
- **name** | **string**| Preview name. |
- **width** | **int**| Preview mockup width. |
- **height** | **int**| Preview mockup height. |
- **jpeg_quality** | **int**| Jpeg preview quality. | [optional]
- **fit_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewFitMode**](../Model/.md)| Preview fit mode. | [optional]
- **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional]
- **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional]
- **force** | **bool**| If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. | [optional] [default to false]
- **tenant_id** | **int**| Tenant identifier | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Source mockup entity ID. | |
+| **namespace** | **string**| Preview namespace. | |
+| **name** | **string**| Preview name. | |
+| **width** | **int**| Preview mockup width. | |
+| **height** | **int**| Preview mockup height. | |
+| **jpeg_quality** | **int**| Jpeg preview quality. | [optional] |
+| **fit_mode** | [**MockupPreviewFitMode**](../Model/.md)| Preview fit mode. | [optional] |
+| **interpolation_mode** | [**MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional] |
+| **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. | [optional] [default to false] |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
 
 ### Return type
 
-[**\SplFileObject**](../Model/\SplFileObject.md)
+**\SplFileObject**
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -227,21 +227,21 @@ In the case when the preview already exists, returns the existing preview.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -259,8 +259,8 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview mockup width.
 $height = 56; // int | Preview mockup height.
 $jpeg_quality = 56; // int | Jpeg preview quality.
-$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewFitMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewFitMode | Preview fit mode.
-$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode | Preview interpolation mode.
+$fit_mode = new \Aurigma\AssetProcessor\Model\MockupPreviewFitMode(); // MockupPreviewFitMode | Preview fit mode.
+$interpolation_mode = new \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // MockupPreviewInterpolationMode | Preview interpolation mode.
 $background = 'background_example'; // string | Color to replace transparent background (e.g. 'White').
 $force = false; // bool | If set to 'true', a new preview will be prepared, even if the preview already existed.
 $tenant_id = 56; // int | Tenant identifier
@@ -275,19 +275,19 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Source mockup entity ID. |
- **namespace** | **string**| Preview namespace. |
- **name** | **string**| Preview name. |
- **width** | **int**| Preview mockup width. |
- **height** | **int**| Preview mockup height. |
- **jpeg_quality** | **int**| Jpeg preview quality. | [optional]
- **fit_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewFitMode**](../Model/.md)| Preview fit mode. | [optional]
- **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional]
- **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional]
- **force** | **bool**| If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. | [optional] [default to false]
- **tenant_id** | **int**| Tenant identifier | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Source mockup entity ID. | |
+| **namespace** | **string**| Preview namespace. | |
+| **name** | **string**| Preview name. | |
+| **width** | **int**| Preview mockup width. | |
+| **height** | **int**| Preview mockup height. | |
+| **jpeg_quality** | **int**| Jpeg preview quality. | [optional] |
+| **fit_mode** | [**MockupPreviewFitMode**](../Model/.md)| Preview fit mode. | [optional] |
+| **interpolation_mode** | [**MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional] |
+| **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, a new preview will be prepared, even if the preview already existed. | [optional] [default to false] |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
 
 ### Return type
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 
@@ -323,21 +323,21 @@ If the mockup file is not provided, the metadata will be updated using the file 
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure OAuth2 access token for authorization: oauth2-code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: apiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
+// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
 // Configure API key authorization: jwtBearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth2-implicit
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -353,7 +353,7 @@ $id = 'id_example'; // string | Mockup entity ID.
 $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Mockup name.
 $path = 'path_example'; // string | Mockup location (folder path).
-$custom_fields = NULL; // mixed
+$custom_fields = NULL; // array<string,mixed> | Mockup custom attributes.
 $file = "/path/to/file.txt"; // \SplFileObject | Mockup source file.
 
 try {
@@ -366,14 +366,14 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **string**| Mockup entity ID. |
- **tenant_id** | **int**| Tenant identifier | [optional]
- **name** | **string**| Mockup name. | [optional]
- **path** | **string**| Mockup location (folder path). | [optional]
- **custom_fields** | [**mixed**](../Model/mixed.md)|  | [optional]
- **file** | **\SplFileObject****\SplFileObject**| Mockup source file. | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup entity ID. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **name** | **string**| Mockup name. | [optional] |
+| **path** | **string**| Mockup location (folder path). | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Mockup custom attributes. | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| Mockup source file. | [optional] |
 
 ### Return type
 
@@ -381,7 +381,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[apiKey](../../README.md#apiKey), [jwtBearer](../../README.md#jwtBearer), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [oauth2-code](../../README.md#oauth2-code), [oauth2-implicit](../../README.md#oauth2-implicit)
+[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
 
 ### HTTP request headers
 

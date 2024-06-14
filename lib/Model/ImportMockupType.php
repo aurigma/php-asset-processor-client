@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignPreviewFormat
+ * ImportMockupType
  *
  * PHP version 7.4
  *
@@ -30,22 +30,22 @@ namespace Aurigma\AssetProcessor\Model;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignPreviewFormat Class Doc Comment
+ * ImportMockupType Class Doc Comment
  *
  * @category Class
- * @description Design preview image format
+ * @description Mockup type.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class DesignPreviewFormat
+class ImportMockupType
 {
     /**
      * Possible values of this enum
      */
-    public const JPEG = 'Jpeg';
+    public const MOCKUP2_D = 'Mockup2D';
 
-    public const PNG = 'Png';
+    public const MOCKUP3_D = 'Mockup3D';
 
     /**
      * Gets allowable values of the enum
@@ -54,8 +54,8 @@ class DesignPreviewFormat
     public static function getAllowableEnumValues()
     {
         return [
-            self::JPEG,
-            self::PNG
+            self::MOCKUP2_D,
+            self::MOCKUP3_D
         ];
     }
 }
