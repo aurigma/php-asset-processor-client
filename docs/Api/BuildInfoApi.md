@@ -4,17 +4,17 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**buildInfoGetInfo()**](BuildInfoApi.md#buildInfoGetInfo) | **GET** /api/processor/v1/info | Gets assembly build info |
-| [**buildInfoHeadInfo()**](BuildInfoApi.md#buildInfoHeadInfo) | **HEAD** /api/processor/v1/info | Gets assembly build info |
+| [**buildInfoGetInfo()**](BuildInfoApi.md#buildInfoGetInfo) | **GET** /api/processor/v1/info | Get assembly build info. |
+| [**buildInfoHeadInfo()**](BuildInfoApi.md#buildInfoHeadInfo) | **HEAD** /api/processor/v1/info | Get assembly build info. |
 
 
 ## `buildInfoGetInfo()`
 
 ```php
-buildInfoGetInfo(): \Aurigma\AssetProcessor\Model\BuildInfoModel
+buildInfoGetInfo(): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel
 ```
 
-Gets assembly build info
+Get assembly build info.
 
 ### Example
 
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\BuildInfoModel**](../Model/BuildInfoModel.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel**](../Model/AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel.md)
 
 ### Authorization
 
@@ -65,7 +65,7 @@ No authorization required
 buildInfoHeadInfo()
 ```
 
-Gets assembly build info
+Get assembly build info.
 
 ### Example
 

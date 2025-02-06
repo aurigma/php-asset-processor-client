@@ -4,15 +4,15 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**dataSchemaProcessorGetLinks()**](DataSchemaProcessorApi.md#dataSchemaProcessorGetLinks) | **GET** /api/processor/v1/dataSchemas/{id}/links | Gets all links associated with this data schema. |
-| [**dataSchemaProcessorImportDataSchema()**](DataSchemaProcessorApi.md#dataSchemaProcessorImportDataSchema) | **POST** /api/processor/v1/dataSchemas/import | Imports data schema and saves it to storage. |
-| [**dataSchemaProcessorUpdate()**](DataSchemaProcessorApi.md#dataSchemaProcessorUpdate) | **POST** /api/processor/v1/dataSchemas/{id}/update | Updates data schema file and metadata in storage |
+| [**dataSchemaProcessorGetLinks()**](DataSchemaProcessorApi.md#dataSchemaProcessorGetLinks) | **GET** /api/processor/v1/data-schemas/{id}/links | Gets all links associated with this data schema. |
+| [**dataSchemaProcessorImportDataSchema()**](DataSchemaProcessorApi.md#dataSchemaProcessorImportDataSchema) | **POST** /api/processor/v1/data-schemas/import | Imports data schema and saves it to storage. |
+| [**dataSchemaProcessorUpdate()**](DataSchemaProcessorApi.md#dataSchemaProcessorUpdate) | **POST** /api/processor/v1/data-schemas/{id}/update | Updates data schema file and metadata in storage. |
 
 
 ## `dataSchemaProcessorGetLinks()`
 
 ```php
-dataSchemaProcessorGetLinks($id, $tenant_id): \Aurigma\AssetProcessor\Model\DataSchemaLinksInfo
+dataSchemaProcessorGetLinks($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo
 ```
 
 Gets all links associated with this data schema.
@@ -24,24 +24,24 @@ Gets all links associated with this data schema.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
@@ -50,7 +50,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Data schema entity unique identifier
+$id = 'id_example'; // string | Data schema entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
 
 try {
@@ -65,16 +65,16 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Data schema entity unique identifier | |
+| **id** | **string**| Data schema entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DataSchemaLinksInfo**](../Model/DataSchemaLinksInfo.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo**](../Model/AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -88,7 +88,7 @@ try {
 ## `dataSchemaProcessorImportDataSchema()`
 
 ```php
-dataSchemaProcessorImportDataSchema($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\DataSchemaDto
+dataSchemaProcessorImportDataSchema($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto
 ```
 
 Imports data schema and saves it to storage.
@@ -100,24 +100,24 @@ Imports data schema and saves it to storage.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
@@ -126,11 +126,11 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$source_file = "/path/to/file.txt"; // \SplFileObject | Data schema source file
+$source_file = "/path/to/file.txt"; // \SplFileObject | Data schema source file.
 $tenant_id = 56; // int | Tenant identifier
-$name = 'name_example'; // string | Data schema name
-$path = 'path_example'; // string | Data schema location (folder path)
-$custom_fields = NULL; // array<string,mixed> | Data schema custom attributes
+$name = 'name_example'; // string | Data schema name.
+$path = 'path_example'; // string | Data schema location (folder path).
+$custom_fields = NULL; // array<string,mixed> | Data schema custom attributes.
 
 try {
     $result = $apiInstance->dataSchemaProcessorImportDataSchema($source_file, $tenant_id, $name, $path, $custom_fields);
@@ -144,19 +144,19 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **source_file** | **\SplFileObject****\SplFileObject**| Data schema source file | |
+| **source_file** | **\SplFileObject****\SplFileObject**| Data schema source file. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **name** | **string**| Data schema name | [optional] |
-| **path** | **string**| Data schema location (folder path) | [optional] |
-| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes | [optional] |
+| **name** | **string**| Data schema name. | [optional] |
+| **path** | **string**| Data schema location (folder path). | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DataSchemaDto**](../Model/DataSchemaDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto**](../Model/AurigmaAssetStorageDataSchemaDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -170,12 +170,12 @@ try {
 ## `dataSchemaProcessorUpdate()`
 
 ```php
-dataSchemaProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\DataSchemaDto
+dataSchemaProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto
 ```
 
-Updates data schema file and metadata in storage
+Updates data schema file and metadata in storage.
 
-If file is not provided metadata will be updated using file taken from storage
+If file is not provided metadata will be updated using file taken from storage.
 
 ### Example
 
@@ -184,24 +184,24 @@ If file is not provided metadata will be updated using file taken from storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
@@ -210,12 +210,12 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Data schema entity unique identifier
+$id = 'id_example'; // string | Data schema entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$name = 'name_example'; // string | Data schema name
-$path = 'path_example'; // string | Data schema location (folder path)
-$custom_fields = NULL; // array<string,mixed> | Data schema custom attributes
-$file = "/path/to/file.txt"; // \SplFileObject | Data schema source file
+$name = 'name_example'; // string | Data schema name.
+$path = 'path_example'; // string | Data schema location (folder path).
+$custom_fields = NULL; // array<string,mixed> | Data schema custom attributes.
+$file = "/path/to/file.txt"; // \SplFileObject | Data schema source file.
 
 try {
     $result = $apiInstance->dataSchemaProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file);
@@ -229,20 +229,20 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Data schema entity unique identifier | |
+| **id** | **string**| Data schema entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **name** | **string**| Data schema name | [optional] |
-| **path** | **string**| Data schema location (folder path) | [optional] |
-| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes | [optional] |
-| **file** | **\SplFileObject****\SplFileObject**| Data schema source file | [optional] |
+| **name** | **string**| Data schema name. | [optional] |
+| **path** | **string**| Data schema location (folder path). | [optional] |
+| **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes. | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| Data schema source file. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DataSchemaDto**](../Model/DataSchemaDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto**](../Model/AurigmaAssetStorageDataSchemaDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 

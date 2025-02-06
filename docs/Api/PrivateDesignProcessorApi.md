@@ -4,32 +4,41 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**privateDesignProcessorCheck()**](PrivateDesignProcessorApi.md#privateDesignProcessorCheck) | **POST** /api/processor/v1/private-designs/{id}/check | Checks if design taken from private storage has any problems |
+| [**privateDesignProcessorCalculateCountPerSheet()**](PrivateDesignProcessorApi.md#privateDesignProcessorCalculateCountPerSheet) | **POST** /api/processor/v1/private-designs/{id}/calculate-count-per-sheet | Calculates the private design count per sheet of the specified size. |
+| [**privateDesignProcessorCheck()**](PrivateDesignProcessorApi.md#privateDesignProcessorCheck) | **POST** /api/processor/v1/private-designs/{id}/check | Checks if design taken from private storage has any problems. |
 | [**privateDesignProcessorCopyDesignFromPublicDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorCopyDesignFromPublicDesign) | **POST** /api/processor/v1/private-designs/from-design | Copies design file from specified public design and saves it to private storage. |
 | [**privateDesignProcessorCopyDesignFromPublicResource()**](PrivateDesignProcessorApi.md#privateDesignProcessorCopyDesignFromPublicResource) | **POST** /api/processor/v1/private-designs/from-resource | Copies design file from specified public resource and saves it to storage. |
-| [**privateDesignProcessorCreateBlankDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateBlankDesign) | **POST** /api/processor/v1/private-designs/blank | Creates design by product model and saves it to private storage |
-| [**privateDesignProcessorCreateDesignFromMockup()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateDesignFromMockup) | **POST** /api/processor/v1/private-designs/from-mockup | Creates design compatible to specified mockup and saves it to storage |
-| [**privateDesignProcessorEmbedDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorEmbedDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/embed | Embeds linked data schema to the design file |
-| [**privateDesignProcessorExportDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorExportDesign) | **GET** /api/processor/v1/private-designs/{id}/export | Exports design file |
-| [**privateDesignProcessorExtractDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorExtractDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/extract | Extracts data schema from design file and saves it to the specified folder |
-| [**privateDesignProcessorGetDepositPhotos()**](PrivateDesignProcessorApi.md#privateDesignProcessorGetDepositPhotos) | **POST** /api/processor/v1/private-designs/{id}/depositphotos | Return information about inserted images from DepositPhotos |
+| [**privateDesignProcessorCreateBlankDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateBlankDesign) | **POST** /api/processor/v1/private-designs/blank | Creates design by product model and saves it to private storage. |
+| [**privateDesignProcessorCreateDesignFromMockup()**](PrivateDesignProcessorApi.md#privateDesignProcessorCreateDesignFromMockup) | **POST** /api/processor/v1/private-designs/from-mockup | Creates design compatible to specified mockup and saves it to storage. |
+| [**privateDesignProcessorEmbedDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorEmbedDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/embed | Embeds linked data schema to the design file. |
+| [**privateDesignProcessorEmbedPalettes()**](PrivateDesignProcessorApi.md#privateDesignProcessorEmbedPalettes) | **POST** /api/processor/v1/private-designs/{id}/palettes/embed | Embeds linked palettes to the design file. |
+| [**privateDesignProcessorEmbedToggleSet()**](PrivateDesignProcessorApi.md#privateDesignProcessorEmbedToggleSet) | **POST** /api/processor/v1/private-designs/{id}/toggle-set/embed | Embeds linked toggle set to the design file. |
+| [**privateDesignProcessorExportDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorExportDesign) | **GET** /api/processor/v1/private-designs/{id}/export | Exports design file. |
+| [**privateDesignProcessorExtractDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorExtractDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/extract | Extracts data schema from design file and saves it to the specified folder. |
+| [**privateDesignProcessorExtractPalettes()**](PrivateDesignProcessorApi.md#privateDesignProcessorExtractPalettes) | **POST** /api/processor/v1/private-designs/{id}/palettes/extract | Extracts palettes from design file and saves it to the specified folder. |
+| [**privateDesignProcessorExtractToggleSet()**](PrivateDesignProcessorApi.md#privateDesignProcessorExtractToggleSet) | **POST** /api/processor/v1/private-designs/{id}/toggle-set/extract | Extracts toggle set from design file and saves it to the specified folder. |
+| [**privateDesignProcessorGetDepositPhotos()**](PrivateDesignProcessorApi.md#privateDesignProcessorGetDepositPhotos) | **POST** /api/processor/v1/private-designs/{id}/depositphotos | Return information about inserted images from DepositPhotos. |
 | [**privateDesignProcessorImportDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorImportDesign) | **POST** /api/processor/v1/private-designs/import | Imports design from source file and saves it to private storage. |
-| [**privateDesignProcessorLinkDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorLinkDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/link | Links data schema to the design file |
+| [**privateDesignProcessorLinkDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorLinkDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/link | Links data schema to the design file. |
+| [**privateDesignProcessorLinkPalettes()**](PrivateDesignProcessorApi.md#privateDesignProcessorLinkPalettes) | **POST** /api/processor/v1/private-designs/{id}/palettes/link | Links palettes to the design file. |
+| [**privateDesignProcessorLinkToggleSet()**](PrivateDesignProcessorApi.md#privateDesignProcessorLinkToggleSet) | **POST** /api/processor/v1/private-designs/{id}/toggle-set/link | Links toggle set to the design file. |
 | [**privateDesignProcessorPreparePreview()**](PrivateDesignProcessorApi.md#privateDesignProcessorPreparePreview) | **GET** /api/processor/v1/private-designs/{id}/preview/{namespace}/{name}/{width}x{height} | Creates preview image for design taken from private storage. |
 | [**privateDesignProcessorPreparePreviewUrl()**](PrivateDesignProcessorApi.md#privateDesignProcessorPreparePreviewUrl) | **GET** /api/processor/v1/private-designs/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates preview image for design taken from private storage. |
 | [**privateDesignProcessorReimportDesign()**](PrivateDesignProcessorApi.md#privateDesignProcessorReimportDesign) | **POST** /api/processor/v1/private-designs/{id}/re-import | Re-imports design from source file and updates design file and metadata in private storage. |
-| [**privateDesignProcessorRemoveDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorRemoveDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/remove | Removes data schema from the design file |
-| [**privateDesignProcessorUpdate()**](PrivateDesignProcessorApi.md#privateDesignProcessorUpdate) | **POST** /api/processor/v1/private-designs/{id}/update | Updates design file and metadata in private storage |
+| [**privateDesignProcessorRemoveDataSchema()**](PrivateDesignProcessorApi.md#privateDesignProcessorRemoveDataSchema) | **POST** /api/processor/v1/private-designs/{id}/schema/remove | Removes data schema from the design file. |
+| [**privateDesignProcessorRemovePalettes()**](PrivateDesignProcessorApi.md#privateDesignProcessorRemovePalettes) | **POST** /api/processor/v1/private-designs/{id}/palettes/remove | Removes palettes from the design file. |
+| [**privateDesignProcessorRemoveToggleSet()**](PrivateDesignProcessorApi.md#privateDesignProcessorRemoveToggleSet) | **POST** /api/processor/v1/private-designs/{id}/toggle-set/remove | Removes toggle set from the design file. |
+| [**privateDesignProcessorUpdate()**](PrivateDesignProcessorApi.md#privateDesignProcessorUpdate) | **POST** /api/processor/v1/private-designs/{id}/update | Updates design file and metadata in private storage. |
 | [**privateDesignProcessorValidateDesignImportSettings()**](PrivateDesignProcessorApi.md#privateDesignProcessorValidateDesignImportSettings) | **POST** /api/processor/v1/private-designs/validate-import-settings | Validates the design import settings. |
 
 
-## `privateDesignProcessorCheck()`
+## `privateDesignProcessorCalculateCountPerSheet()`
 
 ```php
-privateDesignProcessorCheck($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\DesignProblemInfo
+privateDesignProcessorCalculateCountPerSheet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto
 ```
 
-Checks if design taken from private storage has any problems
+Calculates the private design count per sheet of the specified size.
 
 ### Example
 
@@ -38,24 +47,24 @@ Checks if design taken from private storage has any problems
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -64,9 +73,89 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel | Model to calculate the design count per sheet of the specified size.
+
+try {
+    $result = $apiInstance->privateDesignProcessorCalculateCountPerSheet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCalculateCountPerSheet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel.md)| Model to calculate the design count per sheet of the specified size. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorCheck()`
+
+```php
+privateDesignProcessorCheck($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto
+```
+
+Checks if design taken from private storage has any problems.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorCheck($id, $tenant_id, $owner_id);
@@ -80,17 +169,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignProblemInfo**](../Model/DesignProblemInfo.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -104,7 +193,7 @@ try {
 ## `privateDesignProcessorCopyDesignFromPublicDesign()`
 
 ```php
-privateDesignProcessorCopyDesignFromPublicDesign($tenant_id, $owner_id, $copy_design_from_public_design_model): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorCopyDesignFromPublicDesign($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
 Copies design file from specified public design and saves it to private storage.
@@ -118,24 +207,24 @@ Design source file should be a state file.<br />
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -145,11 +234,11 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$copy_design_from_public_design_model = new \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel(); // \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel | Operation parameters.
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel | Operation parameters.
 
 try {
-    $result = $apiInstance->privateDesignProcessorCopyDesignFromPublicDesign($tenant_id, $owner_id, $copy_design_from_public_design_model);
+    $result = $apiInstance->privateDesignProcessorCopyDesignFromPublicDesign($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCopyDesignFromPublicDesign: ', $e->getMessage(), PHP_EOL;
@@ -161,16 +250,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **copy_design_from_public_design_model** | [**\Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel**](../Model/CopyDesignFromPublicDesignModel.md)| Operation parameters. | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -184,7 +273,7 @@ try {
 ## `privateDesignProcessorCopyDesignFromPublicResource()`
 
 ```php
-privateDesignProcessorCopyDesignFromPublicResource($tenant_id, $owner_id, $copy_design_from_public_resource_model): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorCopyDesignFromPublicResource($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
 Copies design file from specified public resource and saves it to storage.
@@ -198,24 +287,24 @@ Design source file should be a state file.<br />
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -225,11 +314,11 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$copy_design_from_public_resource_model = new \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel(); // \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel | Operation parameters.
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel | Operation parameters.
 
 try {
-    $result = $apiInstance->privateDesignProcessorCopyDesignFromPublicResource($tenant_id, $owner_id, $copy_design_from_public_resource_model);
+    $result = $apiInstance->privateDesignProcessorCopyDesignFromPublicResource($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCopyDesignFromPublicResource: ', $e->getMessage(), PHP_EOL;
@@ -241,16 +330,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **copy_design_from_public_resource_model** | [**\Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel**](../Model/CopyDesignFromPublicResourceModel.md)| Operation parameters. | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -264,10 +353,10 @@ try {
 ## `privateDesignProcessorCreateBlankDesign()`
 
 ```php
-privateDesignProcessorCreateBlankDesign($tenant_id, $owner_id, $create_blank_design_model): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorCreateBlankDesign($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Creates design by product model and saves it to private storage
+Creates design by product model and saves it to private storage.
 
 ### Example
 
@@ -276,24 +365,24 @@ Creates design by product model and saves it to private storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -303,11 +392,11 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$create_blank_design_model = new \Aurigma\AssetProcessor\Model\CreateBlankDesignModel(); // \Aurigma\AssetProcessor\Model\CreateBlankDesignModel | Operation parameters
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_create_blank_design_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel | Operation parameters.
 
 try {
-    $result = $apiInstance->privateDesignProcessorCreateBlankDesign($tenant_id, $owner_id, $create_blank_design_model);
+    $result = $apiInstance->privateDesignProcessorCreateBlankDesign($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCreateBlankDesign: ', $e->getMessage(), PHP_EOL;
@@ -319,16 +408,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankDesignModel**](../Model/CreateBlankDesignModel.md)| Operation parameters | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -342,10 +431,10 @@ try {
 ## `privateDesignProcessorCreateDesignFromMockup()`
 
 ```php
-privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $create_design_from_mockup_model): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Creates design compatible to specified mockup and saves it to storage
+Creates design compatible to specified mockup and saves it to storage.
 
 ### Example
 
@@ -354,24 +443,24 @@ Creates design compatible to specified mockup and saves it to storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -381,11 +470,11 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel | Operation parameters
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel | Operation parameters.
 
 try {
-    $result = $apiInstance->privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $create_design_from_mockup_model);
+    $result = $apiInstance->privateDesignProcessorCreateDesignFromMockup($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorCreateDesignFromMockup: ', $e->getMessage(), PHP_EOL;
@@ -397,16 +486,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel**](../Model/CreateDesignFromMockupModel.md)| Operation parameters | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -420,10 +509,10 @@ try {
 ## `privateDesignProcessorEmbedDataSchema()`
 
 ```php
-privateDesignProcessorEmbedDataSchema($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorEmbedDataSchema($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Embeds linked data schema to the design file
+Embeds linked data schema to the design file.
 
 ### Example
 
@@ -432,24 +521,24 @@ Embeds linked data schema to the design file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -458,9 +547,9 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorEmbedDataSchema($id, $tenant_id, $owner_id);
@@ -474,17 +563,171 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorEmbedPalettes()`
+
+```php
+privateDesignProcessorEmbedPalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Embeds linked palettes to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+
+try {
+    $result = $apiInstance->privateDesignProcessorEmbedPalettes($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorEmbedPalettes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorEmbedToggleSet()`
+
+```php
+privateDesignProcessorEmbedToggleSet($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Embeds linked toggle set to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+
+try {
+    $result = $apiInstance->privateDesignProcessorEmbedToggleSet($id, $tenant_id, $owner_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorEmbedToggleSet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -498,10 +741,10 @@ try {
 ## `privateDesignProcessorExportDesign()`
 
 ```php
-privateDesignProcessorExportDesign($id, $tenant_id, $owner_id)
+privateDesignProcessorExportDesign($id, $tenant_id, $owner_id): \SplFileObject
 ```
 
-Exports design file
+Exports design file.
 
 ### Example
 
@@ -510,24 +753,24 @@ Exports design file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -536,12 +779,13 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
-    $apiInstance->privateDesignProcessorExportDesign($id, $tenant_id, $owner_id);
+    $result = $apiInstance->privateDesignProcessorExportDesign($id, $tenant_id, $owner_id);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorExportDesign: ', $e->getMessage(), PHP_EOL;
 }
@@ -551,17 +795,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
-void (empty response body)
+**\SplFileObject**
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -575,10 +819,10 @@ void (empty response body)
 ## `privateDesignProcessorExtractDataSchema()`
 
 ```php
-privateDesignProcessorExtractDataSchema($id, $tenant_id, $owner_id, $design_extract_data_schema_model)
+privateDesignProcessorExtractDataSchema($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model)
 ```
 
-Extracts data schema from design file and saves it to the specified folder
+Extracts data schema from design file and saves it to the specified folder.
 
 ### Example
 
@@ -587,24 +831,24 @@ Extracts data schema from design file and saves it to the specified folder
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -613,13 +857,13 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$design_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel | Extract data schema operation parameters
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel | Extract data schema operation parameters.
 
 try {
-    $apiInstance->privateDesignProcessorExtractDataSchema($id, $tenant_id, $owner_id, $design_extract_data_schema_model);
+    $apiInstance->privateDesignProcessorExtractDataSchema($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorExtractDataSchema: ', $e->getMessage(), PHP_EOL;
 }
@@ -629,10 +873,10 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **design_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel**](../Model/DesignExtractDataSchemaModel.md)| Extract data schema operation parameters | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
 
 ### Return type
 
@@ -640,7 +884,163 @@ void (empty response body)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorExtractPalettes()`
+
+```php
+privateDesignProcessorExtractPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model)
+```
+
+Extracts palettes from design file and saves it to the specified folder.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel | Extract palettes operation parameters.
+
+try {
+    $apiInstance->privateDesignProcessorExtractPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorExtractPalettes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_extract_palettes_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel.md)| Extract palettes operation parameters. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorExtractToggleSet()`
+
+```php
+privateDesignProcessorExtractToggleSet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model)
+```
+
+Extracts toggle set from design file and saves it to the specified folder.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel | Extract toggle set operation parameters.
+
+try {
+    $apiInstance->privateDesignProcessorExtractToggleSet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorExtractToggleSet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel.md)| Extract toggle set operation parameters. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -654,10 +1054,10 @@ void (empty response body)
 ## `privateDesignProcessorGetDepositPhotos()`
 
 ```php
-privateDesignProcessorGetDepositPhotos($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\ImageDepositPhoto[]
+privateDesignProcessorGetDepositPhotos($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]
 ```
 
-Return information about inserted images from DepositPhotos
+Return information about inserted images from DepositPhotos.
 
 ### Example
 
@@ -666,24 +1066,24 @@ Return information about inserted images from DepositPhotos
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -692,9 +1092,9 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorGetDepositPhotos($id, $tenant_id, $owner_id);
@@ -708,17 +1108,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]**](../Model/ImageDepositPhoto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]**](../Model/AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -732,7 +1132,7 @@ try {
 ## `privateDesignProcessorImportDesign()`
 
 ```php
-privateDesignProcessorImportDesign($source_file, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorImportDesign($source_file, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
 Imports design from source file and saves it to private storage.
@@ -746,24 +1146,24 @@ Design source file should be a state file or a graphic file.<br />  The marker s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -775,16 +1175,16 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
 $source_file = "/path/to/file.txt"; // \SplFileObject | Design source file.
 $tenant_id = 56; // int | Tenant identifier
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
-$design_params_name = 'design_params_name_example'; // string | Design name
-$design_params_path = 'design_params_path_example'; // string | Design location (folder path)
-$design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes
-$preview_settings_make_preview = True; // bool | Force make preview
-$preview_settings_namespace = 'preview_settings_namespace_example'; // string | Preview namespace
-$preview_settings_name = 'preview_settings_name_example'; // string | Preview name
-$preview_settings_width = 56; // int | Preview image width
-$preview_settings_height = 56; // int | Preview image heigth
-$preview_settings_stub = True; // bool | Preview stub contnent switcher  Indicates whether to show stub content in preview
-$preview_settings_format = new \Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat
+$design_params_name = 'design_params_name_example'; // string | Design name.
+$design_params_path = 'design_params_path_example'; // string | Design location (folder path).
+$design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes.
+$preview_settings_make_preview = True; // bool | Force make preview.
+$preview_settings_namespace = 'preview_settings_namespace_example'; // string | Preview namespace.
+$preview_settings_name = 'preview_settings_name_example'; // string | Preview name.
+$preview_settings_width = 56; // int | Preview image width.
+$preview_settings_height = 56; // int | Preview image height.
+$preview_settings_stub = True; // bool | Preview stub content switcher.  Indicates whether to show stub content in preview.
+$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -802,25 +1202,25 @@ try {
 | **source_file** | **\SplFileObject****\SplFileObject**| Design source file. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
-| **design_params_name** | **string**| Design name | [optional] |
-| **design_params_path** | **string**| Design location (folder path) | [optional] |
-| **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes | [optional] |
-| **preview_settings_make_preview** | **bool**| Force make preview | [optional] |
-| **preview_settings_namespace** | **string**| Preview namespace | [optional] |
-| **preview_settings_name** | **string**| Preview name | [optional] |
-| **preview_settings_width** | **int**| Preview image width | [optional] |
-| **preview_settings_height** | **int**| Preview image heigth | [optional] |
-| **preview_settings_stub** | **bool**| Preview stub contnent switcher  Indicates whether to show stub content in preview | [optional] |
-| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/DesignPreviewFormat.md)|  | [optional] |
+| **design_params_name** | **string**| Design name. | [optional] |
+| **design_params_path** | **string**| Design location (folder path). | [optional] |
+| **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes. | [optional] |
+| **preview_settings_make_preview** | **bool**| Force make preview. | [optional] |
+| **preview_settings_namespace** | **string**| Preview namespace. | [optional] |
+| **preview_settings_name** | **string**| Preview name. | [optional] |
+| **preview_settings_width** | **int**| Preview image width. | [optional] |
+| **preview_settings_height** | **int**| Preview image height. | [optional] |
+| **preview_settings_stub** | **bool**| Preview stub content switcher.  Indicates whether to show stub content in preview. | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md)|  | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -834,10 +1234,10 @@ try {
 ## `privateDesignProcessorLinkDataSchema()`
 
 ```php
-privateDesignProcessorLinkDataSchema($id, $tenant_id, $owner_id, $design_link_data_schema_model): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorLinkDataSchema($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Links data schema to the design file
+Links data schema to the design file.
 
 ### Example
 
@@ -846,24 +1246,24 @@ Links data schema to the design file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -872,13 +1272,13 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$design_link_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel | Link schema operation parameters
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel | Link schema operation parameters.
 
 try {
-    $result = $apiInstance->privateDesignProcessorLinkDataSchema($id, $tenant_id, $owner_id, $design_link_data_schema_model);
+    $result = $apiInstance->privateDesignProcessorLinkDataSchema($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorLinkDataSchema: ', $e->getMessage(), PHP_EOL;
@@ -889,18 +1289,176 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **design_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel**](../Model/DesignLinkDataSchemaModel.md)| Link schema operation parameters | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorLinkPalettes()`
+
+```php
+privateDesignProcessorLinkPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Links palettes to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$aurigma_asset_processor_web_api_models_design_design_link_palettes_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel | Link palettes operation parameters.
+
+try {
+    $result = $apiInstance->privateDesignProcessorLinkPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorLinkPalettes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_link_palettes_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel.md)| Link palettes operation parameters. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorLinkToggleSet()`
+
+```php
+privateDesignProcessorLinkToggleSet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Links toggle set to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel | Link toggle set operation parameters.
+
+try {
+    $result = $apiInstance->privateDesignProcessorLinkToggleSet($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorLinkToggleSet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel.md)| Link toggle set operation parameters. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -919,7 +1477,7 @@ privateDesignProcessorPreparePreview($id, $namespace, $name, $width, $height, $s
 
 Creates preview image for design taken from private storage.
 
-In case when preview is already existed returns existed preview
+In case when preview is already existed returns existed preview.
 
 ### Example
 
@@ -928,24 +1486,24 @@ In case when preview is already existed returns existed preview
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -954,17 +1512,17 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Source design entity identifier
-$namespace = 'namespace_example'; // string | Preview namespace
-$name = 'name_example'; // string | Preview name
-$width = 56; // int | Preview image width
-$height = 56; // int | Preview image height
-$surface_index = 56; // int | Design surface index  Indicates which design surface should be used as a source for preview
-$stub = True; // bool | Design Preview stub contnent switcher  Indicates whether to show stub content in preview
-$format = new \Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // DesignPreviewFormat | Design preview image format
-$force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
+$id = 'id_example'; // string | Source design entity identifier.
+$namespace = 'namespace_example'; // string | Preview namespace.
+$name = 'name_example'; // string | Preview name.
+$width = 56; // int | Preview image width.
+$height = 56; // int | Preview image height.
+$surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
+$stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
+$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorPreparePreview($id, $namespace, $name, $width, $height, $surface_index, $stub, $format, $force, $tenant_id, $owner_id);
@@ -978,17 +1536,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Source design entity identifier | |
-| **namespace** | **string**| Preview namespace | |
-| **name** | **string**| Preview name | |
-| **width** | **int**| Preview image width | |
-| **height** | **int**| Preview image height | |
-| **surface_index** | **int**| Design surface index  Indicates which design surface should be used as a source for preview | [optional] |
-| **stub** | **bool**| Design Preview stub contnent switcher  Indicates whether to show stub content in preview | [optional] |
-| **format** | [**DesignPreviewFormat**](../Model/.md)| Design preview image format | [optional] |
-| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false] |
+| **id** | **string**| Source design entity identifier. | |
+| **namespace** | **string**| Preview namespace. | |
+| **name** | **string**| Preview name. | |
+| **width** | **int**| Preview image width. | |
+| **height** | **int**| Preview image height. | |
+| **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
+| **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
+| **format** | [**AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
@@ -996,7 +1554,7 @@ try {
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1015,7 +1573,7 @@ privateDesignProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height,
 
 Creates preview image for design taken from private storage.
 
-In case when preview is already existed returns existed preview
+In case when preview is already existed returns existed preview.
 
 ### Example
 
@@ -1024,24 +1582,24 @@ In case when preview is already existed returns existed preview
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -1050,17 +1608,17 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Source design entity identifier
-$namespace = 'namespace_example'; // string | Preview namespace
-$name = 'name_example'; // string | Preview name
-$width = 56; // int | Preview image width
-$height = 56; // int | Preview image height
-$surface_index = 56; // int | Design surface index  Indicates which design surface should be used as a source for preview
-$stub = True; // bool | Design Preview stub contnent switcher  Indicates whether to show stub content in preview
-$format = new \Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // DesignPreviewFormat | Design preview image format
-$force = false; // bool | If set to 'true', new preview prepared, even if preview already existed
+$id = 'id_example'; // string | Source design entity identifier.
+$namespace = 'namespace_example'; // string | Preview namespace.
+$name = 'name_example'; // string | Preview name.
+$width = 56; // int | Preview image width.
+$height = 56; // int | Preview image height.
+$surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
+$stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
+$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $surface_index, $stub, $format, $force, $tenant_id, $owner_id);
@@ -1074,17 +1632,17 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Source design entity identifier | |
-| **namespace** | **string**| Preview namespace | |
-| **name** | **string**| Preview name | |
-| **width** | **int**| Preview image width | |
-| **height** | **int**| Preview image height | |
-| **surface_index** | **int**| Design surface index  Indicates which design surface should be used as a source for preview | [optional] |
-| **stub** | **bool**| Design Preview stub contnent switcher  Indicates whether to show stub content in preview | [optional] |
-| **format** | [**DesignPreviewFormat**](../Model/.md)| Design preview image format | [optional] |
-| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed | [optional] [default to false] |
+| **id** | **string**| Source design entity identifier. | |
+| **namespace** | **string**| Preview namespace. | |
+| **name** | **string**| Preview name. | |
+| **width** | **int**| Preview image width. | |
+| **height** | **int**| Preview image height. | |
+| **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
+| **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
+| **format** | [**AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
@@ -1092,12 +1650,12 @@ try {
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`
+- **Accept**: `text/plain`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1106,7 +1664,7 @@ try {
 ## `privateDesignProcessorReimportDesign()`
 
 ```php
-privateDesignProcessorReimportDesign($id, $source_file, $tenant_id, $owner_id, $marker_shortcuts_file)
+privateDesignProcessorReimportDesign($id, $source_file, $tenant_id, $owner_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
 Re-imports design from source file and updates design file and metadata in private storage.
@@ -1120,24 +1678,24 @@ Design source file should be a state file or a graphic file.<br />  The marker s
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -1153,7 +1711,8 @@ $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
-    $apiInstance->privateDesignProcessorReimportDesign($id, $source_file, $tenant_id, $owner_id, $marker_shortcuts_file);
+    $result = $apiInstance->privateDesignProcessorReimportDesign($id, $source_file, $tenant_id, $owner_id, $marker_shortcuts_file);
+    print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorReimportDesign: ', $e->getMessage(), PHP_EOL;
 }
@@ -1171,11 +1730,11 @@ try {
 
 ### Return type
 
-void (empty response body)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1189,10 +1748,10 @@ void (empty response body)
 ## `privateDesignProcessorRemoveDataSchema()`
 
 ```php
-privateDesignProcessorRemoveDataSchema($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorRemoveDataSchema($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Removes data schema from the design file
+Removes data schema from the design file.
 
 ### Example
 
@@ -1201,24 +1760,24 @@ Removes data schema from the design file
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -1227,9 +1786,9 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
     $result = $apiInstance->privateDesignProcessorRemoveDataSchema($id, $tenant_id, $owner_id);
@@ -1243,17 +1802,171 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorRemovePalettes()`
+
+```php
+privateDesignProcessorRemovePalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Removes palettes from the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+
+try {
+    $result = $apiInstance->privateDesignProcessorRemovePalettes($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorRemovePalettes: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateDesignProcessorRemoveToggleSet()`
+
+```php
+privateDesignProcessorRemoveToggleSet($id, $tenant_id, $owner_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+```
+
+Removes toggle set from the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+
+try {
+    $result = $apiInstance->privateDesignProcessorRemoveToggleSet($id, $tenant_id, $owner_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateDesignProcessorApi->privateDesignProcessorRemoveToggleSet: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1267,12 +1980,12 @@ try {
 ## `privateDesignProcessorUpdate()`
 
 ```php
-privateDesignProcessorUpdate($id, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file): \Aurigma\AssetProcessor\Model\DesignDto
+privateDesignProcessorUpdate($id, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
 ```
 
-Updates design file and metadata in private storage
+Updates design file and metadata in private storage.
 
-If file is not provided metadata will be updated using file taken from storage
+If file is not provided metadata will be updated using file taken from storage.
 
 ### Example
 
@@ -1281,24 +1994,24 @@ If file is not provided metadata will be updated using file taken from storage
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -1307,13 +2020,13 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$id = 'id_example'; // string | Design entity unique identifier
+$id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
-$design_params_name = 'design_params_name_example'; // string | Design name
-$design_params_path = 'design_params_path_example'; // string | Design location (folder path)
-$design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes
-$file = "/path/to/file.txt"; // \SplFileObject | Design source file
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
+$design_params_name = 'design_params_name_example'; // string | Design name.
+$design_params_path = 'design_params_path_example'; // string | Design location (folder path).
+$design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes.
+$file = "/path/to/file.txt"; // \SplFileObject | Design source file.
 
 try {
     $result = $apiInstance->privateDesignProcessorUpdate($id, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file);
@@ -1327,21 +2040,21 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **id** | **string**| Design entity unique identifier | |
+| **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
-| **design_params_name** | **string**| Design name | [optional] |
-| **design_params_path** | **string**| Design location (folder path) | [optional] |
-| **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes | [optional] |
-| **file** | **\SplFileObject****\SplFileObject**| Design source file | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
+| **design_params_name** | **string**| Design name. | [optional] |
+| **design_params_path** | **string**| Design location (folder path). | [optional] |
+| **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes. | [optional] |
+| **file** | **\SplFileObject****\SplFileObject**| Design source file. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
@@ -1355,7 +2068,7 @@ try {
 ## `privateDesignProcessorValidateDesignImportSettings()`
 
 ```php
-privateDesignProcessorValidateDesignImportSettings($tenant_id, $owner_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\ValidationResultDto
+privateDesignProcessorValidateDesignImportSettings($tenant_id, $owner_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto
 ```
 
 Validates the design import settings.
@@ -1367,24 +2080,24 @@ Validates the design import settings.
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure OAuth2 access token for authorization: oauth2-code
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
-
-// Configure API key authorization: apiKey
+// Configure API key authorization: ApiKey
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
 
-// Configure OAuth2 access token for authorization: oauth2-clientCredentials
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
-// Configure API key authorization: jwtBearer
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
 $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
-
-// Configure OAuth2 access token for authorization: oauth2-implicit
-$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
 $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
@@ -1394,7 +2107,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateDesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$owner_id = 'owner_id_example'; // string | Private storage owner identifier
+$owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -1410,16 +2123,16 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **owner_id** | **string**| Private storage owner identifier | [optional] |
+| **owner_id** | **string**| Private storage owner identifier. | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\ValidationResultDto**](../Model/ValidationResultDto.md)
+[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignValidationResultDto.md)
 
 ### Authorization
 
-[oauth2-code](../../README.md#oauth2-code), [apiKey](../../README.md#apiKey), [oauth2-clientCredentials](../../README.md#oauth2-clientCredentials), [jwtBearer](../../README.md#jwtBearer), [oauth2-implicit](../../README.md#oauth2-implicit)
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
 
 ### HTTP request headers
 
