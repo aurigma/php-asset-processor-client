@@ -385,7 +385,7 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignPaletteValidationProblemDto imp
     /**
      * Sets relation
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignAssetRelation|null $relation relation
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignAssetRelation|null $relation Describes relations between design and palette.
      *
      * @return self
      */

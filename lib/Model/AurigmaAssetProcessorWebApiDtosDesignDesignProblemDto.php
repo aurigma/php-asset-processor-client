@@ -60,9 +60,9 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     protected static $openAPITypes = [
         'font_missing_problems' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignFontMissingProblemDto[]',
         'data_schema_validation_problems' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignDataSchemaValidationProblemDto[]',
-        'data_schema_missing_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignDataSchemaMissingProblemDto',
-        'toggle_set_missing_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetMissingProblemDto',
-        'toggle_set_validation_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetValidationProblemDto',
+        'data_schema_missing_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoDataSchemaMissingProblem',
+        'toggle_set_missing_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetMissingProblem',
+        'toggle_set_validation_problem' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetValidationProblem',
         'palette_missing_problems' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignPaletteMissingProblemDto[]',
         'palette_validation_problems' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignPaletteValidationProblemDto[]'
     ];
@@ -92,9 +92,9 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     protected static array $openAPINullables = [
         'font_missing_problems' => true,
         'data_schema_validation_problems' => true,
-        'data_schema_missing_problem' => false,
-        'toggle_set_missing_problem' => false,
-        'toggle_set_validation_problem' => false,
+        'data_schema_missing_problem' => true,
+        'toggle_set_missing_problem' => true,
+        'toggle_set_validation_problem' => true,
         'palette_missing_problems' => true,
         'palette_validation_problems' => true
     ];
@@ -403,7 +403,7 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Gets data_schema_missing_problem
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignDataSchemaMissingProblemDto|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoDataSchemaMissingProblem|null
      */
     public function getDataSchemaMissingProblem()
     {
@@ -413,14 +413,21 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Sets data_schema_missing_problem
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignDataSchemaMissingProblemDto|null $data_schema_missing_problem data_schema_missing_problem
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoDataSchemaMissingProblem|null $data_schema_missing_problem data_schema_missing_problem
      *
      * @return self
      */
     public function setDataSchemaMissingProblem($data_schema_missing_problem)
     {
         if (is_null($data_schema_missing_problem)) {
-            throw new \InvalidArgumentException('non-nullable data_schema_missing_problem cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_schema_missing_problem');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_schema_missing_problem', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_schema_missing_problem'] = $data_schema_missing_problem;
 
@@ -430,7 +437,7 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Gets toggle_set_missing_problem
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetMissingProblemDto|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetMissingProblem|null
      */
     public function getToggleSetMissingProblem()
     {
@@ -440,14 +447,21 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Sets toggle_set_missing_problem
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetMissingProblemDto|null $toggle_set_missing_problem toggle_set_missing_problem
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetMissingProblem|null $toggle_set_missing_problem toggle_set_missing_problem
      *
      * @return self
      */
     public function setToggleSetMissingProblem($toggle_set_missing_problem)
     {
         if (is_null($toggle_set_missing_problem)) {
-            throw new \InvalidArgumentException('non-nullable toggle_set_missing_problem cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'toggle_set_missing_problem');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('toggle_set_missing_problem', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['toggle_set_missing_problem'] = $toggle_set_missing_problem;
 
@@ -457,7 +471,7 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Gets toggle_set_validation_problem
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetValidationProblemDto|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetValidationProblem|null
      */
     public function getToggleSetValidationProblem()
     {
@@ -467,14 +481,21 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto implements ModelInte
     /**
      * Sets toggle_set_validation_problem
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignToggleSetValidationProblemDto|null $toggle_set_validation_problem toggle_set_validation_problem
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDtoToggleSetValidationProblem|null $toggle_set_validation_problem toggle_set_validation_problem
      *
      * @return self
      */
     public function setToggleSetValidationProblem($toggle_set_validation_problem)
     {
         if (is_null($toggle_set_validation_problem)) {
-            throw new \InvalidArgumentException('non-nullable toggle_set_validation_problem cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'toggle_set_validation_problem');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('toggle_set_validation_problem', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['toggle_set_validation_problem'] = $toggle_set_validation_problem;
 

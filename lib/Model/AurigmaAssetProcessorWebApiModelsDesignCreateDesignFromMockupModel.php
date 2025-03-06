@@ -59,7 +59,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel impleme
       */
     protected static $openAPITypes = [
         'design_params' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel',
-        'preview_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel',
+        'preview_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings',
         'mockup_id' => 'string'
     ];
 
@@ -83,7 +83,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel impleme
       */
     protected static array $openAPINullables = [
         'design_params' => false,
-        'preview_settings' => false,
+        'preview_settings' => true,
         'mockup_id' => false
     ];
 
@@ -327,7 +327,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel impleme
     /**
      * Sets design_params
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel $design_params design_params
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel $design_params Design prameters.
      *
      * @return self
      */
@@ -344,7 +344,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel impleme
     /**
      * Gets preview_settings
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings|null
      */
     public function getPreviewSettings()
     {
@@ -354,14 +354,21 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel impleme
     /**
      * Sets preview_settings
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel|null $preview_settings preview_settings
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings|null $preview_settings preview_settings
      *
      * @return self
      */
     public function setPreviewSettings($preview_settings)
     {
         if (is_null($preview_settings)) {
-            throw new \InvalidArgumentException('non-nullable preview_settings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'preview_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preview_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['preview_settings'] = $preview_settings;
 

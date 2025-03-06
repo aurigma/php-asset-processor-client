@@ -59,9 +59,9 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
       */
     protected static $openAPITypes = [
         'design_params' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel',
-        'preview_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel',
+        'preview_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings',
         'blank_design_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSettingsModel',
-        'blank_design_source_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSourceSettingsModel'
+        'blank_design_source_settings' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelBlankDesignSourceSettings'
     ];
 
     /**
@@ -85,9 +85,9 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
       */
     protected static array $openAPINullables = [
         'design_params' => false,
-        'preview_settings' => false,
+        'preview_settings' => true,
         'blank_design_settings' => false,
-        'blank_design_source_settings' => false
+        'blank_design_source_settings' => true
     ];
 
     /**
@@ -330,7 +330,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Sets design_params
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel $design_params design_params
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel $design_params Design parameters.
      *
      * @return self
      */
@@ -347,7 +347,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Gets preview_settings
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings|null
      */
     public function getPreviewSettings()
     {
@@ -357,14 +357,21 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Sets preview_settings
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignPreviewSettingsModel|null $preview_settings preview_settings
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelPreviewSettings|null $preview_settings preview_settings
      *
      * @return self
      */
     public function setPreviewSettings($preview_settings)
     {
         if (is_null($preview_settings)) {
-            throw new \InvalidArgumentException('non-nullable preview_settings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'preview_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('preview_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['preview_settings'] = $preview_settings;
 
@@ -384,7 +391,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Sets blank_design_settings
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSettingsModel $blank_design_settings blank_design_settings
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSettingsModel $blank_design_settings Blank design settings.
      *
      * @return self
      */
@@ -401,7 +408,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Gets blank_design_source_settings
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSourceSettingsModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelBlankDesignSourceSettings|null
      */
     public function getBlankDesignSourceSettings()
     {
@@ -411,14 +418,21 @@ class AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel implements M
     /**
      * Sets blank_design_source_settings
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignBlankDesignSourceSettingsModel|null $blank_design_source_settings blank_design_source_settings
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModelBlankDesignSourceSettings|null $blank_design_source_settings blank_design_source_settings
      *
      * @return self
      */
     public function setBlankDesignSourceSettings($blank_design_source_settings)
     {
         if (is_null($blank_design_source_settings)) {
-            throw new \InvalidArgumentException('non-nullable blank_design_source_settings cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'blank_design_source_settings');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('blank_design_source_settings', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['blank_design_source_settings'] = $blank_design_source_settings;
 

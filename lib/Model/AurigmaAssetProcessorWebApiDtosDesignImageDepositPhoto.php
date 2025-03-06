@@ -59,7 +59,7 @@ class AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto implements ModelInt
       */
     protected static $openAPITypes = [
         'item_id' => 'string',
-        'deposit_photo' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDepositPhotoInfo'
+        'deposit_photo' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhotoDepositPhoto'
     ];
 
     /**
@@ -81,7 +81,7 @@ class AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto implements ModelInt
       */
     protected static array $openAPINullables = [
         'item_id' => true,
-        'deposit_photo' => false
+        'deposit_photo' => true
     ];
 
     /**
@@ -334,7 +334,7 @@ class AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto implements ModelInt
     /**
      * Gets deposit_photo
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDepositPhotoInfo|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhotoDepositPhoto|null
      */
     public function getDepositPhoto()
     {
@@ -344,14 +344,21 @@ class AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto implements ModelInt
     /**
      * Sets deposit_photo
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDepositPhotoInfo|null $deposit_photo deposit_photo
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhotoDepositPhoto|null $deposit_photo deposit_photo
      *
      * @return self
      */
     public function setDepositPhoto($deposit_photo)
     {
         if (is_null($deposit_photo)) {
-            throw new \InvalidArgumentException('non-nullable deposit_photo cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'deposit_photo');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('deposit_photo', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['deposit_photo'] = $deposit_photo;
 

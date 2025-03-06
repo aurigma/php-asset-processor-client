@@ -351,7 +351,7 @@ class AurigmaAssetProcessorWebApiDtosDesignDesignDataSchemaValidationProblemDto 
     /**
      * Sets validation_rule
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDataSchemaValidationRule|null $validation_rule validation_rule
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDataSchemaValidationRule|null $validation_rule Validation rule which is violated.
      *
      * @return self
      */

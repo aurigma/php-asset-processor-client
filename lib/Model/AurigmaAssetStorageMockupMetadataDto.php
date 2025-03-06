@@ -77,7 +77,7 @@ class AurigmaAssetStorageMockupMetadataDto implements ModelInterface, ArrayAcces
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'format' => false
+        'format' => true
     ];
 
     /**
@@ -309,7 +309,14 @@ class AurigmaAssetStorageMockupMetadataDto implements ModelInterface, ArrayAcces
     public function setFormat($format)
     {
         if (is_null($format)) {
-            throw new \InvalidArgumentException('non-nullable format cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'format');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('format', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['format'] = $format;
 

@@ -4747,7 +4747,7 @@ class DesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format preview_settings_format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorImportDesign'] to see the possible values for this operation
      *
@@ -4777,7 +4777,7 @@ class DesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorImportDesign'] to see the possible values for this operation
      *
@@ -4948,7 +4948,7 @@ class DesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorImportDesign'] to see the possible values for this operation
      *
@@ -4981,7 +4981,7 @@ class DesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorImportDesign'] to see the possible values for this operation
      *
@@ -5043,7 +5043,7 @@ class DesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorImportDesign'] to see the possible values for this operation
      *
@@ -6528,7 +6528,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
@@ -6555,7 +6555,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
@@ -6723,7 +6723,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
@@ -6753,7 +6753,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
@@ -6812,7 +6812,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
@@ -7047,7 +7047,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -7074,7 +7074,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -7242,7 +7242,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -7272,7 +7272,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -7331,7 +7331,7 @@ class DesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation

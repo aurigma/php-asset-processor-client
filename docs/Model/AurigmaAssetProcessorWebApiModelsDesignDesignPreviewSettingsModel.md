@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **width** | **int** | Preview image width. | [optional]
 **height** | **int** | Preview image height. | [optional]
 **stub** | **bool** | Preview stub content switcher.  Indicates whether to show stub content in preview. | [optional]
-**format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md) |  | [optional]
+**format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md) | Preview image format. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

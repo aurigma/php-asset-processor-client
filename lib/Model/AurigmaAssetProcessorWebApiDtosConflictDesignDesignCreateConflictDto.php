@@ -83,9 +83,9 @@ class AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto imple
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'missing_fonts_conflict' => false,
-        'missing_images_conflict' => false,
-        'name_conflict' => false,
+        'missing_fonts_conflict' => true,
+        'missing_images_conflict' => true,
+        'name_conflict' => true,
         'conflict_description' => true
     ];
 
@@ -330,7 +330,14 @@ class AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto imple
     public function setMissingFontsConflict($missing_fonts_conflict)
     {
         if (is_null($missing_fonts_conflict)) {
-            throw new \InvalidArgumentException('non-nullable missing_fonts_conflict cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'missing_fonts_conflict');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('missing_fonts_conflict', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['missing_fonts_conflict'] = $missing_fonts_conflict;
 
@@ -357,7 +364,14 @@ class AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto imple
     public function setMissingImagesConflict($missing_images_conflict)
     {
         if (is_null($missing_images_conflict)) {
-            throw new \InvalidArgumentException('non-nullable missing_images_conflict cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'missing_images_conflict');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('missing_images_conflict', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['missing_images_conflict'] = $missing_images_conflict;
 
@@ -384,7 +398,14 @@ class AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto imple
     public function setNameConflict($name_conflict)
     {
         if (is_null($name_conflict)) {
-            throw new \InvalidArgumentException('non-nullable name_conflict cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name_conflict');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name_conflict', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name_conflict'] = $name_conflict;
 

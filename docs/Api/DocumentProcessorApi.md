@@ -131,8 +131,8 @@ $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
-$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType
+$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType | Document type.
+$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType | Document format.
 
 try {
     $result = $apiInstance->documentProcessorImportDocument($source_file, $tenant_id, $name, $path, $custom_fields, $type, $format);
@@ -151,8 +151,8 @@ try {
 | **name** | **string**| Document name. | [optional] |
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |
-| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)|  | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)|  | [optional] |
+| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)| Document type. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)| Document format. | [optional] |
 
 ### Return type
 
@@ -220,8 +220,8 @@ $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
 $file = "/path/to/file.txt"; // \SplFileObject | Document source file.
-$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType
+$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType | Document type.
+$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType | Document format.
 
 try {
     $result = $apiInstance->documentProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file, $type, $format);
@@ -241,8 +241,8 @@ try {
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**| Document source file. | [optional] |
-| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)|  | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)|  | [optional] |
+| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)| Document type. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)| Document format. | [optional] |
 
 ### Return type
 

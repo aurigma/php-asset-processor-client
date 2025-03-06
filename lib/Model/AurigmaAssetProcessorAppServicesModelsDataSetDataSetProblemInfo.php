@@ -80,7 +80,7 @@ class AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo implements
       */
     protected static array $openAPINullables = [
         'data_schema_validation_problems' => true,
-        'data_schema_missing_problem' => false
+        'data_schema_missing_problem' => true
     ];
 
     /**
@@ -350,7 +350,14 @@ class AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo implements
     public function setDataSchemaMissingProblem($data_schema_missing_problem)
     {
         if (is_null($data_schema_missing_problem)) {
-            throw new \InvalidArgumentException('non-nullable data_schema_missing_problem cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_schema_missing_problem');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_schema_missing_problem', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_schema_missing_problem'] = $data_schema_missing_problem;
 

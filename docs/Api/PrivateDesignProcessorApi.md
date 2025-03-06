@@ -1184,7 +1184,7 @@ $preview_settings_name = 'preview_settings_name_example'; // string | Preview na
 $preview_settings_width = 56; // int | Preview image width.
 $preview_settings_height = 56; // int | Preview image height.
 $preview_settings_stub = True; // bool | Preview stub content switcher.  Indicates whether to show stub content in preview.
-$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat
+$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Preview image format.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -1211,7 +1211,7 @@ try {
 | **preview_settings_width** | **int**| Preview image width. | [optional] |
 | **preview_settings_height** | **int**| Preview image height. | [optional] |
 | **preview_settings_stub** | **bool**| Preview stub content switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md)|  | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md)| Preview image format. | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type
@@ -1519,7 +1519,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
@@ -1543,7 +1543,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **format** | [**AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
@@ -1615,7 +1615,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
@@ -1639,7 +1639,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **format** | [**AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |

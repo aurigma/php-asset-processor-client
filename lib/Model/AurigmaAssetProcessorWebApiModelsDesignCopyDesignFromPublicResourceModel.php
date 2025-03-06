@@ -60,7 +60,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel i
     protected static $openAPITypes = [
         'public_resource_id' => 'string',
         'result_design_id' => 'string',
-        'result_design_params' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel'
+        'result_design_params' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModelResultDesignParams'
     ];
 
     /**
@@ -84,7 +84,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel i
     protected static array $openAPINullables = [
         'public_resource_id' => false,
         'result_design_id' => true,
-        'result_design_params' => false
+        'result_design_params' => true
     ];
 
     /**
@@ -380,7 +380,7 @@ class AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel i
     /**
      * Gets result_design_params
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModelResultDesignParams|null
      */
     public function getResultDesignParams()
     {
@@ -390,14 +390,21 @@ class AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel i
     /**
      * Sets result_design_params
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignParamsModel|null $result_design_params result_design_params
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModelResultDesignParams|null $result_design_params result_design_params
      *
      * @return self
      */
     public function setResultDesignParams($result_design_params)
     {
         if (is_null($result_design_params)) {
-            throw new \InvalidArgumentException('non-nullable result_design_params cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result_design_params');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result_design_params', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['result_design_params'] = $result_design_params;
 

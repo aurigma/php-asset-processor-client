@@ -61,8 +61,8 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
         'sheet_width' => 'int',
         'sheet_height' => 'int',
         'print_area_index' => 'int',
-        'margin' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintMarginModel',
-        'gap' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintGapModel'
+        'margin' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelMargin',
+        'gap' => '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelGap'
     ];
 
     /**
@@ -89,8 +89,8 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
         'sheet_width' => false,
         'sheet_height' => false,
         'print_area_index' => false,
-        'margin' => false,
-        'gap' => false
+        'margin' => true,
+        'gap' => true
     ];
 
     /**
@@ -402,7 +402,7 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
     /**
      * Gets margin
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintMarginModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelMargin|null
      */
     public function getMargin()
     {
@@ -412,14 +412,21 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
     /**
      * Sets margin
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintMarginModel|null $margin margin
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelMargin|null $margin margin
      *
      * @return self
      */
     public function setMargin($margin)
     {
         if (is_null($margin)) {
-            throw new \InvalidArgumentException('non-nullable margin cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'margin');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('margin', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['margin'] = $margin;
 
@@ -429,7 +436,7 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
     /**
      * Gets gap
      *
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintGapModel|null
+     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelGap|null
      */
     public function getGap()
     {
@@ -439,14 +446,21 @@ class AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel
     /**
      * Sets gap
      *
-     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignPrintGapModel|null $gap gap
+     * @param \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModelGap|null $gap gap
      *
      * @return self
      */
     public function setGap($gap)
     {
         if (is_null($gap)) {
-            throw new \InvalidArgumentException('non-nullable gap cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gap');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gap', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gap'] = $gap;
 
