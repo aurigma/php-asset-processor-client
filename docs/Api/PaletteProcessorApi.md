@@ -14,7 +14,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `paletteProcessorImportPalette()`
 
 ```php
-paletteProcessorImportPalette($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_format): \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto
+paletteProcessorImportPalette($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_format): \Aurigma\AssetProcessor\Model\PaletteDto
 ```
 
 Imports palette from source file and saves it to storage.
@@ -64,7 +64,7 @@ $preview_settings_namespace = 'preview_settings_namespace_example'; // string | 
 $preview_settings_name = 'preview_settings_name_example'; // string | Preview name.
 $preview_settings_width = 56; // int | Preview image width.
 $preview_settings_height = 56; // int | Preview image heigth.
-$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat | Preview image format.
+$preview_settings_format = new \Aurigma\AssetProcessor\Model\PalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\PalettePreviewFormat | Preview image format.
 
 try {
     $result = $apiInstance->paletteProcessorImportPalette($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_format);
@@ -88,11 +88,11 @@ try {
 | **preview_settings_name** | **string**| Preview name. | [optional] |
 | **preview_settings_width** | **int**| Preview image width. | [optional] |
 | **preview_settings_height** | **int**| Preview image heigth. | [optional] |
-| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat.md)| Preview image format. | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\PalettePreviewFormat**](../Model/PalettePreviewFormat.md)| Preview image format. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto**](../Model/AurigmaAssetStoragePaletteDto.md)
+[**\Aurigma\AssetProcessor\Model\PaletteDto**](../Model/PaletteDto.md)
 
 ### Authorization
 
@@ -155,7 +155,7 @@ $namespace = 'namespace_example'; // string | Preview namespace.
 $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\PalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\PalettePreviewFormat | Preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 
@@ -176,7 +176,7 @@ try {
 | **name** | **string**| Preview name. | |
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat**](../Model/.md)|  | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\PalettePreviewFormat**](../Model/.md)| Preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 
@@ -191,7 +191,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -245,7 +245,7 @@ $namespace = 'namespace_example'; // string | Preview namespace.
 $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\PalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\PalettePreviewFormat | Preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 
@@ -266,7 +266,7 @@ try {
 | **name** | **string**| Preview name. | |
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat**](../Model/.md)|  | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\PalettePreviewFormat**](../Model/.md)| Preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 
@@ -281,7 +281,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -290,7 +290,7 @@ try {
 ## `paletteProcessorReimportPalette()`
 
 ```php
-paletteProcessorReimportPalette($id, $source_file, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto
+paletteProcessorReimportPalette($id, $source_file, $tenant_id): \Aurigma\AssetProcessor\Model\PaletteDto
 ```
 
 Re-imports palette from source file and updates palette file and metadata in storage.
@@ -350,7 +350,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto**](../Model/AurigmaAssetStoragePaletteDto.md)
+[**\Aurigma\AssetProcessor\Model\PaletteDto**](../Model/PaletteDto.md)
 
 ### Authorization
 
@@ -368,7 +368,7 @@ try {
 ## `paletteProcessorUpdate()`
 
 ```php
-paletteProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto
+paletteProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\PaletteDto
 ```
 
 Updates palette file and metadata in storage.
@@ -436,7 +436,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto**](../Model/AurigmaAssetStoragePaletteDto.md)
+[**\Aurigma\AssetProcessor\Model\PaletteDto**](../Model/PaletteDto.md)
 
 ### Authorization
 

@@ -11,7 +11,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `buildInfoGetInfo()`
 
 ```php
-buildInfoGetInfo(): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel
+buildInfoGetInfo(): \Aurigma\AssetProcessor\Model\BuildInfoModel
 ```
 
 Get assembly build info.
@@ -44,7 +44,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel**](../Model/AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel.md)
+[**\Aurigma\AssetProcessor\Model\BuildInfoModel**](../Model/BuildInfoModel.md)
 
 ### Authorization
 

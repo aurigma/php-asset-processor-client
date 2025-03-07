@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `imageProcessorImportImage()`
 
 ```php
-imageProcessorImportImage($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $preview_settings_apply_auto_crop): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto
+imageProcessorImportImage($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $preview_settings_apply_auto_crop): \Aurigma\AssetProcessor\Model\ImageDto
 ```
 
 Imports image from source file and saves it to storage.
@@ -64,8 +64,8 @@ $preview_settings_name = 'preview_settings_name_example'; // string | Preview na
 $preview_settings_width = 56; // int | Preview image width.
 $preview_settings_height = 56; // int | Preview image heigth.
 $preview_settings_jpeg_quality = 56; // int | Quality of Jpeg previews.
-$preview_settings_fit_mode = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode | Image preview fit mode.
-$preview_settings_interpolation_mode = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode | Image preview interpolation mode.
+$preview_settings_fit_mode = new \Aurigma\AssetProcessor\Model\ImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewFitMode | Image preview fit mode.
+$preview_settings_interpolation_mode = new \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode | Image preview interpolation mode.
 $preview_settings_background = 'preview_settings_background_example'; // string | Background color for transparent images.
 $preview_settings_apply_auto_crop = True; // bool | Indicates if the image should be automatically cropped.
 
@@ -92,14 +92,14 @@ try {
 | **preview_settings_width** | **int**| Preview image width. | [optional] |
 | **preview_settings_height** | **int**| Preview image heigth. | [optional] |
 | **preview_settings_jpeg_quality** | **int**| Quality of Jpeg previews. | [optional] |
-| **preview_settings_fit_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode**](../Model/AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode.md)| Image preview fit mode. | [optional] |
-| **preview_settings_interpolation_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode**](../Model/AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode.md)| Image preview interpolation mode. | [optional] |
+| **preview_settings_fit_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewFitMode**](../Model/ImagePreviewFitMode.md)| Image preview fit mode. | [optional] |
+| **preview_settings_interpolation_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode**](../Model/ImagePreviewInterpolationMode.md)| Image preview interpolation mode. | [optional] |
 | **preview_settings_background** | **string**| Background color for transparent images. | [optional] |
 | **preview_settings_apply_auto_crop** | **bool**| Indicates if the image should be automatically cropped. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto**](../Model/AurigmaAssetStorageImageDto.md)
+[**\Aurigma\AssetProcessor\Model\ImageDto**](../Model/ImageDto.md)
 
 ### Authorization
 
@@ -163,8 +163,8 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $jpeg_quality = 56; // int | Quality of Jpeg previews
-$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode | Image preview fit mode
-$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode | Image preview interpolation mode
+$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewFitMode | Image preview fit mode
+$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode | Image preview interpolation mode
 $background = 'background_example'; // string | Background color for transparent images
 $apply_auto_crop = false; // bool | Indicates if the image should be automatically cropped.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
@@ -188,8 +188,8 @@ try {
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
 | **jpeg_quality** | **int**| Quality of Jpeg previews | [optional] |
-| **fit_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode**](../Model/.md)| Image preview fit mode | [optional] |
-| **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
+| **fit_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewFitMode**](../Model/.md)| Image preview fit mode | [optional] |
+| **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
 | **background** | **string**| Background color for transparent images | [optional] |
 | **apply_auto_crop** | **bool**| Indicates if the image should be automatically cropped. | [optional] [default to false] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
@@ -206,7 +206,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -261,8 +261,8 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $jpeg_quality = 56; // int | Quality of Jpeg previews
-$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode | Image preview fit mode
-$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode | Image preview interpolation mode
+$fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewFitMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewFitMode | Image preview fit mode
+$interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode | Image preview interpolation mode
 $background = 'background_example'; // string | Background color for transparent images
 $apply_auto_crop = false; // bool | Indicates if the image should be automatically cropped.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
@@ -286,8 +286,8 @@ try {
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
 | **jpeg_quality** | **int**| Quality of Jpeg previews | [optional] |
-| **fit_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode**](../Model/.md)| Image preview fit mode | [optional] |
-| **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
+| **fit_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewFitMode**](../Model/.md)| Image preview fit mode | [optional] |
+| **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
 | **background** | **string**| Background color for transparent images | [optional] |
 | **apply_auto_crop** | **bool**| Indicates if the image should be automatically cropped. | [optional] [default to false] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
@@ -304,7 +304,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -313,7 +313,7 @@ try {
 ## `imageProcessorUpdate()`
 
 ```php
-imageProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto
+imageProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\ImageDto
 ```
 
 Updates image file and metadata in storage.
@@ -381,7 +381,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto**](../Model/AurigmaAssetStorageImageDto.md)
+[**\Aurigma\AssetProcessor\Model\ImageDto**](../Model/ImageDto.md)
 
 ### Authorization
 

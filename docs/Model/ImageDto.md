@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **mime_type** | **string** |  | [optional]
 **previews** | [**array<string,\Aurigma\AssetProcessor\Model\PreviewMetadata>**](PreviewMetadata.md) |  | [optional]
 **size** | **int** |  | [optional]
+**descriptor** | **string** |  | [optional]
 **folder_id** | **string** |  | [optional]
 **tenant_id** | **int** |  | [optional]
 **id** | **string** |  | [optional]

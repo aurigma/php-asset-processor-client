@@ -149,12 +149,12 @@ class PaletteProcessorApi
      * @param  string $preview_settings_name Preview name. (optional)
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorImportPalette'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto
+     * @return \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\PaletteImportConflictDto
      */
     public function paletteProcessorImportPalette($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_format = null, string $contentType = self::contentTypes['paletteProcessorImportPalette'][0])
     {
@@ -177,12 +177,12 @@ class PaletteProcessorApi
      * @param  string $preview_settings_name Preview name. (optional)
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorImportPalette'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\PaletteImportConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function paletteProcessorImportPaletteWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_format = null, string $contentType = self::contentTypes['paletteProcessorImportPalette'][0])
     {
@@ -225,11 +225,11 @@ class PaletteProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -247,16 +247,16 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteImportConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteImportConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -274,13 +274,13 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteImportConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -313,7 +313,7 @@ class PaletteProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -321,7 +321,7 @@ class PaletteProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteImportConflictDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteImportConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -346,7 +346,7 @@ class PaletteProcessorApi
      * @param  string $preview_settings_name Preview name. (optional)
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorImportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -377,7 +377,7 @@ class PaletteProcessorApi
      * @param  string $preview_settings_name Preview name. (optional)
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorImportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -385,7 +385,7 @@ class PaletteProcessorApi
      */
     public function paletteProcessorImportPaletteAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_format = null, string $contentType = self::contentTypes['paletteProcessorImportPalette'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
         $request = $this->paletteProcessorImportPaletteRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_format, $contentType);
 
         return $this->client
@@ -437,7 +437,7 @@ class PaletteProcessorApi
      * @param  string $preview_settings_name Preview name. (optional)
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsPalettePreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorImportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -620,14 +620,14 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function paletteProcessorPreparePreview($id, $namespace, $name, $width, $height, $format = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorPreparePreview'][0])
     {
@@ -645,14 +645,14 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function paletteProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $format = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorPreparePreview'][0])
     {
@@ -722,11 +722,11 @@ class PaletteProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -744,7 +744,7 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -791,7 +791,7 @@ class PaletteProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -811,7 +811,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
@@ -839,7 +839,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
@@ -896,7 +896,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
@@ -957,7 +957,7 @@ class PaletteProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat', // openApiType
+            'PalettePreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1025,7 +1025,7 @@ class PaletteProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1109,14 +1109,14 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function paletteProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $format = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorPreparePreviewUrl'][0])
     {
@@ -1134,14 +1134,14 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function paletteProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $format = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorPreparePreviewUrl'][0])
     {
@@ -1211,11 +1211,11 @@ class PaletteProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1233,7 +1233,7 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1280,7 +1280,7 @@ class PaletteProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1300,7 +1300,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -1328,7 +1328,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -1385,7 +1385,7 @@ class PaletteProcessorApi
      * @param  string $name Preview name. (required)
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat $format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
@@ -1446,7 +1446,7 @@ class PaletteProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorDomainServicesEnumsPalettePalettePreviewFormat', // openApiType
+            'PalettePreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1514,7 +1514,7 @@ class PaletteProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', ],
+            ['text/plain', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1600,7 +1600,7 @@ class PaletteProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto
      */
     public function paletteProcessorReimportPalette($id, $source_file, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorReimportPalette'][0])
     {
@@ -1620,7 +1620,7 @@ class PaletteProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function paletteProcessorReimportPaletteWithHttpInfo($id, $source_file, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorReimportPalette'][0])
     {
@@ -1663,11 +1663,11 @@ class PaletteProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1685,16 +1685,16 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1712,16 +1712,16 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1739,13 +1739,13 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1778,7 +1778,7 @@ class PaletteProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1786,7 +1786,7 @@ class PaletteProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1794,7 +1794,7 @@ class PaletteProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1842,7 +1842,7 @@ class PaletteProcessorApi
      */
     public function paletteProcessorReimportPaletteAsyncWithHttpInfo($id, $source_file, $tenant_id = null, string $contentType = self::contentTypes['paletteProcessorReimportPalette'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
         $request = $this->paletteProcessorReimportPaletteRequest($id, $source_file, $tenant_id, $contentType);
 
         return $this->client
@@ -2041,7 +2041,7 @@ class PaletteProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto
      */
     public function paletteProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['paletteProcessorUpdate'][0])
     {
@@ -2064,7 +2064,7 @@ class PaletteProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\PaletteDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function paletteProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['paletteProcessorUpdate'][0])
     {
@@ -2107,11 +2107,11 @@ class PaletteProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2129,16 +2129,16 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2156,16 +2156,16 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2183,13 +2183,13 @@ class PaletteProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2222,7 +2222,7 @@ class PaletteProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2230,7 +2230,7 @@ class PaletteProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2238,7 +2238,7 @@ class PaletteProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictPalettePaletteUpdateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\PaletteUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2292,7 +2292,7 @@ class PaletteProcessorApi
      */
     public function paletteProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['paletteProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStoragePaletteDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\PaletteDto';
         $request = $this->paletteProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file, $contentType);
 
         return $this->client

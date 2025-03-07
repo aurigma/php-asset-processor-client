@@ -13,7 +13,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `fontProcessorImportFont()`
 
 ```php
-fontProcessorImportFont($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_text, $preview_settings_format, $preview_settings_max_width, $preview_settings_font_size, $preview_settings_horizontal_alignment, $preview_settings_vertical_alignment, $preview_settings_background, $preview_settings_text_color): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto
+fontProcessorImportFont($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_text, $preview_settings_format, $preview_settings_max_width, $preview_settings_font_size, $preview_settings_horizontal_alignment, $preview_settings_vertical_alignment, $preview_settings_background, $preview_settings_text_color): \Aurigma\AssetProcessor\Model\FontDto
 ```
 
 Imports font from source file and saves it to storage.
@@ -64,11 +64,11 @@ $preview_settings_name = 'preview_settings_name_example'; // string | Preview na
 $preview_settings_width = 56; // int | Preview image width.
 $preview_settings_height = 56; // int | Preview image heigth.
 $preview_settings_text = 'preview_settings_text_example'; // string | Text, that will be visualized with selected font in preview image, e.g. 'Abg'.
-$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat | Preview image format.
+$preview_settings_format = new \Aurigma\AssetProcessor\Model\FontPreviewFormat(); // \Aurigma\AssetProcessor\Model\FontPreviewFormat | Preview image format.
 $preview_settings_max_width = 56; // int | Max width of preview image  If parameter is set then normal widht and height and font size are ignored.
 $preview_settings_font_size = 3.4; // float | Font size for text visualization in preview image.
-$preview_settings_horizontal_alignment = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image.
-$preview_settings_vertical_alignment = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image.
+$preview_settings_horizontal_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image.
+$preview_settings_vertical_alignment = new \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image.
 $preview_settings_background = 'preview_settings_background_example'; // string | Background color for preview image.
 $preview_settings_text_color = 'preview_settings_text_color_example'; // string | Text color for preview image.
 
@@ -95,17 +95,17 @@ try {
 | **preview_settings_width** | **int**| Preview image width. | [optional] |
 | **preview_settings_height** | **int**| Preview image heigth. | [optional] |
 | **preview_settings_text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. | [optional] |
-| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsFontPreviewFormat.md)| Preview image format. | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/FontPreviewFormat.md)| Preview image format. | [optional] |
 | **preview_settings_max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored. | [optional] |
 | **preview_settings_font_size** | **float**| Font size for text visualization in preview image. | [optional] |
-| **preview_settings_horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment**](../Model/AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment.md)| Horizontal alignment of text visualization in preview image. | [optional] |
-| **preview_settings_vertical_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment**](../Model/AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment.md)| Vertical alignment of text visualization in preview image. | [optional] |
+| **preview_settings_horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/FontPreviewHorizontalAlignment.md)| Horizontal alignment of text visualization in preview image. | [optional] |
+| **preview_settings_vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/FontPreviewVerticalAlignment.md)| Vertical alignment of text visualization in preview image. | [optional] |
 | **preview_settings_background** | **string**| Background color for preview image. | [optional] |
 | **preview_settings_text_color** | **string**| Text color for preview image. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto**](../Model/AurigmaAssetStorageFontDto.md)
+[**\Aurigma\AssetProcessor\Model\FontDto**](../Model/FontDto.md)
 
 ### Authorization
 
@@ -169,11 +169,11 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $text = 'text_example'; // string | Text, that will be visualized with selected font in preview image, e.g. 'Abg'
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat | Preview image format
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewFormat(); // \Aurigma\AssetProcessor\Model\FontPreviewFormat | Preview image format
 $max_width = 56; // int | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
 $font_size = 3.4; // float | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
-$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
-$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
+$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
+$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
@@ -197,11 +197,11 @@ try {
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
 | **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
 | **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
 | **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
-| **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
-| **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
+| **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
+| **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
 | **background** | **string**| Background color for preview image | [optional] |
 | **text_color** | **string**| Text color for preview image | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
@@ -218,7 +218,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -273,11 +273,11 @@ $name = 'name_example'; // string | Preview name.
 $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $text = 'text_example'; // string | Text, that will be visualized with selected font in preview image, e.g. 'Abg'
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat | Preview image format
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewFormat(); // \Aurigma\AssetProcessor\Model\FontPreviewFormat | Preview image format
 $max_width = 56; // int | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
 $font_size = 3.4; // float | Max width of preview image  If parameter is set then normal widht and height and font size are ignored
-$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
-$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
+$horizontal_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment | Horizontal alignment of text visualization in preview image
+$vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment(); // \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment | Vertical alignment of text visualization in preview image
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
@@ -301,11 +301,11 @@ try {
 | **width** | **int**| Preview image width. | |
 | **height** | **int**| Preview image height. | |
 | **text** | **string**| Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\FontPreviewFormat**](../Model/.md)| Preview image format | [optional] |
 | **max_width** | **int**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
 | **font_size** | **float**| Max width of preview image  If parameter is set then normal widht and height and font size are ignored | [optional] |
-| **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
-| **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
+| **horizontal_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment**](../Model/.md)| Horizontal alignment of text visualization in preview image | [optional] |
+| **vertical_alignment** | [**\Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment**](../Model/.md)| Vertical alignment of text visualization in preview image | [optional] |
 | **background** | **string**| Background color for preview image | [optional] |
 | **text_color** | **string**| Text color for preview image | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
@@ -322,7 +322,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -331,7 +331,7 @@ try {
 ## `fontProcessorUpdate()`
 
 ```php
-fontProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto
+fontProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\FontDto
 ```
 
 Updates font file and metadata in storage.
@@ -399,7 +399,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto**](../Model/AurigmaAssetStorageFontDto.md)
+[**\Aurigma\AssetProcessor\Model\FontDto**](../Model/FontDto.md)
 
 ### Authorization
 

@@ -33,7 +33,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `designProcessorCalculateCountPerSheet()`
 
 ```php
-designProcessorCalculateCountPerSheet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto
+designProcessorCalculateCountPerSheet($id, $tenant_id, $design_count_per_sheet_calculation_model): \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto
 ```
 
 Calculates the design count per sheet of the specified size.
@@ -73,10 +73,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel | Model to calculate the design count per sheet of the specified size.
+$design_count_per_sheet_calculation_model = new \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel(); // \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel | Model to calculate the design count per sheet of the specified size.
 
 try {
-    $result = $apiInstance->designProcessorCalculateCountPerSheet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model);
+    $result = $apiInstance->designProcessorCalculateCountPerSheet($id, $tenant_id, $design_count_per_sheet_calculation_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorCalculateCountPerSheet: ', $e->getMessage(), PHP_EOL;
@@ -89,11 +89,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel.md)| Model to calculate the design count per sheet of the specified size. | [optional] |
+| **design_count_per_sheet_calculation_model** | [**\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel**](../Model/DesignCountPerSheetCalculationModel.md)| Model to calculate the design count per sheet of the specified size. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto**](../Model/DesignCountPerSheetCalculationResultDto.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ try {
 ## `designProcessorCheck()`
 
 ```php
-designProcessorCheck($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto
+designProcessorCheck($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignProblemDto
 ```
 
 Checks if design taken from storage has any problems.
@@ -169,7 +169,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignProblemDto**](../Model/DesignProblemDto.md)
 
 ### Authorization
 
@@ -187,7 +187,7 @@ try {
 ## `designProcessorCreateBlankDesign()`
 
 ```php
-designProcessorCreateBlankDesign($tenant_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorCreateBlankDesign($tenant_id, $create_blank_design_model): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Creates design using basic settings and saves it to storage.
@@ -226,10 +226,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_create_blank_design_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel | Operation parameters.
+$create_blank_design_model = new \Aurigma\AssetProcessor\Model\CreateBlankDesignModel(); // \Aurigma\AssetProcessor\Model\CreateBlankDesignModel | Operation parameters.
 
 try {
-    $result = $apiInstance->designProcessorCreateBlankDesign($tenant_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model);
+    $result = $apiInstance->designProcessorCreateBlankDesign($tenant_id, $create_blank_design_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorCreateBlankDesign: ', $e->getMessage(), PHP_EOL;
@@ -241,11 +241,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel.md)| Operation parameters. | [optional] |
+| **create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankDesignModel**](../Model/CreateBlankDesignModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -263,7 +263,7 @@ try {
 ## `designProcessorCreateDesignFromMockup()`
 
 ```php
-designProcessorCreateDesignFromMockup($tenant_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorCreateDesignFromMockup($tenant_id, $create_design_from_mockup_model): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Creates design compatible to specified mockup and saves it to storage.
@@ -302,10 +302,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel | Operation parameters.
+$create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel | Operation parameters.
 
 try {
-    $result = $apiInstance->designProcessorCreateDesignFromMockup($tenant_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model);
+    $result = $apiInstance->designProcessorCreateDesignFromMockup($tenant_id, $create_design_from_mockup_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorCreateDesignFromMockup: ', $e->getMessage(), PHP_EOL;
@@ -317,11 +317,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel.md)| Operation parameters. | [optional] |
+| **create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel**](../Model/CreateDesignFromMockupModel.md)| Operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -339,7 +339,7 @@ try {
 ## `designProcessorEmbedDataSchema()`
 
 ```php
-designProcessorEmbedDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorEmbedDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Embeds linked data schema to the design file.
@@ -397,7 +397,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ try {
 ## `designProcessorEmbedPalettes()`
 
 ```php
-designProcessorEmbedPalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorEmbedPalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Embeds linked palettes to the design file.
@@ -473,7 +473,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -491,7 +491,7 @@ try {
 ## `designProcessorEmbedToggleSet()`
 
 ```php
-designProcessorEmbedToggleSet($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorEmbedToggleSet($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Embeds linked toggle set to the design file.
@@ -549,7 +549,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -634,7 +634,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -643,7 +643,7 @@ try {
 ## `designProcessorExtractDataSchema()`
 
 ```php
-designProcessorExtractDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model)
+designProcessorExtractDataSchema($id, $tenant_id, $design_extract_data_schema_model)
 ```
 
 Extracts data schema from design file and saves it to the specified folder.
@@ -683,10 +683,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel | Extract data schema operation parameters.
+$design_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel | Extract data schema operation parameters.
 
 try {
-    $apiInstance->designProcessorExtractDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model);
+    $apiInstance->designProcessorExtractDataSchema($id, $tenant_id, $design_extract_data_schema_model);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorExtractDataSchema: ', $e->getMessage(), PHP_EOL;
 }
@@ -698,7 +698,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
+| **design_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel**](../Model/DesignExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
 
 ### Return type
 
@@ -720,7 +720,7 @@ void (empty response body)
 ## `designProcessorExtractPalettes()`
 
 ```php
-designProcessorExtractPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model)
+designProcessorExtractPalettes($id, $tenant_id, $design_extract_palettes_model)
 ```
 
 Extracts palettes from design file and saves it to the specified folder.   Due to possibility of having linked and embedded palettes for same design, all linked palettes will be embedded before extraction.
@@ -760,10 +760,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel | Extract palettes operation parameters.
+$design_extract_palettes_model = new \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel(); // \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel | Extract palettes operation parameters.
 
 try {
-    $apiInstance->designProcessorExtractPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model);
+    $apiInstance->designProcessorExtractPalettes($id, $tenant_id, $design_extract_palettes_model);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorExtractPalettes: ', $e->getMessage(), PHP_EOL;
 }
@@ -775,7 +775,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_extract_palettes_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel.md)| Extract palettes operation parameters. | [optional] |
+| **design_extract_palettes_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractPalettesModel**](../Model/DesignExtractPalettesModel.md)| Extract palettes operation parameters. | [optional] |
 
 ### Return type
 
@@ -797,7 +797,7 @@ void (empty response body)
 ## `designProcessorExtractToggleSet()`
 
 ```php
-designProcessorExtractToggleSet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model)
+designProcessorExtractToggleSet($id, $tenant_id, $design_extract_toggle_set_model)
 ```
 
 Extracts toggle set from design file and saves it to the specified folder.
@@ -837,10 +837,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel | Extract toggle set operation parameters.
+$design_extract_toggle_set_model = new \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel(); // \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel | Extract toggle set operation parameters.
 
 try {
-    $apiInstance->designProcessorExtractToggleSet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model);
+    $apiInstance->designProcessorExtractToggleSet($id, $tenant_id, $design_extract_toggle_set_model);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorExtractToggleSet: ', $e->getMessage(), PHP_EOL;
 }
@@ -852,7 +852,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel.md)| Extract toggle set operation parameters. | [optional] |
+| **design_extract_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel**](../Model/DesignExtractToggleSetModel.md)| Extract toggle set operation parameters. | [optional] |
 
 ### Return type
 
@@ -874,7 +874,7 @@ void (empty response body)
 ## `designProcessorGetDepositPhotos()`
 
 ```php
-designProcessorGetDepositPhotos($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]
+designProcessorGetDepositPhotos($id, $tenant_id): \Aurigma\AssetProcessor\Model\ImageDepositPhoto[]
 ```
 
 Returns information about inserted images from DepositPhotos.
@@ -932,7 +932,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]**](../Model/AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto.md)
+[**\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]**](../Model/ImageDepositPhoto.md)
 
 ### Authorization
 
@@ -950,7 +950,7 @@ try {
 ## `designProcessorImportDesign()`
 
 ```php
-designProcessorImportDesign($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorImportDesign($source_file, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Imports design from source file and saves it to storage.
@@ -1001,7 +1001,7 @@ $preview_settings_name = 'preview_settings_name_example'; // string | Preview na
 $preview_settings_width = 56; // int | Preview image width.
 $preview_settings_height = 56; // int | Preview image height.
 $preview_settings_stub = True; // bool | Preview stub content switcher.  Indicates whether to show stub content in preview.
-$preview_settings_format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Preview image format.
+$preview_settings_format = new \Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat | Preview image format.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -1027,12 +1027,12 @@ try {
 | **preview_settings_width** | **int**| Preview image width. | [optional] |
 | **preview_settings_height** | **int**| Preview image height. | [optional] |
 | **preview_settings_stub** | **bool**| Preview stub content switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat.md)| Preview image format. | [optional] |
+| **preview_settings_format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/DesignPreviewFormat.md)| Preview image format. | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1050,7 +1050,7 @@ try {
 ## `designProcessorLinkDataSchema()`
 
 ```php
-designProcessorLinkDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorLinkDataSchema($id, $tenant_id, $design_link_data_schema_model): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Links data schema to the design file.
@@ -1090,10 +1090,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel | Link schema operation parameters.
+$design_link_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel | Link schema operation parameters.
 
 try {
-    $result = $apiInstance->designProcessorLinkDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model);
+    $result = $apiInstance->designProcessorLinkDataSchema($id, $tenant_id, $design_link_data_schema_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorLinkDataSchema: ', $e->getMessage(), PHP_EOL;
@@ -1106,11 +1106,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
+| **design_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel**](../Model/DesignLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1128,7 +1128,7 @@ try {
 ## `designProcessorLinkPalettes()`
 
 ```php
-designProcessorLinkPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorLinkPalettes($id, $tenant_id, $design_link_palettes_model): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Links palettes to the design file.
@@ -1168,10 +1168,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_link_palettes_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel | Link palettes operation parameters.
+$design_link_palettes_model = new \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel(); // \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel | Link palettes operation parameters.
 
 try {
-    $result = $apiInstance->designProcessorLinkPalettes($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model);
+    $result = $apiInstance->designProcessorLinkPalettes($id, $tenant_id, $design_link_palettes_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorLinkPalettes: ', $e->getMessage(), PHP_EOL;
@@ -1184,11 +1184,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_link_palettes_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel.md)| Link palettes operation parameters. | [optional] |
+| **design_link_palettes_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkPalettesModel**](../Model/DesignLinkPalettesModel.md)| Link palettes operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1206,7 +1206,7 @@ try {
 ## `designProcessorLinkToggleSet()`
 
 ```php
-designProcessorLinkToggleSet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorLinkToggleSet($id, $tenant_id, $design_link_toggle_set_model): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Links toggle set to the design file.
@@ -1246,10 +1246,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel | Link toggle set operation parameters.
+$design_link_toggle_set_model = new \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel(); // \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel | Link toggle set operation parameters.
 
 try {
-    $result = $apiInstance->designProcessorLinkToggleSet($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model);
+    $result = $apiInstance->designProcessorLinkToggleSet($id, $tenant_id, $design_link_toggle_set_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DesignProcessorApi->designProcessorLinkToggleSet: ', $e->getMessage(), PHP_EOL;
@@ -1262,11 +1262,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel**](../Model/AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel.md)| Link toggle set operation parameters. | [optional] |
+| **design_link_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel**](../Model/DesignLinkToggleSetModel.md)| Link toggle set operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1331,7 +1331,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 
@@ -1354,7 +1354,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 
@@ -1369,7 +1369,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1425,7 +1425,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $surface_index = 56; // int | Design surface index.  Indicates which design surface should be used as a source for preview.
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
-$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat | Design preview image format.
+$format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
 $tenant_id = 56; // int | Tenant identifier
 
@@ -1448,7 +1448,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **surface_index** | **int**| Design surface index.  Indicates which design surface should be used as a source for preview. | [optional] |
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
 
@@ -1463,7 +1463,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `text/plain`
+- **Accept**: `text/plain`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -1472,7 +1472,7 @@ try {
 ## `designProcessorReimportDesign()`
 
 ```php
-designProcessorReimportDesign($id, $source_file, $tenant_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorReimportDesign($id, $source_file, $tenant_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Re-imports design from source file and updates design file and metadata in storage.
@@ -1536,7 +1536,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1554,7 +1554,7 @@ try {
 ## `designProcessorRemoveDataSchema()`
 
 ```php
-designProcessorRemoveDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorRemoveDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Removes data schema from the design file.
@@ -1612,7 +1612,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1630,7 +1630,7 @@ try {
 ## `designProcessorRemovePalettes()`
 
 ```php
-designProcessorRemovePalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorRemovePalettes($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Removes palettes from the design file.
@@ -1688,7 +1688,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1706,7 +1706,7 @@ try {
 ## `designProcessorRemoveToggleSet()`
 
 ```php
-designProcessorRemoveToggleSet($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorRemoveToggleSet($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Removes toggle set from the design file.
@@ -1764,7 +1764,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1782,7 +1782,7 @@ try {
 ## `designProcessorUpdate()`
 
 ```php
-designProcessorUpdate($id, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto
+designProcessorUpdate($id, $tenant_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file): \Aurigma\AssetProcessor\Model\DesignDto
 ```
 
 Updates design file and metadata in storage.
@@ -1850,7 +1850,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto**](../Model/AurigmaAssetStorageDesignDto.md)
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
 
 ### Authorization
 
@@ -1868,7 +1868,7 @@ try {
 ## `designProcessorValidateDesignImportSettings()`
 
 ```php
-designProcessorValidateDesignImportSettings($tenant_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto
+designProcessorValidateDesignImportSettings($tenant_id, $marker_shortcuts_file): \Aurigma\AssetProcessor\Model\ValidationResultDto
 ```
 
 Validates the design import settings.
@@ -1926,7 +1926,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto**](../Model/AurigmaAssetProcessorWebApiDtosDesignValidationResultDto.md)
+[**\Aurigma\AssetProcessor\Model\ValidationResultDto**](../Model/ValidationResultDto.md)
 
 ### Authorization
 

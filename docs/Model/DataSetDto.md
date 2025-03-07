@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **metadata** | [**\Aurigma\AssetProcessor\Model\DataSetMetadata**](DataSetMetadata.md) |  | [optional]
 **has_problems** | **bool** |  | [optional]
 **size** | **int** |  | [optional]
+**descriptor** | **string** |  | [optional]
 **folder_id** | **string** |  | [optional]
 **tenant_id** | **int** |  | [optional]
 **id** | **string** |  | [optional]

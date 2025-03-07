@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `dataSchemaProcessorGetLinks()`
 
 ```php
-dataSchemaProcessorGetLinks($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo
+dataSchemaProcessorGetLinks($id, $tenant_id): \Aurigma\AssetProcessor\Model\DataSchemaLinksInfo
 ```
 
 Gets all links associated with this data schema.
@@ -70,7 +70,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo**](../Model/AurigmaAssetProcessorAppServicesModelsDataSchemaDataSchemaLinksInfo.md)
+[**\Aurigma\AssetProcessor\Model\DataSchemaLinksInfo**](../Model/DataSchemaLinksInfo.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ try {
 ## `dataSchemaProcessorImportDataSchema()`
 
 ```php
-dataSchemaProcessorImportDataSchema($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto
+dataSchemaProcessorImportDataSchema($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\DataSchemaDto
 ```
 
 Imports data schema and saves it to storage.
@@ -152,7 +152,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto**](../Model/AurigmaAssetStorageDataSchemaDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSchemaDto**](../Model/DataSchemaDto.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ try {
 ## `dataSchemaProcessorUpdate()`
 
 ```php
-dataSchemaProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto
+dataSchemaProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\DataSchemaDto
 ```
 
 Updates data schema file and metadata in storage.
@@ -238,7 +238,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSchemaDto**](../Model/AurigmaAssetStorageDataSchemaDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSchemaDto**](../Model/DataSchemaDto.md)
 
 ### Authorization
 

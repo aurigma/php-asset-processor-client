@@ -11,7 +11,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `colorProfileProcessorImportColorProfile()`
 
 ```php
-colorProfileProcessorImportColorProfile($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageColorProfileDto
+colorProfileProcessorImportColorProfile($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\ColorProfileDto
 ```
 
 Imports color profile and saves it to storage.
@@ -75,7 +75,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageColorProfileDto**](../Model/AurigmaAssetStorageColorProfileDto.md)
+[**\Aurigma\AssetProcessor\Model\ColorProfileDto**](../Model/ColorProfileDto.md)
 
 ### Authorization
 
@@ -93,7 +93,7 @@ try {
 ## `colorProfileProcessorUpdate()`
 
 ```php
-colorProfileProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageColorProfileDto
+colorProfileProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\ColorProfileDto
 ```
 
 Updates color profile file and metadata in storage.
@@ -161,7 +161,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageColorProfileDto**](../Model/AurigmaAssetStorageColorProfileDto.md)
+[**\Aurigma\AssetProcessor\Model\ColorProfileDto**](../Model/ColorProfileDto.md)
 
 ### Authorization
 

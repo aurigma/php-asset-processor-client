@@ -10,5 +10,10 @@ Name | Type | Description | Notes
 **has_data_schema** | **bool** |  | [optional]
 **data_schema_id** | **string** |  | [optional]
 **data_schema_name** | **string** |  | [optional]
+**has_toggle_set** | **bool** |  | [optional]
+**toggle_set_id** | **string** |  | [optional]
+**toggle_set_name** | **string** |  | [optional]
+**has_palettes** | **bool** |  | [optional]
+**palettes** | [**\Aurigma\AssetProcessor\Model\DesignPaletteMetadata[]**](DesignPaletteMetadata.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

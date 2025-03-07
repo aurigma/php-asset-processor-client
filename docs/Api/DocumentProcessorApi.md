@@ -12,7 +12,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `documentProcessorCreateBlankToggleSet()`
 
 ```php
-documentProcessorCreateBlankToggleSet($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto
+documentProcessorCreateBlankToggleSet($tenant_id, $create_blank_toggle_set_model): \Aurigma\AssetProcessor\Model\DocumentDto
 ```
 
 Creates a new blank toggle set and saves it to the storage.
@@ -51,10 +51,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DocumentProcessorApi(
     $config
 );
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel | Operation paramsHolder:.
+$create_blank_toggle_set_model = new \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel(); // \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel | Operation paramsHolder:.
 
 try {
-    $result = $apiInstance->documentProcessorCreateBlankToggleSet($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model);
+    $result = $apiInstance->documentProcessorCreateBlankToggleSet($tenant_id, $create_blank_toggle_set_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DocumentProcessorApi->documentProcessorCreateBlankToggleSet: ', $e->getMessage(), PHP_EOL;
@@ -66,11 +66,11 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel**](../Model/AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel.md)| Operation paramsHolder:. | [optional] |
+| **create_blank_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel**](../Model/CreateBlankToggleSetModel.md)| Operation paramsHolder:. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto**](../Model/AurigmaAssetStorageDocumentDto.md)
+[**\Aurigma\AssetProcessor\Model\DocumentDto**](../Model/DocumentDto.md)
 
 ### Authorization
 
@@ -88,7 +88,7 @@ try {
 ## `documentProcessorImportDocument()`
 
 ```php
-documentProcessorImportDocument($source_file, $tenant_id, $name, $path, $custom_fields, $type, $format): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto
+documentProcessorImportDocument($source_file, $tenant_id, $name, $path, $custom_fields, $type, $format): \Aurigma\AssetProcessor\Model\DocumentDto
 ```
 
 Imports a document from the source file and saves it to the storage.
@@ -131,8 +131,8 @@ $tenant_id = 56; // int | Tenant identifier
 $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
-$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType | Document type.
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType | Document format.
+$type = new \Aurigma\AssetProcessor\Model\ImportDocumentType(); // \Aurigma\AssetProcessor\Model\ImportDocumentType | Document type.
+$format = new \Aurigma\AssetProcessor\Model\ImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\ImportDocumentFormatType | Document format.
 
 try {
     $result = $apiInstance->documentProcessorImportDocument($source_file, $tenant_id, $name, $path, $custom_fields, $type, $format);
@@ -151,12 +151,12 @@ try {
 | **name** | **string**| Document name. | [optional] |
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |
-| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)| Document type. | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)| Document format. | [optional] |
+| **type** | [**\Aurigma\AssetProcessor\Model\ImportDocumentType**](../Model/ImportDocumentType.md)| Document type. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\ImportDocumentFormatType**](../Model/ImportDocumentFormatType.md)| Document format. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto**](../Model/AurigmaAssetStorageDocumentDto.md)
+[**\Aurigma\AssetProcessor\Model\DocumentDto**](../Model/DocumentDto.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ try {
 ## `documentProcessorUpdate()`
 
 ```php
-documentProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file, $type, $format): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto
+documentProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file, $type, $format): \Aurigma\AssetProcessor\Model\DocumentDto
 ```
 
 Updates the document file and metadata in the storage.
@@ -220,8 +220,8 @@ $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
 $file = "/path/to/file.txt"; // \SplFileObject | Document source file.
-$type = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType | Document type.
-$format = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType | Document format.
+$type = new \Aurigma\AssetProcessor\Model\ImportDocumentType(); // \Aurigma\AssetProcessor\Model\ImportDocumentType | Document type.
+$format = new \Aurigma\AssetProcessor\Model\ImportDocumentFormatType(); // \Aurigma\AssetProcessor\Model\ImportDocumentFormatType | Document format.
 
 try {
     $result = $apiInstance->documentProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file, $type, $format);
@@ -241,12 +241,12 @@ try {
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |
 | **file** | **\SplFileObject****\SplFileObject**| Document source file. | [optional] |
-| **type** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentType.md)| Document type. | [optional] |
-| **format** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType**](../Model/AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType.md)| Document format. | [optional] |
+| **type** | [**\Aurigma\AssetProcessor\Model\ImportDocumentType**](../Model/ImportDocumentType.md)| Document type. | [optional] |
+| **format** | [**\Aurigma\AssetProcessor\Model\ImportDocumentFormatType**](../Model/ImportDocumentFormatType.md)| Document format. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto**](../Model/AurigmaAssetStorageDocumentDto.md)
+[**\Aurigma\AssetProcessor\Model\DocumentDto**](../Model/DocumentDto.md)
 
 ### Authorization
 

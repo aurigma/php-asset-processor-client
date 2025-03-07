@@ -147,18 +147,18 @@ class FontProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  string $preview_settings_text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  int $preview_settings_max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored. (optional)
      * @param  float $preview_settings_font_size Font size for text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
      * @param  string $preview_settings_background Background color for preview image. (optional)
      * @param  string $preview_settings_text_color Text color for preview image. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorImportFont'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\FontDto|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function fontProcessorImportFont($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_text = null, $preview_settings_format = null, $preview_settings_max_width = null, $preview_settings_font_size = null, $preview_settings_horizontal_alignment = null, $preview_settings_vertical_alignment = null, $preview_settings_background = null, $preview_settings_text_color = null, string $contentType = self::contentTypes['fontProcessorImportFont'][0])
     {
@@ -182,18 +182,18 @@ class FontProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  string $preview_settings_text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  int $preview_settings_max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored. (optional)
      * @param  float $preview_settings_font_size Font size for text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
      * @param  string $preview_settings_background Background color for preview image. (optional)
      * @param  string $preview_settings_text_color Text color for preview image. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorImportFont'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\FontDto|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function fontProcessorImportFontWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_text = null, $preview_settings_format = null, $preview_settings_max_width = null, $preview_settings_font_size = null, $preview_settings_horizontal_alignment = null, $preview_settings_vertical_alignment = null, $preview_settings_background = null, $preview_settings_text_color = null, string $contentType = self::contentTypes['fontProcessorImportFont'][0])
     {
@@ -236,11 +236,11 @@ class FontProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\FontDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\FontDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -258,16 +258,16 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\FontDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -285,13 +285,13 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\FontDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -324,7 +324,7 @@ class FontProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto',
+                        '\Aurigma\AssetProcessor\Model\FontDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -332,7 +332,7 @@ class FontProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -358,11 +358,11 @@ class FontProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  string $preview_settings_text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  int $preview_settings_max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored. (optional)
      * @param  float $preview_settings_font_size Font size for text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
      * @param  string $preview_settings_background Background color for preview image. (optional)
      * @param  string $preview_settings_text_color Text color for preview image. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorImportFont'] to see the possible values for this operation
@@ -396,11 +396,11 @@ class FontProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  string $preview_settings_text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  int $preview_settings_max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored. (optional)
      * @param  float $preview_settings_font_size Font size for text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
      * @param  string $preview_settings_background Background color for preview image. (optional)
      * @param  string $preview_settings_text_color Text color for preview image. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorImportFont'] to see the possible values for this operation
@@ -410,7 +410,7 @@ class FontProcessorApi
      */
     public function fontProcessorImportFontAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_text = null, $preview_settings_format = null, $preview_settings_max_width = null, $preview_settings_font_size = null, $preview_settings_horizontal_alignment = null, $preview_settings_vertical_alignment = null, $preview_settings_background = null, $preview_settings_text_color = null, string $contentType = self::contentTypes['fontProcessorImportFont'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\FontDto';
         $request = $this->fontProcessorImportFontRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_text, $preview_settings_format, $preview_settings_max_width, $preview_settings_font_size, $preview_settings_horizontal_alignment, $preview_settings_vertical_alignment, $preview_settings_background, $preview_settings_text_color, $contentType);
 
         return $this->client
@@ -463,11 +463,11 @@ class FontProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  string $preview_settings_text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39;. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  int $preview_settings_max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored. (optional)
      * @param  float $preview_settings_font_size Font size for text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $preview_settings_horizontal_alignment Horizontal alignment of text visualization in preview image. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $preview_settings_vertical_alignment Vertical alignment of text visualization in preview image. (optional)
      * @param  string $preview_settings_background Background color for preview image. (optional)
      * @param  string $preview_settings_text_color Text color for preview image. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorImportFont'] to see the possible values for this operation
@@ -688,11 +688,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -701,7 +701,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function fontProcessorPreparePreview($id, $namespace, $name, $width, $height, $text = null, $format = null, $max_width = null, $font_size = null, $horizontal_alignment = null, $vertical_alignment = null, $background = null, $text_color = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['fontProcessorPreparePreview'][0])
     {
@@ -720,11 +720,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -733,7 +733,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function fontProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $text = null, $format = null, $max_width = null, $font_size = null, $horizontal_alignment = null, $vertical_alignment = null, $background = null, $text_color = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['fontProcessorPreparePreview'][0])
     {
@@ -803,11 +803,11 @@ class FontProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -825,7 +825,7 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -872,7 +872,7 @@ class FontProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -893,11 +893,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -928,11 +928,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -992,11 +992,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1075,7 +1075,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewFormat', // openApiType
+            'FontPreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1102,7 +1102,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $horizontal_alignment,
             'horizontalAlignment', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment', // openApiType
+            'FontPreviewHorizontalAlignment', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1111,7 +1111,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $vertical_alignment,
             'verticalAlignment', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment', // openApiType
+            'FontPreviewVerticalAlignment', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1197,7 +1197,7 @@ class FontProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1282,11 +1282,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1295,7 +1295,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function fontProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $text = null, $format = null, $max_width = null, $font_size = null, $horizontal_alignment = null, $vertical_alignment = null, $background = null, $text_color = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['fontProcessorPreparePreviewUrl'][0])
     {
@@ -1314,11 +1314,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1327,7 +1327,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function fontProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $text = null, $format = null, $max_width = null, $font_size = null, $horizontal_alignment = null, $vertical_alignment = null, $background = null, $text_color = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['fontProcessorPreparePreviewUrl'][0])
     {
@@ -1397,11 +1397,11 @@ class FontProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1419,7 +1419,7 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1466,7 +1466,7 @@ class FontProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1487,11 +1487,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1522,11 +1522,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1586,11 +1586,11 @@ class FontProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  string $text Text, that will be visualized with selected font in preview image, e.g. &#39;Abg&#39; (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewFormat $format Preview image format (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewFormat $format Preview image format (optional)
      * @param  int $max_width Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
      * @param  float $font_size Max width of preview image  If parameter is set then normal widht and height and font size are ignored (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewHorizontalAlignment $horizontal_alignment Horizontal alignment of text visualization in preview image (optional)
+     * @param  \Aurigma\AssetProcessor\Model\FontPreviewVerticalAlignment $vertical_alignment Vertical alignment of text visualization in preview image (optional)
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1669,7 +1669,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewFormat', // openApiType
+            'FontPreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1696,7 +1696,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $horizontal_alignment,
             'horizontalAlignment', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewHorizontalAlignment', // openApiType
+            'FontPreviewHorizontalAlignment', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1705,7 +1705,7 @@ class FontProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $vertical_alignment,
             'verticalAlignment', // param base name
-            'AurigmaAssetProcessorWebApiEnumsFontPreviewVerticalAlignment', // openApiType
+            'FontPreviewVerticalAlignment', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1791,7 +1791,7 @@ class FontProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', ],
+            ['text/plain', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1880,7 +1880,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\FontDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function fontProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['fontProcessorUpdate'][0])
     {
@@ -1903,7 +1903,7 @@ class FontProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\FontDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function fontProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['fontProcessorUpdate'][0])
     {
@@ -1946,11 +1946,11 @@ class FontProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\FontDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\FontDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1968,16 +1968,16 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\FontDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1995,16 +1995,16 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2022,13 +2022,13 @@ class FontProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\FontDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2061,7 +2061,7 @@ class FontProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto',
+                        '\Aurigma\AssetProcessor\Model\FontDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2069,7 +2069,7 @@ class FontProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2077,7 +2077,7 @@ class FontProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2131,7 +2131,7 @@ class FontProcessorApi
      */
     public function fontProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['fontProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageFontDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\FontDto';
         $request = $this->fontProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file, $contentType);
 
         return $this->client

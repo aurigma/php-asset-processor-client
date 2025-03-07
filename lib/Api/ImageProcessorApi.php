@@ -147,15 +147,15 @@ class ImageProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
      * @param  string $preview_settings_background Background color for transparent images. (optional)
      * @param  bool $preview_settings_apply_auto_crop Indicates if the image should be automatically cropped. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorImportImage'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function imageProcessorImportImage($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $preview_settings_apply_auto_crop = null, string $contentType = self::contentTypes['imageProcessorImportImage'][0])
     {
@@ -179,15 +179,15 @@ class ImageProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
      * @param  string $preview_settings_background Background color for transparent images. (optional)
      * @param  bool $preview_settings_apply_auto_crop Indicates if the image should be automatically cropped. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorImportImage'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageProcessorImportImageWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $preview_settings_apply_auto_crop = null, string $contentType = self::contentTypes['imageProcessorImportImage'][0])
     {
@@ -230,11 +230,11 @@ class ImageProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ImageDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ImageDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -252,16 +252,16 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ImageDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -279,13 +279,13 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -318,7 +318,7 @@ class ImageProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto',
+                        '\Aurigma\AssetProcessor\Model\ImageDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,7 +326,7 @@ class ImageProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -352,8 +352,8 @@ class ImageProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
      * @param  string $preview_settings_background Background color for transparent images. (optional)
      * @param  bool $preview_settings_apply_auto_crop Indicates if the image should be automatically cropped. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorImportImage'] to see the possible values for this operation
@@ -387,8 +387,8 @@ class ImageProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
      * @param  string $preview_settings_background Background color for transparent images. (optional)
      * @param  bool $preview_settings_apply_auto_crop Indicates if the image should be automatically cropped. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorImportImage'] to see the possible values for this operation
@@ -398,7 +398,7 @@ class ImageProcessorApi
      */
     public function imageProcessorImportImageAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $preview_settings_apply_auto_crop = null, string $contentType = self::contentTypes['imageProcessorImportImage'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
         $request = $this->imageProcessorImportImageRequest($source_file, $tenant_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $preview_settings_apply_auto_crop, $contentType);
 
         return $this->client
@@ -451,8 +451,8 @@ class ImageProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image heigth. (optional)
      * @param  int $preview_settings_jpeg_quality Quality of Jpeg previews. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $preview_settings_fit_mode Image preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $preview_settings_interpolation_mode Image preview interpolation mode. (optional)
      * @param  string $preview_settings_background Background color for transparent images. (optional)
      * @param  bool $preview_settings_apply_auto_crop Indicates if the image should be automatically cropped. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorImportImage'] to see the possible values for this operation
@@ -658,8 +658,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -668,7 +668,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
@@ -687,8 +687,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -697,7 +697,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
@@ -767,11 +767,11 @@ class ImageProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -789,7 +789,7 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -836,7 +836,7 @@ class ImageProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -857,8 +857,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -889,8 +889,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -950,8 +950,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1027,7 +1027,7 @@ class ImageProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fit_mode,
             'fitMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode', // openApiType
+            'ImagePreviewFitMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1036,7 +1036,7 @@ class ImageProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $interpolation_mode,
             'interpolationMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode', // openApiType
+            'ImagePreviewInterpolationMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1122,7 +1122,7 @@ class ImageProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1207,8 +1207,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1217,7 +1217,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
@@ -1236,8 +1236,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1246,7 +1246,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
@@ -1316,11 +1316,11 @@ class ImageProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1338,7 +1338,7 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1385,7 +1385,7 @@ class ImageProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1406,8 +1406,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1438,8 +1438,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1499,8 +1499,8 @@ class ImageProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Quality of Jpeg previews (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode $fit_mode Image preview fit mode (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewFitMode $fit_mode Image preview fit mode (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
@@ -1576,7 +1576,7 @@ class ImageProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fit_mode,
             'fitMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsImagePreviewFitMode', // openApiType
+            'ImagePreviewFitMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1585,7 +1585,7 @@ class ImageProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $interpolation_mode,
             'interpolationMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsImagePreviewInterpolationMode', // openApiType
+            'ImagePreviewInterpolationMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1671,7 +1671,7 @@ class ImageProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', ],
+            ['text/plain', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1760,7 +1760,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function imageProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['imageProcessorUpdate'][0])
     {
@@ -1783,7 +1783,7 @@ class ImageProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\ImageDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function imageProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['imageProcessorUpdate'][0])
     {
@@ -1826,11 +1826,11 @@ class ImageProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ImageDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ImageDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1848,16 +1848,16 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ImageDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1875,16 +1875,16 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1902,13 +1902,13 @@ class ImageProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1941,7 +1941,7 @@ class ImageProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto',
+                        '\Aurigma\AssetProcessor\Model\ImageDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1949,7 +1949,7 @@ class ImageProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1957,7 +1957,7 @@ class ImageProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2011,7 +2011,7 @@ class ImageProcessorApi
      */
     public function imageProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['imageProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageImageDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\ImageDto';
         $request = $this->imageProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file, $contentType);
 
         return $this->client

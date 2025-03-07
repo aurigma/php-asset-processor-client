@@ -151,7 +151,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DataSetProblemDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function dataSetProcessorCheck($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorCheck'][0])
     {
@@ -170,7 +170,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DataSetProblemDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function dataSetProcessorCheckWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorCheck'][0])
     {
@@ -213,11 +213,11 @@ class DataSetProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DataSetProblemDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DataSetProblemDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -235,16 +235,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DataSetProblemDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -262,13 +262,13 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo';
+            $returnType = '\Aurigma\AssetProcessor\Model\DataSetProblemDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -301,7 +301,7 @@ class DataSetProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo',
+                        '\Aurigma\AssetProcessor\Model\DataSetProblemDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -355,7 +355,7 @@ class DataSetProcessorApi
      */
     public function dataSetProcessorCheckAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorCheck'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo';
+        $returnType = '\Aurigma\AssetProcessor\Model\DataSetProblemDto';
         $request = $this->dataSetProcessorCheckRequest($id, $tenant_id, $contentType);
 
         return $this->client
@@ -530,7 +530,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
     public function dataSetProcessorEmbedDataSchema($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorEmbedDataSchema'][0])
     {
@@ -549,7 +549,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function dataSetProcessorEmbedDataSchemaWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorEmbedDataSchema'][0])
     {
@@ -592,11 +592,11 @@ class DataSetProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DataSetDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DataSetDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -614,16 +614,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DataSetDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -641,16 +641,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -668,13 +668,13 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -707,7 +707,7 @@ class DataSetProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto',
+                        '\Aurigma\AssetProcessor\Model\DataSetDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -715,7 +715,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -723,7 +723,7 @@ class DataSetProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -769,7 +769,7 @@ class DataSetProcessorApi
      */
     public function dataSetProcessorEmbedDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorEmbedDataSchema'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
         $request = $this->dataSetProcessorEmbedDataSchemaRequest($id, $tenant_id, $contentType);
 
         return $this->client
@@ -944,7 +944,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function dataSetProcessorExportDataSet($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorExportDataSet'][0])
     {
@@ -963,7 +963,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function dataSetProcessorExportDataSetWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['dataSetProcessorExportDataSet'][0])
     {
@@ -1033,11 +1033,11 @@ class DataSetProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1055,7 +1055,7 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1102,7 +1102,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1238,7 +1238,7 @@ class DataSetProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1319,16 +1319,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function dataSetProcessorExtractDataSchema($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
+    public function dataSetProcessorExtractDataSchema($id, $tenant_id = null, $data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
     {
-        $this->dataSetProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model, $contentType);
+        $this->dataSetProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id, $data_set_extract_data_schema_model, $contentType);
     }
 
     /**
@@ -1338,16 +1338,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function dataSetProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
+    public function dataSetProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id = null, $data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
     {
-        $request = $this->dataSetProcessorExtractDataSchemaRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model, $contentType);
+        $request = $this->dataSetProcessorExtractDataSchemaRequest($id, $tenant_id, $data_set_extract_data_schema_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1391,7 +1391,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1399,7 +1399,7 @@ class DataSetProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1416,15 +1416,15 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dataSetProcessorExtractDataSchemaAsync($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
+    public function dataSetProcessorExtractDataSchemaAsync($id, $tenant_id = null, $data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
     {
-        return $this->dataSetProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model, $contentType)
+        return $this->dataSetProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id, $data_set_extract_data_schema_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1439,16 +1439,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dataSetProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
+    public function dataSetProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
     {
         $returnType = '';
-        $request = $this->dataSetProcessorExtractDataSchemaRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model, $contentType);
+        $request = $this->dataSetProcessorExtractDataSchemaRequest($id, $tenant_id, $data_set_extract_data_schema_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1478,13 +1478,13 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function dataSetProcessorExtractDataSchemaRequest($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
+    public function dataSetProcessorExtractDataSchemaRequest($id, $tenant_id = null, $data_set_extract_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorExtractDataSchema'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1532,12 +1532,12 @@ class DataSetProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model)) {
+        if (isset($data_set_extract_data_schema_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($data_set_extract_data_schema_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model;
+                $httpBody = $data_set_extract_data_schema_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1621,7 +1621,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function dataSetProcessorImportDataSet($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, string $contentType = self::contentTypes['dataSetProcessorImportDataSet'][0])
     {
@@ -1643,7 +1643,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function dataSetProcessorImportDataSetWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, string $contentType = self::contentTypes['dataSetProcessorImportDataSet'][0])
     {
@@ -1686,11 +1686,11 @@ class DataSetProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DataSetDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DataSetDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1708,16 +1708,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DataSetDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1735,13 +1735,13 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1774,7 +1774,7 @@ class DataSetProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto',
+                        '\Aurigma\AssetProcessor\Model\DataSetDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1782,7 +1782,7 @@ class DataSetProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1834,7 +1834,7 @@ class DataSetProcessorApi
      */
     public function dataSetProcessorImportDataSetAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, string $contentType = self::contentTypes['dataSetProcessorImportDataSet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
         $request = $this->dataSetProcessorImportDataSetRequest($source_file, $tenant_id, $name, $path, $custom_fields, $contentType);
 
         return $this->client
@@ -2030,16 +2030,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function dataSetProcessorLinkDataSchema($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
+    public function dataSetProcessorLinkDataSchema($id, $tenant_id = null, $data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
     {
-        list($response) = $this->dataSetProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model, $contentType);
+        list($response) = $this->dataSetProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id, $data_set_link_data_schema_model, $contentType);
         return $response;
     }
 
@@ -2050,16 +2050,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function dataSetProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
+    public function dataSetProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id = null, $data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
     {
-        $request = $this->dataSetProcessorLinkDataSchemaRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model, $contentType);
+        $request = $this->dataSetProcessorLinkDataSchemaRequest($id, $tenant_id, $data_set_link_data_schema_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2098,11 +2098,11 @@ class DataSetProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DataSetDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DataSetDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2120,16 +2120,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DataSetDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2147,16 +2147,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2174,13 +2174,13 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2213,7 +2213,7 @@ class DataSetProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto',
+                        '\Aurigma\AssetProcessor\Model\DataSetDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2221,7 +2221,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2229,7 +2229,7 @@ class DataSetProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2246,15 +2246,15 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dataSetProcessorLinkDataSchemaAsync($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
+    public function dataSetProcessorLinkDataSchemaAsync($id, $tenant_id = null, $data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
     {
-        return $this->dataSetProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model, $contentType)
+        return $this->dataSetProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id, $data_set_link_data_schema_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2269,16 +2269,16 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function dataSetProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
+    public function dataSetProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
-        $request = $this->dataSetProcessorLinkDataSchemaRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
+        $request = $this->dataSetProcessorLinkDataSchemaRequest($id, $tenant_id, $data_set_link_data_schema_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2321,13 +2321,13 @@ class DataSetProcessorApi
      *
      * @param  string $id Data set entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function dataSetProcessorLinkDataSchemaRequest($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
+    public function dataSetProcessorLinkDataSchemaRequest($id, $tenant_id = null, $data_set_link_data_schema_model = null, string $contentType = self::contentTypes['dataSetProcessorLinkDataSchema'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -2375,12 +2375,12 @@ class DataSetProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model)) {
+        if (isset($data_set_link_data_schema_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($data_set_link_data_schema_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model;
+                $httpBody = $data_set_link_data_schema_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2465,7 +2465,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function dataSetProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['dataSetProcessorUpdate'][0])
     {
@@ -2488,7 +2488,7 @@ class DataSetProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DataSetDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function dataSetProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['dataSetProcessorUpdate'][0])
     {
@@ -2531,11 +2531,11 @@ class DataSetProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DataSetDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DataSetDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2553,16 +2553,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DataSetDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2580,16 +2580,16 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2607,13 +2607,13 @@ class DataSetProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2646,7 +2646,7 @@ class DataSetProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto',
+                        '\Aurigma\AssetProcessor\Model\DataSetDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2654,7 +2654,7 @@ class DataSetProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2662,7 +2662,7 @@ class DataSetProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2716,7 +2716,7 @@ class DataSetProcessorApi
      */
     public function dataSetProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['dataSetProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DataSetDto';
         $request = $this->dataSetProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file, $contentType);
 
         return $this->client

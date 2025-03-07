@@ -134,16 +134,16 @@ class DocumentProcessorApi
      * Creates a new blank toggle set and saves it to the storage.
      *
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model Operation paramsHolder:. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto
      */
-    public function documentProcessorCreateBlankToggleSet($tenant_id = null, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
+    public function documentProcessorCreateBlankToggleSet($tenant_id = null, $create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
     {
-        list($response) = $this->documentProcessorCreateBlankToggleSetWithHttpInfo($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model, $contentType);
+        list($response) = $this->documentProcessorCreateBlankToggleSetWithHttpInfo($tenant_id, $create_blank_toggle_set_model, $contentType);
         return $response;
     }
 
@@ -153,16 +153,16 @@ class DocumentProcessorApi
      * Creates a new blank toggle set and saves it to the storage.
      *
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model Operation paramsHolder:. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function documentProcessorCreateBlankToggleSetWithHttpInfo($tenant_id = null, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
+    public function documentProcessorCreateBlankToggleSetWithHttpInfo($tenant_id = null, $create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
     {
-        $request = $this->documentProcessorCreateBlankToggleSetRequest($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model, $contentType);
+        $request = $this->documentProcessorCreateBlankToggleSetRequest($tenant_id, $create_blank_toggle_set_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -201,11 +201,11 @@ class DocumentProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -223,16 +223,16 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -250,16 +250,16 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -277,13 +277,13 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -316,7 +316,7 @@ class DocumentProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -324,7 +324,7 @@ class DocumentProcessorApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -332,7 +332,7 @@ class DocumentProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentCreateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentCreateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -348,15 +348,15 @@ class DocumentProcessorApi
      * Creates a new blank toggle set and saves it to the storage.
      *
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model Operation paramsHolder:. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function documentProcessorCreateBlankToggleSetAsync($tenant_id = null, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
+    public function documentProcessorCreateBlankToggleSetAsync($tenant_id = null, $create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
     {
-        return $this->documentProcessorCreateBlankToggleSetAsyncWithHttpInfo($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model, $contentType)
+        return $this->documentProcessorCreateBlankToggleSetAsyncWithHttpInfo($tenant_id, $create_blank_toggle_set_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -370,16 +370,16 @@ class DocumentProcessorApi
      * Creates a new blank toggle set and saves it to the storage.
      *
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model Operation paramsHolder:. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function documentProcessorCreateBlankToggleSetAsyncWithHttpInfo($tenant_id = null, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
+    public function documentProcessorCreateBlankToggleSetAsyncWithHttpInfo($tenant_id = null, $create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
-        $request = $this->documentProcessorCreateBlankToggleSetRequest($tenant_id, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
+        $request = $this->documentProcessorCreateBlankToggleSetRequest($tenant_id, $create_blank_toggle_set_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -421,13 +421,13 @@ class DocumentProcessorApi
      * Create request for operation 'documentProcessorCreateBlankToggleSet'
      *
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDocumentCreateBlankToggleSetModel $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model Operation paramsHolder:. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function documentProcessorCreateBlankToggleSetRequest($tenant_id = null, $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
+    public function documentProcessorCreateBlankToggleSetRequest($tenant_id = null, $create_blank_toggle_set_model = null, string $contentType = self::contentTypes['documentProcessorCreateBlankToggleSet'][0])
     {
 
 
@@ -460,12 +460,12 @@ class DocumentProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model)) {
+        if (isset($create_blank_toggle_set_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_blank_toggle_set_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_document_create_blank_toggle_set_model;
+                $httpBody = $create_blank_toggle_set_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -545,13 +545,13 @@ class DocumentProcessorApi
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorImportDocument'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\DocumentImportConflictDto
      */
     public function documentProcessorImportDocument($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorImportDocument'][0])
     {
@@ -569,13 +569,13 @@ class DocumentProcessorApi
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorImportDocument'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\DocumentImportConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function documentProcessorImportDocumentWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorImportDocument'][0])
     {
@@ -618,11 +618,11 @@ class DocumentProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -640,16 +640,16 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentImportConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentImportConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -667,13 +667,13 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentImportConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -706,7 +706,7 @@ class DocumentProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -714,7 +714,7 @@ class DocumentProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentImportConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentImportConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -734,8 +734,8 @@ class DocumentProcessorApi
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorImportDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -761,8 +761,8 @@ class DocumentProcessorApi
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorImportDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -770,7 +770,7 @@ class DocumentProcessorApi
      */
     public function documentProcessorImportDocumentAsyncWithHttpInfo($source_file, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorImportDocument'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
         $request = $this->documentProcessorImportDocumentRequest($source_file, $tenant_id, $name, $path, $custom_fields, $type, $format, $contentType);
 
         return $this->client
@@ -817,8 +817,8 @@ class DocumentProcessorApi
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorImportDocument'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -982,13 +982,13 @@ class DocumentProcessorApi
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
      * @param  \SplFileObject $file Document source file. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorUpdate'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto
      */
     public function documentProcessorUpdate($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorUpdate'][0])
     {
@@ -1007,13 +1007,13 @@ class DocumentProcessorApi
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
      * @param  \SplFileObject $file Document source file. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorUpdate'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DocumentDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function documentProcessorUpdateWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorUpdate'][0])
     {
@@ -1056,11 +1056,11 @@ class DocumentProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1078,16 +1078,16 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1105,16 +1105,16 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1132,13 +1132,13 @@ class DocumentProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1171,7 +1171,7 @@ class DocumentProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1179,7 +1179,7 @@ class DocumentProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1187,7 +1187,7 @@ class DocumentProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDocumentDocumentUpdateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DocumentUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1208,8 +1208,8 @@ class DocumentProcessorApi
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
      * @param  \SplFileObject $file Document source file. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1236,8 +1236,8 @@ class DocumentProcessorApi
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
      * @param  \SplFileObject $file Document source file. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1245,7 +1245,7 @@ class DocumentProcessorApi
      */
     public function documentProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $name = null, $path = null, $custom_fields = null, $file = null, $type = null, $format = null, string $contentType = self::contentTypes['documentProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDocumentDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DocumentDto';
         $request = $this->documentProcessorUpdateRequest($id, $tenant_id, $name, $path, $custom_fields, $file, $type, $format, $contentType);
 
         return $this->client
@@ -1293,8 +1293,8 @@ class DocumentProcessorApi
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
      * @param  \SplFileObject $file Document source file. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentType $type Document type. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportDocumentFormatType $format Document format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentType $type Document type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportDocumentFormatType $format Document format. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorUpdate'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

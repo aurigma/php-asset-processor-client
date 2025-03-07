@@ -148,15 +148,15 @@ class PrivateMockupProcessorApi
      * @param  int $preview_settings_width Preview width. (optional)
      * @param  int $preview_settings_height Preview height. (optional)
      * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
      * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportMockupType $type Mockup type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type Mockup type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateMockupProcessorImportMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function privateMockupProcessorImportMockup($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null, string $contentType = self::contentTypes['privateMockupProcessorImportMockup'][0])
     {
@@ -181,15 +181,15 @@ class PrivateMockupProcessorApi
      * @param  int $preview_settings_width Preview width. (optional)
      * @param  int $preview_settings_height Preview height. (optional)
      * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
      * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportMockupType $type Mockup type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type Mockup type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateMockupProcessorImportMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateMockupProcessorImportMockupWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null, string $contentType = self::contentTypes['privateMockupProcessorImportMockup'][0])
     {
@@ -232,11 +232,11 @@ class PrivateMockupProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\MockupDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\MockupDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -254,16 +254,16 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MockupDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -281,13 +281,13 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -320,7 +320,7 @@ class PrivateMockupProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto',
+                        '\Aurigma\AssetProcessor\Model\MockupDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -328,7 +328,7 @@ class PrivateMockupProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -355,10 +355,10 @@ class PrivateMockupProcessorApi
      * @param  int $preview_settings_width Preview width. (optional)
      * @param  int $preview_settings_height Preview height. (optional)
      * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
      * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportMockupType $type Mockup type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type Mockup type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateMockupProcessorImportMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -391,10 +391,10 @@ class PrivateMockupProcessorApi
      * @param  int $preview_settings_width Preview width. (optional)
      * @param  int $preview_settings_height Preview height. (optional)
      * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
      * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportMockupType $type Mockup type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type Mockup type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateMockupProcessorImportMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -402,7 +402,7 @@ class PrivateMockupProcessorApi
      */
     public function privateMockupProcessorImportMockupAsyncWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_jpeg_quality = null, $preview_settings_fit_mode = null, $preview_settings_interpolation_mode = null, $preview_settings_background = null, $type = null, string $contentType = self::contentTypes['privateMockupProcessorImportMockup'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
         $request = $this->privateMockupProcessorImportMockupRequest($source_file, $tenant_id, $owner_id, $name, $path, $custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_jpeg_quality, $preview_settings_fit_mode, $preview_settings_interpolation_mode, $preview_settings_background, $type, $contentType);
 
         return $this->client
@@ -456,10 +456,10 @@ class PrivateMockupProcessorApi
      * @param  int $preview_settings_width Preview width. (optional)
      * @param  int $preview_settings_height Preview height. (optional)
      * @param  int $preview_settings_jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $preview_settings_fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $preview_settings_interpolation_mode Preview interpolation mode. (optional)
      * @param  string $preview_settings_background Color to replace transparent background (e.g. &#39;white&#39;). (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsImportMockupType $type Mockup type. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\ImportMockupType $type Mockup type. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateMockupProcessorImportMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -673,8 +673,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -683,7 +683,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateMockupProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateMockupProcessorPreparePreview'][0])
     {
@@ -702,8 +702,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -712,7 +712,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateMockupProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateMockupProcessorPreparePreview'][0])
     {
@@ -782,11 +782,11 @@ class PrivateMockupProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -804,7 +804,7 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -851,7 +851,7 @@ class PrivateMockupProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -872,8 +872,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -904,8 +904,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -965,8 +965,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1042,7 +1042,7 @@ class PrivateMockupProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fit_mode,
             'fitMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode', // openApiType
+            'MockupPreviewFitMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1051,7 +1051,7 @@ class PrivateMockupProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $interpolation_mode,
             'interpolationMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode', // openApiType
+            'MockupPreviewInterpolationMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1137,7 +1137,7 @@ class PrivateMockupProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1222,8 +1222,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1232,7 +1232,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateMockupProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateMockupProcessorPreparePreviewUrl'][0])
     {
@@ -1251,8 +1251,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1261,7 +1261,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateMockupProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateMockupProcessorPreparePreviewUrl'][0])
     {
@@ -1331,11 +1331,11 @@ class PrivateMockupProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1353,7 +1353,7 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1400,7 +1400,7 @@ class PrivateMockupProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1421,8 +1421,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1453,8 +1453,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1514,8 +1514,8 @@ class PrivateMockupProcessorApi
      * @param  int $width Preview image width. (required)
      * @param  int $height Preview image height. (required)
      * @param  int $jpeg_quality Jpeg preview quality. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode $fit_mode Preview fit mode. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewFitMode $fit_mode Preview fit mode. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode $interpolation_mode Preview interpolation mode. (optional)
      * @param  string $background Color to replace transparent background (e.g. &#39;White&#39;). (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
@@ -1591,7 +1591,7 @@ class PrivateMockupProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $fit_mode,
             'fitMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsMockupPreviewFitMode', // openApiType
+            'MockupPreviewFitMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1600,7 +1600,7 @@ class PrivateMockupProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $interpolation_mode,
             'interpolationMode', // param base name
-            'AurigmaAssetProcessorWebApiEnumsMockupPreviewInterpolationMode', // openApiType
+            'MockupPreviewInterpolationMode', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1686,7 +1686,7 @@ class PrivateMockupProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', ],
+            ['text/plain', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -1776,7 +1776,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
     public function privateMockupProcessorUpdate($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['privateMockupProcessorUpdate'][0])
     {
@@ -1800,7 +1800,7 @@ class PrivateMockupProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\MockupDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateMockupProcessorUpdateWithHttpInfo($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['privateMockupProcessorUpdate'][0])
     {
@@ -1843,11 +1843,11 @@ class PrivateMockupProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\MockupDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\MockupDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1865,16 +1865,16 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MockupDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1892,16 +1892,16 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1919,13 +1919,13 @@ class PrivateMockupProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1958,7 +1958,7 @@ class PrivateMockupProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto',
+                        '\Aurigma\AssetProcessor\Model\MockupDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1966,7 +1966,7 @@ class PrivateMockupProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1974,7 +1974,7 @@ class PrivateMockupProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2030,7 +2030,7 @@ class PrivateMockupProcessorApi
      */
     public function privateMockupProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $name = null, $path = null, $custom_fields = null, $file = null, string $contentType = self::contentTypes['privateMockupProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageMockupDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\MockupDto';
         $request = $this->privateMockupProcessorUpdateRequest($id, $tenant_id, $owner_id, $name, $path, $custom_fields, $file, $contentType);
 
         return $this->client

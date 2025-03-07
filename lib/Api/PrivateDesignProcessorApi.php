@@ -205,16 +205,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
-    public function privateDesignProcessorCalculateCountPerSheet($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
+    public function privateDesignProcessorCalculateCountPerSheet($id, $tenant_id = null, $owner_id = null, $design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
     {
-        list($response) = $this->privateDesignProcessorCalculateCountPerSheetWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model, $contentType);
+        list($response) = $this->privateDesignProcessorCalculateCountPerSheetWithHttpInfo($id, $tenant_id, $owner_id, $design_count_per_sheet_calculation_model, $contentType);
         return $response;
     }
 
@@ -226,16 +226,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorCalculateCountPerSheetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
+    public function privateDesignProcessorCalculateCountPerSheetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
     {
-        $request = $this->privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model, $contentType);
+        $request = $this->privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id, $owner_id, $design_count_per_sheet_calculation_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -274,11 +274,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -296,16 +296,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -323,16 +323,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -350,13 +350,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -389,7 +389,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto',
+                        '\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -397,7 +397,7 @@ class PrivateDesignProcessorApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -405,7 +405,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -423,15 +423,15 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCalculateCountPerSheetAsync($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
+    public function privateDesignProcessorCalculateCountPerSheetAsync($id, $tenant_id = null, $owner_id = null, $design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
     {
-        return $this->privateDesignProcessorCalculateCountPerSheetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model, $contentType)
+        return $this->privateDesignProcessorCalculateCountPerSheetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $design_count_per_sheet_calculation_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -447,16 +447,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCalculateCountPerSheetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
+    public function privateDesignProcessorCalculateCountPerSheetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignCountPerSheetCalculationResultDto';
-        $request = $this->privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationResultDto';
+        $request = $this->privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id, $owner_id, $design_count_per_sheet_calculation_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -500,13 +500,13 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignCountPerSheetCalculationModel $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
+    public function privateDesignProcessorCalculateCountPerSheetRequest($id, $tenant_id = null, $owner_id = null, $design_count_per_sheet_calculation_model = null, string $contentType = self::contentTypes['privateDesignProcessorCalculateCountPerSheet'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -564,12 +564,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model)) {
+        if (isset($design_count_per_sheet_calculation_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_count_per_sheet_calculation_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_count_per_sheet_calculation_model;
+                $httpBody = $design_count_per_sheet_calculation_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -651,7 +651,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignProblemDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorCheck($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorCheck'][0])
     {
@@ -671,7 +671,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignProblemDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorCheckWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorCheck'][0])
     {
@@ -714,11 +714,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignProblemDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignProblemDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -736,16 +736,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignProblemDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -763,13 +763,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignProblemDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -802,7 +802,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto',
+                        '\Aurigma\AssetProcessor\Model\DesignProblemDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -810,7 +810,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -858,7 +858,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorCheckAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorCheck'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignDesignProblemDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignProblemDto';
         $request = $this->privateDesignProcessorCheckRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -1040,16 +1040,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel $copy_design_from_public_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto
      */
-    public function privateDesignProcessorCopyDesignFromPublicDesign($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
+    public function privateDesignProcessorCopyDesignFromPublicDesign($tenant_id = null, $owner_id = null, $copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
     {
-        list($response) = $this->privateDesignProcessorCopyDesignFromPublicDesignWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model, $contentType);
+        list($response) = $this->privateDesignProcessorCopyDesignFromPublicDesignWithHttpInfo($tenant_id, $owner_id, $copy_design_from_public_design_model, $contentType);
         return $response;
     }
 
@@ -1060,16 +1060,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel $copy_design_from_public_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorCopyDesignFromPublicDesignWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
+    public function privateDesignProcessorCopyDesignFromPublicDesignWithHttpInfo($tenant_id = null, $owner_id = null, $copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
     {
-        $request = $this->privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model, $contentType);
+        $request = $this->privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id, $owner_id, $copy_design_from_public_design_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1108,11 +1108,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1130,16 +1130,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1157,16 +1157,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1184,13 +1184,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1223,7 +1223,7 @@ class PrivateDesignProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1231,7 +1231,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1239,7 +1239,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1256,15 +1256,15 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel $copy_design_from_public_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCopyDesignFromPublicDesignAsync($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
+    public function privateDesignProcessorCopyDesignFromPublicDesignAsync($tenant_id = null, $owner_id = null, $copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
     {
-        return $this->privateDesignProcessorCopyDesignFromPublicDesignAsyncWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model, $contentType)
+        return $this->privateDesignProcessorCopyDesignFromPublicDesignAsyncWithHttpInfo($tenant_id, $owner_id, $copy_design_from_public_design_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1279,16 +1279,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel $copy_design_from_public_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCopyDesignFromPublicDesignAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
+    public function privateDesignProcessorCopyDesignFromPublicDesignAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id, $owner_id, $copy_design_from_public_design_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1331,13 +1331,13 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicDesignModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicDesignModel $copy_design_from_public_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
+    public function privateDesignProcessorCopyDesignFromPublicDesignRequest($tenant_id = null, $owner_id = null, $copy_design_from_public_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicDesign'][0])
     {
 
 
@@ -1380,12 +1380,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model)) {
+        if (isset($copy_design_from_public_design_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($copy_design_from_public_design_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_copy_design_from_public_design_model;
+                $httpBody = $copy_design_from_public_design_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1462,16 +1462,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel $copy_design_from_public_resource_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto
      */
-    public function privateDesignProcessorCopyDesignFromPublicResource($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
+    public function privateDesignProcessorCopyDesignFromPublicResource($tenant_id = null, $owner_id = null, $copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
     {
-        list($response) = $this->privateDesignProcessorCopyDesignFromPublicResourceWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model, $contentType);
+        list($response) = $this->privateDesignProcessorCopyDesignFromPublicResourceWithHttpInfo($tenant_id, $owner_id, $copy_design_from_public_resource_model, $contentType);
         return $response;
     }
 
@@ -1482,16 +1482,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel $copy_design_from_public_resource_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorCopyDesignFromPublicResourceWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
+    public function privateDesignProcessorCopyDesignFromPublicResourceWithHttpInfo($tenant_id = null, $owner_id = null, $copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
     {
-        $request = $this->privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model, $contentType);
+        $request = $this->privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id, $owner_id, $copy_design_from_public_resource_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1530,11 +1530,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1552,16 +1552,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1579,16 +1579,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1606,13 +1606,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1645,7 +1645,7 @@ class PrivateDesignProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1653,7 +1653,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1661,7 +1661,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignCreateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1678,15 +1678,15 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel $copy_design_from_public_resource_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCopyDesignFromPublicResourceAsync($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
+    public function privateDesignProcessorCopyDesignFromPublicResourceAsync($tenant_id = null, $owner_id = null, $copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
     {
-        return $this->privateDesignProcessorCopyDesignFromPublicResourceAsyncWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model, $contentType)
+        return $this->privateDesignProcessorCopyDesignFromPublicResourceAsyncWithHttpInfo($tenant_id, $owner_id, $copy_design_from_public_resource_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1701,16 +1701,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel $copy_design_from_public_resource_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCopyDesignFromPublicResourceAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
+    public function privateDesignProcessorCopyDesignFromPublicResourceAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id, $owner_id, $copy_design_from_public_resource_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1753,13 +1753,13 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCopyDesignFromPublicResourceModel $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CopyDesignFromPublicResourceModel $copy_design_from_public_resource_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
+    public function privateDesignProcessorCopyDesignFromPublicResourceRequest($tenant_id = null, $owner_id = null, $copy_design_from_public_resource_model = null, string $contentType = self::contentTypes['privateDesignProcessorCopyDesignFromPublicResource'][0])
     {
 
 
@@ -1802,12 +1802,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model)) {
+        if (isset($copy_design_from_public_resource_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($copy_design_from_public_resource_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_copy_design_from_public_resource_model;
+                $httpBody = $copy_design_from_public_resource_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1884,16 +1884,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel $aurigma_asset_processor_web_api_models_design_create_blank_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
-    public function privateDesignProcessorCreateBlankDesign($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
+    public function privateDesignProcessorCreateBlankDesign($tenant_id = null, $owner_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
     {
-        list($response) = $this->privateDesignProcessorCreateBlankDesignWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model, $contentType);
+        list($response) = $this->privateDesignProcessorCreateBlankDesignWithHttpInfo($tenant_id, $owner_id, $create_blank_design_model, $contentType);
         return $response;
     }
 
@@ -1904,16 +1904,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel $aurigma_asset_processor_web_api_models_design_create_blank_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorCreateBlankDesignWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
+    public function privateDesignProcessorCreateBlankDesignWithHttpInfo($tenant_id = null, $owner_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
     {
-        $request = $this->privateDesignProcessorCreateBlankDesignRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model, $contentType);
+        $request = $this->privateDesignProcessorCreateBlankDesignRequest($tenant_id, $owner_id, $create_blank_design_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1952,11 +1952,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1974,16 +1974,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2001,16 +2001,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2028,13 +2028,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2067,7 +2067,7 @@ class PrivateDesignProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2075,7 +2075,7 @@ class PrivateDesignProcessorApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2083,7 +2083,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2100,15 +2100,15 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel $aurigma_asset_processor_web_api_models_design_create_blank_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCreateBlankDesignAsync($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
+    public function privateDesignProcessorCreateBlankDesignAsync($tenant_id = null, $owner_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
     {
-        return $this->privateDesignProcessorCreateBlankDesignAsyncWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model, $contentType)
+        return $this->privateDesignProcessorCreateBlankDesignAsyncWithHttpInfo($tenant_id, $owner_id, $create_blank_design_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2123,16 +2123,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel $aurigma_asset_processor_web_api_models_design_create_blank_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCreateBlankDesignAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
+    public function privateDesignProcessorCreateBlankDesignAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorCreateBlankDesignRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_blank_design_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorCreateBlankDesignRequest($tenant_id, $owner_id, $create_blank_design_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2175,13 +2175,13 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateBlankDesignModel $aurigma_asset_processor_web_api_models_design_create_blank_design_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorCreateBlankDesignRequest($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
+    public function privateDesignProcessorCreateBlankDesignRequest($tenant_id = null, $owner_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateBlankDesign'][0])
     {
 
 
@@ -2224,12 +2224,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_create_blank_design_model)) {
+        if (isset($create_blank_design_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_create_blank_design_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_blank_design_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_create_blank_design_model;
+                $httpBody = $create_blank_design_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2306,16 +2306,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
      */
-    public function privateDesignProcessorCreateDesignFromMockup($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
+    public function privateDesignProcessorCreateDesignFromMockup($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
     {
-        list($response) = $this->privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model, $contentType);
+        list($response) = $this->privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id, $owner_id, $create_design_from_mockup_model, $contentType);
         return $response;
     }
 
@@ -2326,16 +2326,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
+    public function privateDesignProcessorCreateDesignFromMockupWithHttpInfo($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
     {
-        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model, $contentType);
+        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $create_design_from_mockup_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2374,11 +2374,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2396,16 +2396,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2423,16 +2423,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2450,16 +2450,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2477,13 +2477,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2516,7 +2516,7 @@ class PrivateDesignProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2524,7 +2524,7 @@ class PrivateDesignProcessorApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2532,7 +2532,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2540,7 +2540,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageNameConflictDto',
+                        '\Aurigma\AssetProcessor\Model\ConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2557,15 +2557,15 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCreateDesignFromMockupAsync($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
+    public function privateDesignProcessorCreateDesignFromMockupAsync($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
     {
-        return $this->privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model, $contentType)
+        return $this->privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id, $owner_id, $create_design_from_mockup_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2580,16 +2580,16 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
+    public function privateDesignProcessorCreateDesignFromMockupAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorCreateDesignFromMockupRequest($tenant_id, $owner_id, $create_design_from_mockup_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2632,13 +2632,13 @@ class PrivateDesignProcessorApi
      *
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignCreateDesignFromMockupModel $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model Operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorCreateDesignFromMockupRequest($tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
+    public function privateDesignProcessorCreateDesignFromMockupRequest($tenant_id = null, $owner_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['privateDesignProcessorCreateDesignFromMockup'][0])
     {
 
 
@@ -2681,12 +2681,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model)) {
+        if (isset($create_design_from_mockup_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($create_design_from_mockup_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_create_design_from_mockup_model;
+                $httpBody = $create_design_from_mockup_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -2768,7 +2768,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
     public function privateDesignProcessorEmbedDataSchema($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedDataSchema'][0])
     {
@@ -2788,7 +2788,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorEmbedDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedDataSchema'][0])
     {
@@ -2831,11 +2831,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2853,16 +2853,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2880,16 +2880,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -2907,13 +2907,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2946,7 +2946,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2954,7 +2954,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2962,7 +2962,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3010,7 +3010,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorEmbedDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedDataSchema'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorEmbedDataSchemaRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -3196,7 +3196,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
     public function privateDesignProcessorEmbedPalettes($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedPalettes'][0])
     {
@@ -3215,7 +3215,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorEmbedPalettesWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedPalettes'][0])
     {
@@ -3258,11 +3258,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3280,16 +3280,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3307,16 +3307,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3334,13 +3334,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3373,7 +3373,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3381,7 +3381,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3389,7 +3389,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3435,7 +3435,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorEmbedPalettesAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedPalettes'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorEmbedPalettesRequest($id, $tenant_id, $contentType);
 
         return $this->client
@@ -3611,7 +3611,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
     public function privateDesignProcessorEmbedToggleSet($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedToggleSet'][0])
     {
@@ -3631,7 +3631,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorEmbedToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedToggleSet'][0])
     {
@@ -3674,11 +3674,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3696,16 +3696,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3723,16 +3723,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -3750,13 +3750,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -3789,7 +3789,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3797,7 +3797,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3805,7 +3805,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3853,7 +3853,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorEmbedToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorEmbedToggleSet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorEmbedToggleSetRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -4040,7 +4040,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorExportDesign($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorExportDesign'][0])
     {
@@ -4060,7 +4060,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorExportDesignWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorExportDesign'][0])
     {
@@ -4130,11 +4130,11 @@ class PrivateDesignProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -4152,7 +4152,7 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -4199,7 +4199,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4348,7 +4348,7 @@ class PrivateDesignProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -4430,16 +4430,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function privateDesignProcessorExtractDataSchema($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
+    public function privateDesignProcessorExtractDataSchema($id, $tenant_id = null, $owner_id = null, $design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
     {
-        $this->privateDesignProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model, $contentType);
+        $this->privateDesignProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id, $owner_id, $design_extract_data_schema_model, $contentType);
     }
 
     /**
@@ -4450,16 +4450,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
+    public function privateDesignProcessorExtractDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
     {
-        $request = $this->privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model, $contentType);
+        $request = $this->privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id, $owner_id, $design_extract_data_schema_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4503,7 +4503,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4511,7 +4511,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4529,15 +4529,15 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractDataSchemaAsync($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
+    public function privateDesignProcessorExtractDataSchemaAsync($id, $tenant_id = null, $owner_id = null, $design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
     {
-        return $this->privateDesignProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model, $contentType)
+        return $this->privateDesignProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id, $owner_id, $design_extract_data_schema_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4553,16 +4553,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
+    public function privateDesignProcessorExtractDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
     {
         $returnType = '';
-        $request = $this->privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model, $contentType);
+        $request = $this->privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id, $owner_id, $design_extract_data_schema_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4593,13 +4593,13 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model Extract data schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
+    public function privateDesignProcessorExtractDataSchemaRequest($id, $tenant_id = null, $owner_id = null, $design_extract_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractDataSchema'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4657,12 +4657,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model)) {
+        if (isset($design_extract_data_schema_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_extract_data_schema_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_extract_data_schema_model;
+                $httpBody = $design_extract_data_schema_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -4739,16 +4739,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model Extract palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function privateDesignProcessorExtractPalettes($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
+    public function privateDesignProcessorExtractPalettes($id, $tenant_id = null, $design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
     {
-        $this->privateDesignProcessorExtractPalettesWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model, $contentType);
+        $this->privateDesignProcessorExtractPalettesWithHttpInfo($id, $tenant_id, $design_extract_palettes_model, $contentType);
     }
 
     /**
@@ -4758,16 +4758,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model Extract palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorExtractPalettesWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
+    public function privateDesignProcessorExtractPalettesWithHttpInfo($id, $tenant_id = null, $design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
     {
-        $request = $this->privateDesignProcessorExtractPalettesRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model, $contentType);
+        $request = $this->privateDesignProcessorExtractPalettesRequest($id, $tenant_id, $design_extract_palettes_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -4811,7 +4811,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4819,7 +4819,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4836,15 +4836,15 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model Extract palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractPalettesAsync($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
+    public function privateDesignProcessorExtractPalettesAsync($id, $tenant_id = null, $design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
     {
-        return $this->privateDesignProcessorExtractPalettesAsyncWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model, $contentType)
+        return $this->privateDesignProcessorExtractPalettesAsyncWithHttpInfo($id, $tenant_id, $design_extract_palettes_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -4859,16 +4859,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model Extract palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractPalettesAsyncWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
+    public function privateDesignProcessorExtractPalettesAsyncWithHttpInfo($id, $tenant_id = null, $design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
     {
         $returnType = '';
-        $request = $this->privateDesignProcessorExtractPalettesRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model, $contentType);
+        $request = $this->privateDesignProcessorExtractPalettesRequest($id, $tenant_id, $design_extract_palettes_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -4898,13 +4898,13 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractPalettesModel $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model Extract palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorExtractPalettesRequest($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
+    public function privateDesignProcessorExtractPalettesRequest($id, $tenant_id = null, $design_extract_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractPalettes'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -4952,12 +4952,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_extract_palettes_model)) {
+        if (isset($design_extract_palettes_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_extract_palettes_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_extract_palettes_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_extract_palettes_model;
+                $httpBody = $design_extract_palettes_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5035,16 +5035,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function privateDesignProcessorExtractToggleSet($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
+    public function privateDesignProcessorExtractToggleSet($id, $tenant_id = null, $owner_id = null, $design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
     {
-        $this->privateDesignProcessorExtractToggleSetWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model, $contentType);
+        $this->privateDesignProcessorExtractToggleSetWithHttpInfo($id, $tenant_id, $owner_id, $design_extract_toggle_set_model, $contentType);
     }
 
     /**
@@ -5055,16 +5055,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorExtractToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
+    public function privateDesignProcessorExtractToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
     {
-        $request = $this->privateDesignProcessorExtractToggleSetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model, $contentType);
+        $request = $this->privateDesignProcessorExtractToggleSetRequest($id, $tenant_id, $owner_id, $design_extract_toggle_set_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -5108,7 +5108,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5116,7 +5116,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5134,15 +5134,15 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractToggleSetAsync($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
+    public function privateDesignProcessorExtractToggleSetAsync($id, $tenant_id = null, $owner_id = null, $design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
     {
-        return $this->privateDesignProcessorExtractToggleSetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model, $contentType)
+        return $this->privateDesignProcessorExtractToggleSetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $design_extract_toggle_set_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -5158,16 +5158,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorExtractToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
+    public function privateDesignProcessorExtractToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
     {
         $returnType = '';
-        $request = $this->privateDesignProcessorExtractToggleSetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model, $contentType);
+        $request = $this->privateDesignProcessorExtractToggleSetRequest($id, $tenant_id, $owner_id, $design_extract_toggle_set_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -5198,13 +5198,13 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignExtractToggleSetModel $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorExtractToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorExtractToggleSetRequest($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
+    public function privateDesignProcessorExtractToggleSetRequest($id, $tenant_id = null, $owner_id = null, $design_extract_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorExtractToggleSet'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -5262,12 +5262,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model)) {
+        if (isset($design_extract_toggle_set_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_extract_toggle_set_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_extract_toggle_set_model;
+                $httpBody = $design_extract_toggle_set_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -5349,7 +5349,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\ImageDepositPhoto[]|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorGetDepositPhotos($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorGetDepositPhotos'][0])
     {
@@ -5369,7 +5369,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\ImageDepositPhoto[]|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorGetDepositPhotosWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorGetDepositPhotos'][0])
     {
@@ -5412,11 +5412,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5434,16 +5434,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5461,13 +5461,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]';
+            $returnType = '\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5500,7 +5500,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]',
+                        '\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5508,7 +5508,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5556,7 +5556,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorGetDepositPhotosAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorGetDepositPhotos'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignImageDepositPhoto[]';
+        $returnType = '\Aurigma\AssetProcessor\Model\ImageDepositPhoto[]';
         $request = $this->privateDesignProcessorGetDepositPhotosRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -5748,13 +5748,13 @@ class PrivateDesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorImportDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\DesignImportConflictDto
      */
     public function privateDesignProcessorImportDesign($source_file, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorImportDesign'][0])
     {
@@ -5779,13 +5779,13 @@ class PrivateDesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorImportDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\DesignImportConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorImportDesignWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorImportDesign'][0])
     {
@@ -5828,11 +5828,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 201:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5850,16 +5850,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignImportConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignImportConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -5877,13 +5877,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignImportConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -5916,7 +5916,7 @@ class PrivateDesignProcessorApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5924,7 +5924,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignImportConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignImportConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -5951,7 +5951,7 @@ class PrivateDesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorImportDesign'] to see the possible values for this operation
      *
@@ -5985,7 +5985,7 @@ class PrivateDesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorImportDesign'] to see the possible values for this operation
      *
@@ -5994,7 +5994,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorImportDesignAsyncWithHttpInfo($source_file, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $preview_settings_make_preview = null, $preview_settings_namespace = null, $preview_settings_name = null, $preview_settings_width = null, $preview_settings_height = null, $preview_settings_stub = null, $preview_settings_format = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorImportDesign'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorImportDesignRequest($source_file, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $preview_settings_make_preview, $preview_settings_namespace, $preview_settings_name, $preview_settings_width, $preview_settings_height, $preview_settings_stub, $preview_settings_format, $marker_shortcuts_file, $contentType);
 
         return $this->client
@@ -6048,7 +6048,7 @@ class PrivateDesignProcessorApi
      * @param  int $preview_settings_width Preview image width. (optional)
      * @param  int $preview_settings_height Preview image height. (optional)
      * @param  bool $preview_settings_stub Preview stub content switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $preview_settings_format Preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $preview_settings_format Preview image format. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorImportDesign'] to see the possible values for this operation
      *
@@ -6258,16 +6258,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function privateDesignProcessorLinkDataSchema($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
+    public function privateDesignProcessorLinkDataSchema($id, $tenant_id = null, $owner_id = null, $design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
     {
-        list($response) = $this->privateDesignProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model, $contentType);
+        list($response) = $this->privateDesignProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id, $owner_id, $design_link_data_schema_model, $contentType);
         return $response;
     }
 
@@ -6279,16 +6279,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
+    public function privateDesignProcessorLinkDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
     {
-        $request = $this->privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model, $contentType);
+        $request = $this->privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id, $owner_id, $design_link_data_schema_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6327,11 +6327,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6349,16 +6349,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6376,16 +6376,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6403,13 +6403,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6442,7 +6442,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6450,7 +6450,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6458,7 +6458,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6476,15 +6476,15 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkDataSchemaAsync($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
+    public function privateDesignProcessorLinkDataSchemaAsync($id, $tenant_id = null, $owner_id = null, $design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
     {
-        return $this->privateDesignProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model, $contentType)
+        return $this->privateDesignProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id, $owner_id, $design_link_data_schema_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6500,16 +6500,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
+    public function privateDesignProcessorLinkDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id, $owner_id, $design_link_data_schema_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6553,13 +6553,13 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkDataSchemaModel $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model Link schema operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
+    public function privateDesignProcessorLinkDataSchemaRequest($id, $tenant_id = null, $owner_id = null, $design_link_data_schema_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkDataSchema'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -6617,12 +6617,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_link_data_schema_model)) {
+        if (isset($design_link_data_schema_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_link_data_schema_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_link_data_schema_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_link_data_schema_model;
+                $httpBody = $design_link_data_schema_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -6699,16 +6699,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel $aurigma_asset_processor_web_api_models_design_design_link_palettes_model Link palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function privateDesignProcessorLinkPalettes($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
+    public function privateDesignProcessorLinkPalettes($id, $tenant_id = null, $design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
     {
-        list($response) = $this->privateDesignProcessorLinkPalettesWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model, $contentType);
+        list($response) = $this->privateDesignProcessorLinkPalettesWithHttpInfo($id, $tenant_id, $design_link_palettes_model, $contentType);
         return $response;
     }
 
@@ -6719,16 +6719,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel $aurigma_asset_processor_web_api_models_design_design_link_palettes_model Link palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorLinkPalettesWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
+    public function privateDesignProcessorLinkPalettesWithHttpInfo($id, $tenant_id = null, $design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
     {
-        $request = $this->privateDesignProcessorLinkPalettesRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model, $contentType);
+        $request = $this->privateDesignProcessorLinkPalettesRequest($id, $tenant_id, $design_link_palettes_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -6767,11 +6767,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6789,16 +6789,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6816,16 +6816,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -6843,13 +6843,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -6882,7 +6882,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6890,7 +6890,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6898,7 +6898,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -6915,15 +6915,15 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel $aurigma_asset_processor_web_api_models_design_design_link_palettes_model Link palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkPalettesAsync($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
+    public function privateDesignProcessorLinkPalettesAsync($id, $tenant_id = null, $design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
     {
-        return $this->privateDesignProcessorLinkPalettesAsyncWithHttpInfo($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model, $contentType)
+        return $this->privateDesignProcessorLinkPalettesAsyncWithHttpInfo($id, $tenant_id, $design_link_palettes_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -6938,16 +6938,16 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel $aurigma_asset_processor_web_api_models_design_design_link_palettes_model Link palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkPalettesAsyncWithHttpInfo($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
+    public function privateDesignProcessorLinkPalettesAsyncWithHttpInfo($id, $tenant_id = null, $design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorLinkPalettesRequest($id, $tenant_id, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorLinkPalettesRequest($id, $tenant_id, $design_link_palettes_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -6990,13 +6990,13 @@ class PrivateDesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkPalettesModel $aurigma_asset_processor_web_api_models_design_design_link_palettes_model Link palettes operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorLinkPalettesRequest($id, $tenant_id = null, $aurigma_asset_processor_web_api_models_design_design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
+    public function privateDesignProcessorLinkPalettesRequest($id, $tenant_id = null, $design_link_palettes_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkPalettes'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -7044,12 +7044,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_link_palettes_model)) {
+        if (isset($design_link_palettes_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_link_palettes_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_link_palettes_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_link_palettes_model;
+                $httpBody = $design_link_palettes_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7127,16 +7127,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model Link toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function privateDesignProcessorLinkToggleSet($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
+    public function privateDesignProcessorLinkToggleSet($id, $tenant_id = null, $owner_id = null, $design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
     {
-        list($response) = $this->privateDesignProcessorLinkToggleSetWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model, $contentType);
+        list($response) = $this->privateDesignProcessorLinkToggleSetWithHttpInfo($id, $tenant_id, $owner_id, $design_link_toggle_set_model, $contentType);
         return $response;
     }
 
@@ -7148,16 +7148,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model Link toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function privateDesignProcessorLinkToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
+    public function privateDesignProcessorLinkToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
     {
-        $request = $this->privateDesignProcessorLinkToggleSetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model, $contentType);
+        $request = $this->privateDesignProcessorLinkToggleSetRequest($id, $tenant_id, $owner_id, $design_link_toggle_set_model, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -7196,11 +7196,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7218,16 +7218,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7245,16 +7245,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7272,13 +7272,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -7311,7 +7311,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7319,7 +7319,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7327,7 +7327,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7345,15 +7345,15 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model Link toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkToggleSetAsync($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
+    public function privateDesignProcessorLinkToggleSetAsync($id, $tenant_id = null, $owner_id = null, $design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
     {
-        return $this->privateDesignProcessorLinkToggleSetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model, $contentType)
+        return $this->privateDesignProcessorLinkToggleSetAsyncWithHttpInfo($id, $tenant_id, $owner_id, $design_link_toggle_set_model, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -7369,16 +7369,16 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model Link toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function privateDesignProcessorLinkToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
+    public function privateDesignProcessorLinkToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
-        $request = $this->privateDesignProcessorLinkToggleSetRequest($id, $tenant_id, $owner_id, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model, $contentType);
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->privateDesignProcessorLinkToggleSetRequest($id, $tenant_id, $owner_id, $design_link_toggle_set_model, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -7422,13 +7422,13 @@ class PrivateDesignProcessorApi
      * @param  string $id Design entity unique identifier. (required)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDesignDesignLinkToggleSetModel $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model Link toggle set operation parameters. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['privateDesignProcessorLinkToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function privateDesignProcessorLinkToggleSetRequest($id, $tenant_id = null, $owner_id = null, $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
+    public function privateDesignProcessorLinkToggleSetRequest($id, $tenant_id = null, $owner_id = null, $design_link_toggle_set_model = null, string $contentType = self::contentTypes['privateDesignProcessorLinkToggleSet'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -7486,12 +7486,12 @@ class PrivateDesignProcessorApi
         );
 
         // for model (json/xml)
-        if (isset($aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model)) {
+        if (isset($design_link_toggle_set_model)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($design_link_toggle_set_model));
             } else {
-                $httpBody = $aurigma_asset_processor_web_api_models_design_design_link_toggle_set_model;
+                $httpBody = $design_link_toggle_set_model;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -7573,7 +7573,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -7581,7 +7581,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorPreparePreview($id, $namespace, $name, $width, $height, $surface_index = null, $stub = null, $format = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorPreparePreview'][0])
     {
@@ -7601,7 +7601,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -7609,7 +7609,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $surface_index = null, $stub = null, $format = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorPreparePreview'][0])
     {
@@ -7679,11 +7679,11 @@ class PrivateDesignProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -7701,7 +7701,7 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -7748,7 +7748,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -7770,7 +7770,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -7801,7 +7801,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -7861,7 +7861,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -7944,7 +7944,7 @@ class PrivateDesignProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat', // openApiType
+            'DesignPreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -8021,7 +8021,7 @@ class PrivateDesignProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/octet-stream', ],
+            ['application/octet-stream', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -8107,7 +8107,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -8115,7 +8115,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $surface_index = null, $stub = null, $format = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorPreparePreviewUrl'][0])
     {
@@ -8135,7 +8135,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -8143,7 +8143,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $surface_index = null, $stub = null, $format = null, $force = false, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorPreparePreviewUrl'][0])
     {
@@ -8213,11 +8213,11 @@ class PrivateDesignProcessorApi
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8235,7 +8235,7 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -8282,7 +8282,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8304,7 +8304,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -8335,7 +8335,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -8395,7 +8395,7 @@ class PrivateDesignProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  int $surface_index Design surface index.  Indicates which design surface should be used as a source for preview. (optional)
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
-     * @param  \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat $format Design preview image format. (optional)
+     * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
      * @param  int $tenant_id Tenant identifier (optional)
      * @param  string $owner_id Private storage owner identifier. (optional)
@@ -8478,7 +8478,7 @@ class PrivateDesignProcessorApi
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $format,
             'format', // param base name
-            'AurigmaAssetProcessorWebApiEnumsDesignPreviewFormat', // openApiType
+            'DesignPreviewFormat', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -8555,7 +8555,7 @@ class PrivateDesignProcessorApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['text/plain', ],
+            ['text/plain', 'application/json', ],
             $contentType,
             $multipart
         );
@@ -8643,7 +8643,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto
      */
     public function privateDesignProcessorReimportDesign($id, $source_file, $tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorReimportDesign'][0])
     {
@@ -8665,7 +8665,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorReimportDesignWithHttpInfo($id, $source_file, $tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorReimportDesign'][0])
     {
@@ -8708,11 +8708,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8730,16 +8730,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8757,16 +8757,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -8784,13 +8784,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -8823,7 +8823,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8831,7 +8831,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8839,7 +8839,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -8891,7 +8891,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorReimportDesignAsyncWithHttpInfo($id, $source_file, $tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorReimportDesign'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorReimportDesignRequest($id, $source_file, $tenant_id, $owner_id, $marker_shortcuts_file, $contentType);
 
         return $this->client
@@ -9112,7 +9112,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorRemoveDataSchema($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveDataSchema'][0])
     {
@@ -9132,7 +9132,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorRemoveDataSchemaWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveDataSchema'][0])
     {
@@ -9175,11 +9175,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9197,16 +9197,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9224,13 +9224,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9263,7 +9263,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9271,7 +9271,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9319,7 +9319,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorRemoveDataSchemaAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveDataSchema'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorRemoveDataSchemaRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -9505,7 +9505,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorRemovePalettes($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemovePalettes'][0])
     {
@@ -9524,7 +9524,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorRemovePalettesWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemovePalettes'][0])
     {
@@ -9567,11 +9567,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9589,16 +9589,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9616,13 +9616,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -9655,7 +9655,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9663,7 +9663,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -9709,7 +9709,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorRemovePalettesAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemovePalettes'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorRemovePalettesRequest($id, $tenant_id, $contentType);
 
         return $this->client
@@ -9885,7 +9885,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
      */
     public function privateDesignProcessorRemoveToggleSet($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveToggleSet'][0])
     {
@@ -9905,7 +9905,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorRemoveToggleSetWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveToggleSet'][0])
     {
@@ -9948,11 +9948,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9970,16 +9970,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -9997,13 +9997,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10036,7 +10036,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10044,7 +10044,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10092,7 +10092,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorRemoveToggleSetAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, string $contentType = self::contentTypes['privateDesignProcessorRemoveToggleSet'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorRemoveToggleSetRequest($id, $tenant_id, $owner_id, $contentType);
 
         return $this->client
@@ -10283,7 +10283,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto
      */
     public function privateDesignProcessorUpdate($id, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $file = null, string $contentType = self::contentTypes['privateDesignProcessorUpdate'][0])
     {
@@ -10307,7 +10307,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto|\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails|\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorUpdateWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $file = null, string $contentType = self::contentTypes['privateDesignProcessorUpdate'][0])
     {
@@ -10350,11 +10350,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10372,16 +10372,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10399,16 +10399,16 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10426,13 +10426,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10465,7 +10465,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto',
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10473,7 +10473,7 @@ class PrivateDesignProcessorApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\MicrosoftAspNetCoreMvcProblemDetails',
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10481,7 +10481,7 @@ class PrivateDesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosConflictDesignDesignUpdateConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignUpdateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10537,7 +10537,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorUpdateAsyncWithHttpInfo($id, $tenant_id = null, $owner_id = null, $design_params_name = null, $design_params_path = null, $design_params_custom_fields = null, $file = null, string $contentType = self::contentTypes['privateDesignProcessorUpdate'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDesignDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
         $request = $this->privateDesignProcessorUpdateRequest($id, $tenant_id, $owner_id, $design_params_name, $design_params_path, $design_params_custom_fields, $file, $contentType);
 
         return $this->client
@@ -10759,7 +10759,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto
+     * @return \Aurigma\AssetProcessor\Model\ValidationResultDto
      */
     public function privateDesignProcessorValidateDesignImportSettings($tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorValidateDesignImportSettings'][0])
     {
@@ -10779,7 +10779,7 @@ class PrivateDesignProcessorApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\ValidationResultDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function privateDesignProcessorValidateDesignImportSettingsWithHttpInfo($tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorValidateDesignImportSettings'][0])
     {
@@ -10822,11 +10822,11 @@ class PrivateDesignProcessorApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\ValidationResultDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\ValidationResultDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -10844,13 +10844,13 @@ class PrivateDesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ValidationResultDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto';
+            $returnType = '\Aurigma\AssetProcessor\Model\ValidationResultDto';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -10883,7 +10883,7 @@ class PrivateDesignProcessorApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto',
+                        '\Aurigma\AssetProcessor\Model\ValidationResultDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -10931,7 +10931,7 @@ class PrivateDesignProcessorApi
      */
     public function privateDesignProcessorValidateDesignImportSettingsAsyncWithHttpInfo($tenant_id = null, $owner_id = null, $marker_shortcuts_file = null, string $contentType = self::contentTypes['privateDesignProcessorValidateDesignImportSettings'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiDtosDesignValidationResultDto';
+        $returnType = '\Aurigma\AssetProcessor\Model\ValidationResultDto';
         $request = $this->privateDesignProcessorValidateDesignImportSettingsRequest($tenant_id, $owner_id, $marker_shortcuts_file, $contentType);
 
         return $this->client

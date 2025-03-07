@@ -16,7 +16,7 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 ## `dataSetProcessorCheck()`
 
 ```php
-dataSetProcessorCheck($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo
+dataSetProcessorCheck($id, $tenant_id): \Aurigma\AssetProcessor\Model\DataSetProblemDto
 ```
 
 Checks if data set taken from storage has any problems.
@@ -74,7 +74,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo**](../Model/AurigmaAssetProcessorAppServicesModelsDataSetDataSetProblemInfo.md)
+[**\Aurigma\AssetProcessor\Model\DataSetProblemDto**](../Model/DataSetProblemDto.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ try {
 ## `dataSetProcessorEmbedDataSchema()`
 
 ```php
-dataSetProcessorEmbedDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto
+dataSetProcessorEmbedDataSchema($id, $tenant_id): \Aurigma\AssetProcessor\Model\DataSetDto
 ```
 
 Embeds linked data schema to the data set.
@@ -150,7 +150,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto**](../Model/AurigmaAssetStorageDataSetDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSetDto**](../Model/DataSetDto.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/octet-stream`
+- **Accept**: `application/octet-stream`, `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -244,7 +244,7 @@ try {
 ## `dataSetProcessorExtractDataSchema()`
 
 ```php
-dataSetProcessorExtractDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model)
+dataSetProcessorExtractDataSchema($id, $tenant_id, $data_set_extract_data_schema_model)
 ```
 
 Extracts data schema from data set and saves it to the specified folder.
@@ -284,10 +284,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel | Extract data schema operation parameters.
+$data_set_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel | Extract data schema operation parameters.
 
 try {
-    $apiInstance->dataSetProcessorExtractDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model);
+    $apiInstance->dataSetProcessorExtractDataSchema($id, $tenant_id, $data_set_extract_data_schema_model);
 } catch (Exception $e) {
     echo 'Exception when calling DataSetProcessorApi->dataSetProcessorExtractDataSchema: ', $e->getMessage(), PHP_EOL;
 }
@@ -299,7 +299,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_data_set_data_set_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDataSetDataSetExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
+| **data_set_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel**](../Model/DataSetExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
 
 ### Return type
 
@@ -321,7 +321,7 @@ void (empty response body)
 ## `dataSetProcessorImportDataSet()`
 
 ```php
-dataSetProcessorImportDataSet($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto
+dataSetProcessorImportDataSet($source_file, $tenant_id, $name, $path, $custom_fields): \Aurigma\AssetProcessor\Model\DataSetDto
 ```
 
 Imports data set and saves it to storage.
@@ -385,7 +385,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto**](../Model/AurigmaAssetStorageDataSetDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSetDto**](../Model/DataSetDto.md)
 
 ### Authorization
 
@@ -403,7 +403,7 @@ try {
 ## `dataSetProcessorLinkDataSchema()`
 
 ```php
-dataSetProcessorLinkDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto
+dataSetProcessorLinkDataSchema($id, $tenant_id, $data_set_link_data_schema_model): \Aurigma\AssetProcessor\Model\DataSetDto
 ```
 
 Links data schema to the data set.
@@ -443,10 +443,10 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
 $tenant_id = 56; // int | Tenant identifier
-$aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model = new \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel | Link schema operation parameters.
+$data_set_link_data_schema_model = new \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel | Link schema operation parameters.
 
 try {
-    $result = $apiInstance->dataSetProcessorLinkDataSchema($id, $tenant_id, $aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model);
+    $result = $apiInstance->dataSetProcessorLinkDataSchema($id, $tenant_id, $data_set_link_data_schema_model);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DataSetProcessorApi->dataSetProcessorLinkDataSchema: ', $e->getMessage(), PHP_EOL;
@@ -459,11 +459,11 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
 | **tenant_id** | **int**| Tenant identifier | [optional] |
-| **aurigma_asset_processor_web_api_models_data_set_data_set_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel**](../Model/AurigmaAssetProcessorWebApiModelsDataSetDataSetLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
+| **data_set_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel**](../Model/DataSetLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto**](../Model/AurigmaAssetStorageDataSetDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSetDto**](../Model/DataSetDto.md)
 
 ### Authorization
 
@@ -481,7 +481,7 @@ try {
 ## `dataSetProcessorUpdate()`
 
 ```php
-dataSetProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto
+dataSetProcessorUpdate($id, $tenant_id, $name, $path, $custom_fields, $file): \Aurigma\AssetProcessor\Model\DataSetDto
 ```
 
 Updates data set file and metadata in storage.
@@ -549,7 +549,7 @@ try {
 
 ### Return type
 
-[**\Aurigma\AssetProcessor\Model\AurigmaAssetStorageDataSetDto**](../Model/AurigmaAssetStorageDataSetDto.md)
+[**\Aurigma\AssetProcessor\Model\DataSetDto**](../Model/DataSetDto.md)
 
 ### Authorization
 

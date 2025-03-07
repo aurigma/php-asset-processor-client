@@ -134,7 +134,7 @@ class BuildInfoApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel
+     * @return \Aurigma\AssetProcessor\Model\BuildInfoModel
      */
     public function buildInfoGetInfo(string $contentType = self::contentTypes['buildInfoGetInfo'][0])
     {
@@ -151,7 +151,7 @@ class BuildInfoApi
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\BuildInfoModel, HTTP status code, HTTP response headers (array of strings)
      */
     public function buildInfoGetInfoWithHttpInfo(string $contentType = self::contentTypes['buildInfoGetInfo'][0])
     {
@@ -194,11 +194,11 @@ class BuildInfoApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\BuildInfoModel' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\BuildInfoModel' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -216,13 +216,13 @@ class BuildInfoApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\BuildInfoModel', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel';
+            $returnType = '\Aurigma\AssetProcessor\Model\BuildInfoModel';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -255,7 +255,7 @@ class BuildInfoApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel',
+                        '\Aurigma\AssetProcessor\Model\BuildInfoModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -297,7 +297,7 @@ class BuildInfoApi
      */
     public function buildInfoGetInfoAsyncWithHttpInfo(string $contentType = self::contentTypes['buildInfoGetInfo'][0])
     {
-        $returnType = '\Aurigma\AssetProcessor\Model\AurigmaAssetProcessorWebApiModelsBuildInfoBuildInfoModel';
+        $returnType = '\Aurigma\AssetProcessor\Model\BuildInfoModel';
         $request = $this->buildInfoGetInfoRequest($contentType);
 
         return $this->client
