@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identification_conflict** | [**\Aurigma\AssetProcessor\Model\ConflictDto**](ConflictDto.md) |  | [optional]
+**identification_conflict** | [**\Aurigma\AssetProcessor\Model\IdentificationConflictDto**](IdentificationConflictDto.md) |  | [optional]
 **validation_conflict** | [**\Aurigma\AssetProcessor\Model\PaletteValidationConflictDto**](PaletteValidationConflictDto.md) |  | [optional]
 **description** | **string** | Problem description. | [optional]
 **type** | [**\Aurigma\AssetProcessor\Model\ConflictType**](ConflictType.md) | Coflict type. | [optional]

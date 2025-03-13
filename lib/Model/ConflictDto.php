@@ -35,6 +35,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * ConflictDto Class Doc Comment
  *
  * @category Class
+ * @description Information about operation conflict.
  * @package  Aurigma\AssetProcessor
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

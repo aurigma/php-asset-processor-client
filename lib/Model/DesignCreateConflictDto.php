@@ -59,7 +59,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'missing_fonts_conflict' => '\Aurigma\AssetProcessor\Model\MissingFontsConflictDto',
         'missing_images_conflict' => '\Aurigma\AssetProcessor\Model\MissingImagesConflictDto',
-        'identification_conflict' => '\Aurigma\AssetProcessor\Model\ConflictDto',
+        'identification_conflict' => '\Aurigma\AssetProcessor\Model\IdentificationConflictDto',
         'description' => 'string',
         'type' => '\Aurigma\AssetProcessor\Model\ConflictType'
     ];
@@ -388,7 +388,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets identification_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\ConflictDto|null
+     * @return \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null
      */
     public function getIdentificationConflict()
     {
@@ -398,7 +398,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets identification_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\ConflictDto|null $identification_conflict identification_conflict
+     * @param \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null $identification_conflict identification_conflict
      *
      * @return self
      */

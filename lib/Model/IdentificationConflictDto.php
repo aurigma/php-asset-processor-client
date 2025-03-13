@@ -1,6 +1,6 @@
 <?php
 /**
- * DesignImportConflictDto
+ * IdentificationConflictDto
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \Aurigma\AssetProcessor\ObjectSerializer;
 
 /**
- * DesignImportConflictDto Class Doc Comment
+ * IdentificationConflictDto Class Doc Comment
  *
  * @category Class
  * @package  Aurigma\AssetProcessor
@@ -40,7 +40,7 @@ use \Aurigma\AssetProcessor\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSerializable
+class IdentificationConflictDto implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'DesignImportConflictDto';
+    protected static $openAPIModelName = 'IdentificationConflictDto';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'missing_fonts_conflict' => '\Aurigma\AssetProcessor\Model\MissingFontsConflictDto',
-        'missing_images_conflict' => '\Aurigma\AssetProcessor\Model\MissingImagesConflictDto',
-        'identification_conflict' => '\Aurigma\AssetProcessor\Model\IdentificationConflictDto',
-        'description' => 'string',
-        'type' => '\Aurigma\AssetProcessor\Model\ConflictType'
+        'id' => 'string',
+        'name' => 'string',
+        'path' => 'string'
     ];
 
     /**
@@ -72,11 +70,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'missing_fonts_conflict' => null,
-        'missing_images_conflict' => null,
-        'identification_conflict' => null,
-        'description' => null,
-        'type' => null
+        'id' => null,
+        'name' => null,
+        'path' => null
     ];
 
     /**
@@ -85,11 +81,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'missing_fonts_conflict' => true,
-        'missing_images_conflict' => true,
-        'identification_conflict' => true,
-        'description' => true,
-        'type' => false
+        'id' => true,
+        'name' => true,
+        'path' => true
     ];
 
     /**
@@ -178,11 +172,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'missing_fonts_conflict' => 'missingFontsConflict',
-        'missing_images_conflict' => 'missingImagesConflict',
-        'identification_conflict' => 'identificationConflict',
-        'description' => 'description',
-        'type' => 'type'
+        'id' => 'id',
+        'name' => 'name',
+        'path' => 'path'
     ];
 
     /**
@@ -191,11 +183,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'missing_fonts_conflict' => 'setMissingFontsConflict',
-        'missing_images_conflict' => 'setMissingImagesConflict',
-        'identification_conflict' => 'setIdentificationConflict',
-        'description' => 'setDescription',
-        'type' => 'setType'
+        'id' => 'setId',
+        'name' => 'setName',
+        'path' => 'setPath'
     ];
 
     /**
@@ -204,11 +194,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'missing_fonts_conflict' => 'getMissingFontsConflict',
-        'missing_images_conflict' => 'getMissingImagesConflict',
-        'identification_conflict' => 'getIdentificationConflict',
-        'description' => 'getDescription',
-        'type' => 'getType'
+        'id' => 'getId',
+        'name' => 'getName',
+        'path' => 'getPath'
     ];
 
     /**
@@ -268,11 +256,9 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('missing_fonts_conflict', $data ?? [], null);
-        $this->setIfExists('missing_images_conflict', $data ?? [], null);
-        $this->setIfExists('identification_conflict', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('path', $data ?? [], null);
     }
 
     /**
@@ -318,164 +304,103 @@ class DesignImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets missing_fonts_conflict
-     *
-     * @return \Aurigma\AssetProcessor\Model\MissingFontsConflictDto|null
-     */
-    public function getMissingFontsConflict()
-    {
-        return $this->container['missing_fonts_conflict'];
-    }
-
-    /**
-     * Sets missing_fonts_conflict
-     *
-     * @param \Aurigma\AssetProcessor\Model\MissingFontsConflictDto|null $missing_fonts_conflict missing_fonts_conflict
-     *
-     * @return self
-     */
-    public function setMissingFontsConflict($missing_fonts_conflict)
-    {
-        if (is_null($missing_fonts_conflict)) {
-            array_push($this->openAPINullablesSetToNull, 'missing_fonts_conflict');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('missing_fonts_conflict', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['missing_fonts_conflict'] = $missing_fonts_conflict;
-
-        return $this;
-    }
-
-    /**
-     * Gets missing_images_conflict
-     *
-     * @return \Aurigma\AssetProcessor\Model\MissingImagesConflictDto|null
-     */
-    public function getMissingImagesConflict()
-    {
-        return $this->container['missing_images_conflict'];
-    }
-
-    /**
-     * Sets missing_images_conflict
-     *
-     * @param \Aurigma\AssetProcessor\Model\MissingImagesConflictDto|null $missing_images_conflict missing_images_conflict
-     *
-     * @return self
-     */
-    public function setMissingImagesConflict($missing_images_conflict)
-    {
-        if (is_null($missing_images_conflict)) {
-            array_push($this->openAPINullablesSetToNull, 'missing_images_conflict');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('missing_images_conflict', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['missing_images_conflict'] = $missing_images_conflict;
-
-        return $this;
-    }
-
-    /**
-     * Gets identification_conflict
-     *
-     * @return \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null
-     */
-    public function getIdentificationConflict()
-    {
-        return $this->container['identification_conflict'];
-    }
-
-    /**
-     * Sets identification_conflict
-     *
-     * @param \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null $identification_conflict identification_conflict
-     *
-     * @return self
-     */
-    public function setIdentificationConflict($identification_conflict)
-    {
-        if (is_null($identification_conflict)) {
-            array_push($this->openAPINullablesSetToNull, 'identification_conflict');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('identification_conflict', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['identification_conflict'] = $identification_conflict;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
+     * Gets id
      *
      * @return string|null
      */
-    public function getDescription()
+    public function getId()
     {
-        return $this->container['description'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets description
+     * Sets id
      *
-     * @param string|null $description Problem description.
+     * @param string|null $id Operation conflict entity identifier.
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setId($id)
     {
-        if (is_null($description)) {
-            array_push($this->openAPINullablesSetToNull, 'description');
+        if (is_null($id)) {
+            array_push($this->openAPINullablesSetToNull, 'id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('description', $nullablesSetToNull);
+            $index = array_search('id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['description'] = $description;
+        $this->container['id'] = $id;
 
         return $this;
     }
 
     /**
-     * Gets type
+     * Gets name
      *
-     * @return \Aurigma\AssetProcessor\Model\ConflictType|null
+     * @return string|null
      */
-    public function getType()
+    public function getName()
     {
-        return $this->container['type'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets type
+     * Sets name
      *
-     * @param \Aurigma\AssetProcessor\Model\ConflictType|null $type Coflict type.
+     * @param string|null $name Operation conflict entity name.
      *
      * @return self
      */
-    public function setType($type)
+    public function setName($name)
     {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($name)) {
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['type'] = $type;
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets path
+     *
+     * @return string|null
+     */
+    public function getPath()
+    {
+        return $this->container['path'];
+    }
+
+    /**
+     * Sets path
+     *
+     * @param string|null $path Operation conflict entity folder path.
+     *
+     * @return self
+     */
+    public function setPath($path)
+    {
+        if (is_null($path)) {
+            array_push($this->openAPINullablesSetToNull, 'path');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('path', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['path'] = $path;
 
         return $this;
     }

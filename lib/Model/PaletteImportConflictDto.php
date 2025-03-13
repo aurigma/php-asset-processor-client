@@ -57,7 +57,7 @@ class PaletteImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'identification_conflict' => '\Aurigma\AssetProcessor\Model\ConflictDto',
+        'identification_conflict' => '\Aurigma\AssetProcessor\Model\IdentificationConflictDto',
         'validation_conflict' => '\Aurigma\AssetProcessor\Model\PaletteValidationConflictDto',
         'description' => 'string',
         'type' => '\Aurigma\AssetProcessor\Model\ConflictType'
@@ -313,7 +313,7 @@ class PaletteImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets identification_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\ConflictDto|null
+     * @return \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null
      */
     public function getIdentificationConflict()
     {
@@ -323,7 +323,7 @@ class PaletteImportConflictDto implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets identification_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\ConflictDto|null $identification_conflict identification_conflict
+     * @param \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null $identification_conflict identification_conflict
      *
      * @return self
      */
