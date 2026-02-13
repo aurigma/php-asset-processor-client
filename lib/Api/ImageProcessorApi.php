@@ -71,6 +71,9 @@ class ImageProcessorApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'imageProcessorExportImage' => [
+            'application/json',
+        ],
         'imageProcessorImportImage' => [
             'multipart/form-data',
         ],
@@ -132,12 +135,441 @@ class ImageProcessorApi
     }
 
     /**
+     * Operation imageProcessorExportImage
+     *
+     * Returns a content of an existing image file. If &#x60;pageIndex&#x60; is set, extracts a page from an existing multi-page image and returns its content as a separate file.
+     *
+     * @param  string $id Image unique identifier. (required)
+     * @param  int $page_index Zero-based image page index. If not set, whole multi-page file stream will be returned. (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorExportImage'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
+     */
+    public function imageProcessorExportImage($id, $page_index = null, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorExportImage'][0])
+    {
+        list($response) = $this->imageProcessorExportImageWithHttpInfo($id, $page_index, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation imageProcessorExportImageWithHttpInfo
+     *
+     * Returns a content of an existing image file. If &#x60;pageIndex&#x60; is set, extracts a page from an existing multi-page image and returns its content as a separate file.
+     *
+     * @param  string $id Image unique identifier. (required)
+     * @param  int $page_index Zero-based image page index. If not set, whole multi-page file stream will be returned. (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorExportImage'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function imageProcessorExportImageWithHttpInfo($id, $page_index = null, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorExportImage'][0])
+    {
+        $request = $this->imageProcessorExportImageRequest($id, $page_index, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\SplFileObject' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\SplFileObject' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\SplFileObject';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation imageProcessorExportImageAsync
+     *
+     * Returns a content of an existing image file. If &#x60;pageIndex&#x60; is set, extracts a page from an existing multi-page image and returns its content as a separate file.
+     *
+     * @param  string $id Image unique identifier. (required)
+     * @param  int $page_index Zero-based image page index. If not set, whole multi-page file stream will be returned. (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorExportImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageProcessorExportImageAsync($id, $page_index = null, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorExportImage'][0])
+    {
+        return $this->imageProcessorExportImageAsyncWithHttpInfo($id, $page_index, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation imageProcessorExportImageAsyncWithHttpInfo
+     *
+     * Returns a content of an existing image file. If &#x60;pageIndex&#x60; is set, extracts a page from an existing multi-page image and returns its content as a separate file.
+     *
+     * @param  string $id Image unique identifier. (required)
+     * @param  int $page_index Zero-based image page index. If not set, whole multi-page file stream will be returned. (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorExportImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function imageProcessorExportImageAsyncWithHttpInfo($id, $page_index = null, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorExportImage'][0])
+    {
+        $returnType = '\SplFileObject';
+        $request = $this->imageProcessorExportImageRequest($id, $page_index, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'imageProcessorExportImage'
+     *
+     * @param  string $id Image unique identifier. (required)
+     * @param  int $page_index Zero-based image page index. If not set, whole multi-page file stream will be returned. (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorExportImage'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function imageProcessorExportImageRequest($id, $page_index = null, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorExportImage'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling imageProcessorExportImage'
+            );
+        }
+
+
+
+
+        $resourcePath = '/api/processor/v1/images/{id}/export';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_index,
+            'pageIndex', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/octet-stream', 'application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation imageProcessorImportImage
      *
      * Imports image from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Image source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -169,7 +601,7 @@ class ImageProcessorApi
      * Imports image from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Image source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -342,7 +774,7 @@ class ImageProcessorApi
      * Imports image from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Image source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -377,7 +809,7 @@ class ImageProcessorApi
      * Imports image from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Image source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -441,7 +873,7 @@ class ImageProcessorApi
      * Create request for operation 'imageProcessorImportImage'
      *
      * @param  \SplFileObject $source_file Image source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -662,17 +1094,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails
+     * @return \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
+    public function imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
-        list($response) = $this->imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        list($response) = $this->imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
         return $response;
     }
 
@@ -691,17 +1124,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
+    public function imageProcessorPreparePreviewWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
-        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -793,6 +1227,33 @@ class ImageProcessorApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = '\SplFileObject';
@@ -841,6 +1302,14 @@ class ImageProcessorApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -861,16 +1330,17 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
+    public function imageProcessorPreparePreviewAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
-        return $this->imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType)
+        return $this->imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -893,17 +1363,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
+    public function imageProcessorPreparePreviewAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
         $returnType = '\SplFileObject';
-        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        $request = $this->imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -954,14 +1425,15 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
+    public function imageProcessorPreparePreviewRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreview'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -998,6 +1470,7 @@ class ImageProcessorApi
                 'Missing the required parameter $height when calling imageProcessorPreparePreview'
             );
         }
+
 
 
 
@@ -1055,6 +1528,15 @@ class ImageProcessorApi
             $apply_auto_crop,
             'applyAutoCrop', // param base name
             'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_index,
+            'pageIndex', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1211,17 +1693,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails
+     * @return string|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto
      */
-    public function imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
+    public function imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
-        list($response) = $this->imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        list($response) = $this->imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
         return $response;
     }
 
@@ -1240,17 +1723,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\GeneralConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
-    public function imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
+    public function imageProcessorPreparePreviewUrlWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
-        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1342,6 +1826,33 @@ class ImageProcessorApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 409:
+                    if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\GeneralConflictDto' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\GeneralConflictDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
             }
 
             $returnType = 'string';
@@ -1390,6 +1901,14 @@ class ImageProcessorApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 409:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\GeneralConflictDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
@@ -1410,16 +1929,17 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
+    public function imageProcessorPreparePreviewUrlAsync($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
-        return $this->imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType)
+        return $this->imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1442,17 +1962,18 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
+    public function imageProcessorPreparePreviewUrlAsyncWithHttpInfo($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
         $returnType = 'string';
-        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id, $contentType);
+        $request = $this->imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1503,14 +2024,15 @@ class ImageProcessorApi
      * @param  \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode $interpolation_mode Image preview interpolation mode (optional)
      * @param  string $background Background color for transparent images (optional)
      * @param  bool $apply_auto_crop Indicates if the image should be automatically cropped. (optional, default to false)
+     * @param  int $page_index Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['imageProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
+    public function imageProcessorPreparePreviewUrlRequest($id, $namespace, $name, $width, $height, $jpeg_quality = null, $fit_mode = null, $interpolation_mode = null, $background = null, $apply_auto_crop = false, $page_index = null, $force = false, $tenant_id = null, string $contentType = self::contentTypes['imageProcessorPreparePreviewUrl'][0])
     {
 
         // verify the required parameter 'id' is set
@@ -1547,6 +2069,7 @@ class ImageProcessorApi
                 'Missing the required parameter $height when calling imageProcessorPreparePreviewUrl'
             );
         }
+
 
 
 
@@ -1604,6 +2127,15 @@ class ImageProcessorApi
             $apply_auto_crop,
             'applyAutoCrop', // param base name
             'boolean', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $page_index,
+            'pageIndex', // param base name
+            'integer', // openApiType
             'form', // style
             true, // explode
             false // required
@@ -1751,7 +2283,7 @@ class ImageProcessorApi
      * Updates image file and metadata in storage.
      *
      * @param  string $id Image entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -1774,7 +2306,7 @@ class ImageProcessorApi
      * Updates image file and metadata in storage.
      *
      * @param  string $id Image entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -1973,7 +2505,7 @@ class ImageProcessorApi
      * Updates image file and metadata in storage.
      *
      * @param  string $id Image entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -1999,7 +2531,7 @@ class ImageProcessorApi
      * Updates image file and metadata in storage.
      *
      * @param  string $id Image entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)
@@ -2054,7 +2586,7 @@ class ImageProcessorApi
      * Create request for operation 'imageProcessorUpdate'
      *
      * @param  string $id Image entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Image name. (optional)
      * @param  string $path Image location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Image custom attributes. (optional)

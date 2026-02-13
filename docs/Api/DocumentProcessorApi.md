@@ -50,7 +50,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DocumentProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $create_blank_toggle_set_model = new \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel(); // \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel | Operation paramsHolder:.
 
 try {
@@ -65,7 +65,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **create_blank_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel**](../Model/CreateBlankToggleSetModel.md)| Operation paramsHolder:. | [optional] |
 
 ### Return type
@@ -127,7 +127,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DocumentProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Document source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
@@ -147,7 +147,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Document source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Document name. | [optional] |
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |
@@ -215,7 +215,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DocumentProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Document entity ID.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Document name.
 $path = 'path_example'; // string | Document location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Document custom attributes.
@@ -236,7 +236,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Document entity ID. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Document name. | [optional] |
 | **path** | **string**| Document location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Document custom attributes. | [optional] |

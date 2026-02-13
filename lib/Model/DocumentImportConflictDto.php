@@ -57,7 +57,7 @@ class DocumentImportConflictDto implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'identification_conflict' => '\Aurigma\AssetProcessor\Model\IdentificationConflictDto',
+        'identification_conflict' => '\Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict',
         'validation_conflict' => '\Aurigma\AssetProcessor\Model\DocumentValidationConflictDto',
         'description' => 'string',
         'type' => '\Aurigma\AssetProcessor\Model\ConflictType'
@@ -313,7 +313,7 @@ class DocumentImportConflictDto implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets identification_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null
+     * @return \Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict|null
      */
     public function getIdentificationConflict()
     {
@@ -323,7 +323,7 @@ class DocumentImportConflictDto implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets identification_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null $identification_conflict identification_conflict
+     * @param \Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict|null $identification_conflict identification_conflict
      *
      * @return self
      */

@@ -57,7 +57,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var string[]
       */
     protected static $openAPITypes = [
-        'format' => '\Aurigma\AssetProcessor\Model\MockupFormatType'
+        'format' => '\Aurigma\AssetProcessor\Model\MockupFormatType',
+        'link_source_id' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'format' => null
+        'format' => null,
+        'link_source_id' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'format' => true
+        'format' => true,
+        'link_source_id' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        'format' => 'format'
+        'format' => 'format',
+        'link_source_id' => 'linkSourceId'
     ];
 
     /**
@@ -175,7 +179,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        'format' => 'setFormat'
+        'format' => 'setFormat',
+        'link_source_id' => 'setLinkSourceId'
     ];
 
     /**
@@ -184,7 +189,8 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        'format' => 'getFormat'
+        'format' => 'getFormat',
+        'link_source_id' => 'getLinkSourceId'
     ];
 
     /**
@@ -245,6 +251,7 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
     public function __construct(array $data = null)
     {
         $this->setIfExists('format', $data ?? [], null);
+        $this->setIfExists('link_source_id', $data ?? [], null);
     }
 
     /**
@@ -319,6 +326,40 @@ class MockupMetadataDto implements ModelInterface, ArrayAccess, \JsonSerializabl
             }
         }
         $this->container['format'] = $format;
+
+        return $this;
+    }
+
+    /**
+     * Gets link_source_id
+     *
+     * @return string|null
+     */
+    public function getLinkSourceId()
+    {
+        return $this->container['link_source_id'];
+    }
+
+    /**
+     * Sets link_source_id
+     *
+     * @param string|null $link_source_id link_source_id
+     *
+     * @return self
+     */
+    public function setLinkSourceId($link_source_id)
+    {
+        if (is_null($link_source_id)) {
+            array_push($this->openAPINullablesSetToNull, 'link_source_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('link_source_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['link_source_id'] = $link_source_id;
 
         return $this;
     }

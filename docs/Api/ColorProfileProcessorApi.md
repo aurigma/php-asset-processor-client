@@ -50,7 +50,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\ColorProfileProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Color profile source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Color profile name.
 $path = 'path_example'; // string | Color profile location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Color profile custom attributes.
@@ -68,7 +68,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Color profile source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Color profile name. | [optional] |
 | **path** | **string**| Color profile location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Color profile custom attributes. | [optional] |
@@ -134,7 +134,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\ColorProfileProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Color profile entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Color profile name.
 $path = 'path_example'; // string | Color profile location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Color profile custom attributes.
@@ -153,7 +153,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Color profile entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Color profile name. | [optional] |
 | **path** | **string**| Color profile location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Color profile custom attributes. | [optional] |

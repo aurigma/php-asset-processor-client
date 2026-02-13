@@ -72,6 +72,66 @@ class MockupProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for mockupProcessorBatchCreateMockupLinks
+     *
+     * Creates multiple mockup link files for specified layer groups of an existing 2D-mockup..
+     *
+     */
+    public function testMockupProcessorBatchCreateMockupLinks()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for mockupProcessorCheck
+     *
+     * Checks if an existing mockup has any problems..
+     *
+     */
+    public function testMockupProcessorCheck()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for mockupProcessorCreateMockupLink
+     *
+     * Creates single mockup link file for specified layers of an existing 2D-mockup..
+     *
+     */
+    public function testMockupProcessorCreateMockupLink()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for mockupProcessorGetArtworkLayers
+     *
+     * Returns a list of artwork layers descriptions for an existing mockup..
+     *
+     */
+    public function testMockupProcessorGetArtworkLayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for mockupProcessorGetLayersGroups
+     *
+     * Returns a list of layers groups for an existing mockup..
+     *
+     */
+    public function testMockupProcessorGetLayersGroups()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for mockupProcessorImportMockup
      *
      * Imports a mockup from the source file and saves it to the storage..

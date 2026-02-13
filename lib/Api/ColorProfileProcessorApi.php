@@ -131,7 +131,7 @@ class ColorProfileProcessorApi
      * Imports color profile and saves it to storage.
      *
      * @param  \SplFileObject $source_file Color profile source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -153,7 +153,7 @@ class ColorProfileProcessorApi
      * Imports color profile and saves it to storage.
      *
      * @param  \SplFileObject $source_file Color profile source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -316,7 +316,7 @@ class ColorProfileProcessorApi
      * Imports color profile and saves it to storage.
      *
      * @param  \SplFileObject $source_file Color profile source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -341,7 +341,7 @@ class ColorProfileProcessorApi
      * Imports color profile and saves it to storage.
      *
      * @param  \SplFileObject $source_file Color profile source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -395,7 +395,7 @@ class ColorProfileProcessorApi
      * Create request for operation 'colorProfileProcessorImportColorProfile'
      *
      * @param  \SplFileObject $source_file Color profile source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -547,7 +547,7 @@ class ColorProfileProcessorApi
      * Updates color profile file and metadata in storage.
      *
      * @param  string $id Color profile entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -570,7 +570,7 @@ class ColorProfileProcessorApi
      * Updates color profile file and metadata in storage.
      *
      * @param  string $id Color profile entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -769,7 +769,7 @@ class ColorProfileProcessorApi
      * Updates color profile file and metadata in storage.
      *
      * @param  string $id Color profile entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -795,7 +795,7 @@ class ColorProfileProcessorApi
      * Updates color profile file and metadata in storage.
      *
      * @param  string $id Color profile entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)
@@ -850,7 +850,7 @@ class ColorProfileProcessorApi
      * Create request for operation 'colorProfileProcessorUpdate'
      *
      * @param  string $id Color profile entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Color profile name. (optional)
      * @param  string $path Color profile location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Color profile custom attributes. (optional)

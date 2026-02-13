@@ -54,7 +54,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\FontProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Font source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Font name.
 $path = 'path_example'; // string | Font location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Font custom attributes.
@@ -85,7 +85,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Font source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Font name. | [optional] |
 | **path** | **string**| Font location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Font custom attributes. | [optional] |
@@ -177,7 +177,7 @@ $vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->fontProcessorPreparePreview($id, $namespace, $name, $width, $height, $text, $format, $max_width, $font_size, $horizontal_alignment, $vertical_alignment, $background, $text_color, $force, $tenant_id);
@@ -205,7 +205,7 @@ try {
 | **background** | **string**| Background color for preview image | [optional] |
 | **text_color** | **string**| Text color for preview image | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -281,7 +281,7 @@ $vertical_alignment = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\
 $background = 'background_example'; // string | Background color for preview image
 $text_color = 'text_color_example'; // string | Text color for preview image
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->fontProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $text, $format, $max_width, $font_size, $horizontal_alignment, $vertical_alignment, $background, $text_color, $force, $tenant_id);
@@ -309,7 +309,7 @@ try {
 | **background** | **string**| Background color for preview image | [optional] |
 | **text_color** | **string**| Text color for preview image | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -372,7 +372,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\FontProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Font entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Font name.
 $path = 'path_example'; // string | Font location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Font custom attributes.
@@ -391,7 +391,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Font entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Font name. | [optional] |
 | **path** | **string**| Font location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Font custom attributes. | [optional] |

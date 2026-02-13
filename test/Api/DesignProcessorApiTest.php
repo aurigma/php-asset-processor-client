@@ -120,12 +120,36 @@ class DesignProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for designProcessorEmbedAllLinkedData
+     *
+     * Embeds all linked data to the design file..
+     *
+     */
+    public function testDesignProcessorEmbedAllLinkedData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for designProcessorEmbedDataSchema
      *
      * Embeds linked data schema to the design file..
      *
      */
     public function testDesignProcessorEmbedDataSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for designProcessorEmbedImages
+     *
+     * Embeds linked images to the design file..
+     *
+     */
+    public function testDesignProcessorEmbedImages()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

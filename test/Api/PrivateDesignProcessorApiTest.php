@@ -144,12 +144,36 @@ class PrivateDesignProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for privateDesignProcessorEmbedAllLinkedData
+     *
+     * Embeds all linked data to the design file..
+     *
+     */
+    public function testPrivateDesignProcessorEmbedAllLinkedData()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for privateDesignProcessorEmbedDataSchema
      *
      * Embeds linked data schema to the design file..
      *
      */
     public function testPrivateDesignProcessorEmbedDataSchema()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateDesignProcessorEmbedImages
+     *
+     * Embeds linked images to the design file..
+     *
+     */
+    public function testPrivateDesignProcessorEmbedImages()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

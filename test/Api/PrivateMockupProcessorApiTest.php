@@ -72,6 +72,66 @@ class PrivateMockupProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for privateMockupProcessorBatchCreateMockupLinks
+     *
+     * Creates multiple mockup link files for specified layer groups of an existing 2D-mockup..
+     *
+     */
+    public function testPrivateMockupProcessorBatchCreateMockupLinks()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateMockupProcessorCheck
+     *
+     * Checks if an existing mockup has any problems..
+     *
+     */
+    public function testPrivateMockupProcessorCheck()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateMockupProcessorCreateMockupLink
+     *
+     * Creates single mockup link file for specified layers of an existing 2D-mockup..
+     *
+     */
+    public function testPrivateMockupProcessorCreateMockupLink()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateMockupProcessorGetArtworkLayers
+     *
+     * Returns a list of artwork layers descriptions for an existing mockup..
+     *
+     */
+    public function testPrivateMockupProcessorGetArtworkLayers()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for privateMockupProcessorGetLayersGroups
+     *
+     * Returns a list of layers groups for an existing mockup..
+     *
+     */
+    public function testPrivateMockupProcessorGetLayersGroups()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for privateMockupProcessorImportMockup
      *
      * Imports mockup from source file and saves it to private storage..

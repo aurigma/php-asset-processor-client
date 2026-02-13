@@ -83,7 +83,13 @@ class DesignProcessorApi
         'designProcessorCreateDesignFromMockup' => [
             'application/json',
         ],
+        'designProcessorEmbedAllLinkedData' => [
+            'application/json',
+        ],
         'designProcessorEmbedDataSchema' => [
+            'application/json',
+        ],
+        'designProcessorEmbedImages' => [
             'application/json',
         ],
         'designProcessorEmbedPalettes' => [
@@ -197,7 +203,7 @@ class DesignProcessorApi
      * Calculates the design count per sheet of the specified size.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
@@ -217,7 +223,7 @@ class DesignProcessorApi
      * Calculates the design count per sheet of the specified size.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
@@ -413,7 +419,7 @@ class DesignProcessorApi
      * Calculates the design count per sheet of the specified size.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
@@ -436,7 +442,7 @@ class DesignProcessorApi
      * Calculates the design count per sheet of the specified size.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
@@ -488,7 +494,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorCalculateCountPerSheet'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel $design_count_per_sheet_calculation_model Model to calculate the design count per sheet of the specified size. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCalculateCountPerSheet'] to see the possible values for this operation
      *
@@ -624,7 +630,7 @@ class DesignProcessorApi
      * Checks if design taken from storage has any problems.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCheck'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -643,7 +649,7 @@ class DesignProcessorApi
      * Checks if design taken from storage has any problems.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCheck'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -803,7 +809,7 @@ class DesignProcessorApi
      * Checks if design taken from storage has any problems.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -825,7 +831,7 @@ class DesignProcessorApi
      * Checks if design taken from storage has any problems.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -876,7 +882,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorCheck'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1002,13 +1008,13 @@ class DesignProcessorApi
      *
      * Creates design using basic settings and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto
      */
     public function designProcessorCreateBlankDesign($tenant_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['designProcessorCreateBlankDesign'][0])
     {
@@ -1021,13 +1027,13 @@ class DesignProcessorApi
      *
      * Creates design using basic settings and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateBlankDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function designProcessorCreateBlankDesignWithHttpInfo($tenant_id = null, $create_blank_design_model = null, string $contentType = self::contentTypes['designProcessorCreateBlankDesign'][0])
     {
@@ -1124,11 +1130,11 @@ class DesignProcessorApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1146,7 +1152,7 @@ class DesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1201,7 +1207,7 @@ class DesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\ConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1216,7 +1222,7 @@ class DesignProcessorApi
      *
      * Creates design using basic settings and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateBlankDesign'] to see the possible values for this operation
      *
@@ -1238,7 +1244,7 @@ class DesignProcessorApi
      *
      * Creates design using basic settings and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateBlankDesign'] to see the possible values for this operation
      *
@@ -1289,7 +1295,7 @@ class DesignProcessorApi
     /**
      * Create request for operation 'designProcessorCreateBlankDesign'
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankDesignModel $create_blank_design_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateBlankDesign'] to see the possible values for this operation
      *
@@ -1409,13 +1415,13 @@ class DesignProcessorApi
      *
      * Creates design compatible to specified mockup and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto
      */
     public function designProcessorCreateDesignFromMockup($tenant_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['designProcessorCreateDesignFromMockup'][0])
     {
@@ -1428,13 +1434,13 @@ class DesignProcessorApi
      *
      * Creates design compatible to specified mockup and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ConflictDto, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\ProblemDetails|\Aurigma\AssetProcessor\Model\DesignCreateConflictDto, HTTP status code, HTTP response headers (array of strings)
      */
     public function designProcessorCreateDesignFromMockupWithHttpInfo($tenant_id = null, $create_design_from_mockup_model = null, string $contentType = self::contentTypes['designProcessorCreateDesignFromMockup'][0])
     {
@@ -1558,11 +1564,11 @@ class DesignProcessorApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Aurigma\AssetProcessor\Model\ConflictDto' === '\SplFileObject') {
+                    if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Aurigma\AssetProcessor\Model\ConflictDto' !== 'string') {
+                        if ('\Aurigma\AssetProcessor\Model\DesignCreateConflictDto' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -1580,7 +1586,7 @@ class DesignProcessorApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ConflictDto', []),
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1643,7 +1649,7 @@ class DesignProcessorApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Aurigma\AssetProcessor\Model\ConflictDto',
+                        '\Aurigma\AssetProcessor\Model\DesignCreateConflictDto',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1658,7 +1664,7 @@ class DesignProcessorApi
      *
      * Creates design compatible to specified mockup and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
@@ -1680,7 +1686,7 @@ class DesignProcessorApi
      *
      * Creates design compatible to specified mockup and saves it to storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
@@ -1731,7 +1737,7 @@ class DesignProcessorApi
     /**
      * Create request for operation 'designProcessorCreateDesignFromMockup'
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel $create_design_from_mockup_model Operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorCreateDesignFromMockup'] to see the possible values for this operation
      *
@@ -1847,12 +1853,391 @@ class DesignProcessorApi
     }
 
     /**
+     * Operation designProcessorEmbedAllLinkedData
+     *
+     * Embeds all linked data to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedAllLinkedData'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
+     */
+    public function designProcessorEmbedAllLinkedData($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedAllLinkedData'][0])
+    {
+        list($response) = $this->designProcessorEmbedAllLinkedDataWithHttpInfo($id, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation designProcessorEmbedAllLinkedDataWithHttpInfo
+     *
+     * Embeds all linked data to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedAllLinkedData'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function designProcessorEmbedAllLinkedDataWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedAllLinkedData'][0])
+    {
+        $request = $this->designProcessorEmbedAllLinkedDataRequest($id, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation designProcessorEmbedAllLinkedDataAsync
+     *
+     * Embeds all linked data to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedAllLinkedData'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorEmbedAllLinkedDataAsync($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedAllLinkedData'][0])
+    {
+        return $this->designProcessorEmbedAllLinkedDataAsyncWithHttpInfo($id, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation designProcessorEmbedAllLinkedDataAsyncWithHttpInfo
+     *
+     * Embeds all linked data to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedAllLinkedData'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorEmbedAllLinkedDataAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedAllLinkedData'][0])
+    {
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->designProcessorEmbedAllLinkedDataRequest($id, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'designProcessorEmbedAllLinkedData'
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedAllLinkedData'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function designProcessorEmbedAllLinkedDataRequest($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedAllLinkedData'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling designProcessorEmbedAllLinkedData'
+            );
+        }
+
+
+
+        $resourcePath = '/api/processor/v1/designs/{id}/embed-all-linked-data';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation designProcessorEmbedDataSchema
      *
      * Embeds linked data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1871,7 +2256,7 @@ class DesignProcessorApi
      * Embeds linked data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2066,7 +2451,7 @@ class DesignProcessorApi
      * Embeds linked data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2088,7 +2473,7 @@ class DesignProcessorApi
      * Embeds linked data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2139,7 +2524,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorEmbedDataSchema'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2261,12 +2646,391 @@ class DesignProcessorApi
     }
 
     /**
+     * Operation designProcessorEmbedImages
+     *
+     * Embeds linked images to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedImages'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails
+     */
+    public function designProcessorEmbedImages($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedImages'][0])
+    {
+        list($response) = $this->designProcessorEmbedImagesWithHttpInfo($id, $tenant_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation designProcessorEmbedImagesWithHttpInfo
+     *
+     * Embeds linked images to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedImages'] to see the possible values for this operation
+     *
+     * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \Aurigma\AssetProcessor\Model\DesignDto|\Aurigma\AssetProcessor\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function designProcessorEmbedImagesWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedImages'][0])
+    {
+        $request = $this->designProcessorEmbedImagesRequest($id, $tenant_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\Aurigma\AssetProcessor\Model\DesignDto' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\DesignDto' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\DesignDto', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 404:
+                    if ('\Aurigma\AssetProcessor\Model\ProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Aurigma\AssetProcessor\Model\ProblemDetails' !== 'string') {
+                            try {
+                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                            } catch (\JsonException $exception) {
+                                throw new ApiException(
+                                    sprintf(
+                                        'Error JSON decoding server response (%s)',
+                                        $request->getUri()
+                                    ),
+                                    $statusCode,
+                                    $response->getHeaders(),
+                                    $content
+                                );
+                            }
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Aurigma\AssetProcessor\Model\ProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    try {
+                        $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
+                    } catch (\JsonException $exception) {
+                        throw new ApiException(
+                            sprintf(
+                                'Error JSON decoding server response (%s)',
+                                $request->getUri()
+                            ),
+                            $statusCode,
+                            $response->getHeaders(),
+                            $content
+                        );
+                    }
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\DesignDto',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Aurigma\AssetProcessor\Model\ProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation designProcessorEmbedImagesAsync
+     *
+     * Embeds linked images to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedImages'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorEmbedImagesAsync($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedImages'][0])
+    {
+        return $this->designProcessorEmbedImagesAsyncWithHttpInfo($id, $tenant_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation designProcessorEmbedImagesAsyncWithHttpInfo
+     *
+     * Embeds linked images to the design file.
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedImages'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function designProcessorEmbedImagesAsyncWithHttpInfo($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedImages'][0])
+    {
+        $returnType = '\Aurigma\AssetProcessor\Model\DesignDto';
+        $request = $this->designProcessorEmbedImagesRequest($id, $tenant_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'designProcessorEmbedImages'
+     *
+     * @param  string $id Design entity unique identifier. (required)
+     * @param  int $tenant_id Tenant ID. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedImages'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function designProcessorEmbedImagesRequest($id, $tenant_id = null, string $contentType = self::contentTypes['designProcessorEmbedImages'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling designProcessorEmbedImages'
+            );
+        }
+
+
+
+        $resourcePath = '/api/processor/v1/designs/{id}/images/embed';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $tenant_id,
+            'tenantId', // param base name
+            'integer', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-API-Key');
+        if ($apiKey !== null) {
+            $headers['X-API-Key'] = $apiKey;
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires OAuth (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Authorization');
+        if ($apiKey !== null) {
+            $headers['Authorization'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation designProcessorEmbedPalettes
      *
      * Embeds linked palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2285,7 +3049,7 @@ class DesignProcessorApi
      * Embeds linked palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedPalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2480,7 +3244,7 @@ class DesignProcessorApi
      * Embeds linked palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2502,7 +3266,7 @@ class DesignProcessorApi
      * Embeds linked palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2553,7 +3317,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorEmbedPalettes'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedPalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2680,7 +3444,7 @@ class DesignProcessorApi
      * Embeds linked toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2699,7 +3463,7 @@ class DesignProcessorApi
      * Embeds linked toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2894,7 +3658,7 @@ class DesignProcessorApi
      * Embeds linked toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2916,7 +3680,7 @@ class DesignProcessorApi
      * Embeds linked toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2967,7 +3731,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorEmbedToggleSet'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorEmbedToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3094,7 +3858,7 @@ class DesignProcessorApi
      * Exports design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExportDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3113,7 +3877,7 @@ class DesignProcessorApi
      * Exports design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExportDesign'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3273,7 +4037,7 @@ class DesignProcessorApi
      * Exports design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExportDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3295,7 +4059,7 @@ class DesignProcessorApi
      * Exports design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExportDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3346,7 +4110,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorExportDesign'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExportDesign'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3473,7 +4237,7 @@ class DesignProcessorApi
      * Extracts data schema from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -3492,7 +4256,7 @@ class DesignProcessorApi
      * Extracts data schema from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -3570,7 +4334,7 @@ class DesignProcessorApi
      * Extracts data schema from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -3593,7 +4357,7 @@ class DesignProcessorApi
      * Extracts data schema from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -3632,7 +4396,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorExtractDataSchema'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel $design_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -3768,7 +4532,7 @@ class DesignProcessorApi
      * Extracts palettes from design file and saves it to the specified folder.   Due to possibility of having linked and embedded palettes for same design, all linked palettes will be embedded before extraction.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractPalettes'] to see the possible values for this operation
      *
@@ -3787,7 +4551,7 @@ class DesignProcessorApi
      * Extracts palettes from design file and saves it to the specified folder.   Due to possibility of having linked and embedded palettes for same design, all linked palettes will be embedded before extraction.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractPalettes'] to see the possible values for this operation
      *
@@ -3865,7 +4629,7 @@ class DesignProcessorApi
      * Extracts palettes from design file and saves it to the specified folder.   Due to possibility of having linked and embedded palettes for same design, all linked palettes will be embedded before extraction.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractPalettes'] to see the possible values for this operation
      *
@@ -3888,7 +4652,7 @@ class DesignProcessorApi
      * Extracts palettes from design file and saves it to the specified folder.   Due to possibility of having linked and embedded palettes for same design, all linked palettes will be embedded before extraction.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractPalettes'] to see the possible values for this operation
      *
@@ -3927,7 +4691,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorExtractPalettes'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel $design_extract_palettes_model Extract palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractPalettes'] to see the possible values for this operation
      *
@@ -4063,7 +4827,7 @@ class DesignProcessorApi
      * Extracts toggle set from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractToggleSet'] to see the possible values for this operation
      *
@@ -4082,7 +4846,7 @@ class DesignProcessorApi
      * Extracts toggle set from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractToggleSet'] to see the possible values for this operation
      *
@@ -4160,7 +4924,7 @@ class DesignProcessorApi
      * Extracts toggle set from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractToggleSet'] to see the possible values for this operation
      *
@@ -4183,7 +4947,7 @@ class DesignProcessorApi
      * Extracts toggle set from design file and saves it to the specified folder.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractToggleSet'] to see the possible values for this operation
      *
@@ -4222,7 +4986,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorExtractToggleSet'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel $design_extract_toggle_set_model Extract toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorExtractToggleSet'] to see the possible values for this operation
      *
@@ -4358,7 +5122,7 @@ class DesignProcessorApi
      * Returns information about inserted images from DepositPhotos.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorGetDepositPhotos'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4377,7 +5141,7 @@ class DesignProcessorApi
      * Returns information about inserted images from DepositPhotos.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorGetDepositPhotos'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -4537,7 +5301,7 @@ class DesignProcessorApi
      * Returns information about inserted images from DepositPhotos.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorGetDepositPhotos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4559,7 +5323,7 @@ class DesignProcessorApi
      * Returns information about inserted images from DepositPhotos.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorGetDepositPhotos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4610,7 +5374,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorGetDepositPhotos'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorGetDepositPhotos'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -4737,7 +5501,7 @@ class DesignProcessorApi
      * Imports design from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -4767,7 +5531,7 @@ class DesignProcessorApi
      * Imports design from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -4938,7 +5702,7 @@ class DesignProcessorApi
      * Imports design from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -4971,7 +5735,7 @@ class DesignProcessorApi
      * Imports design from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -5033,7 +5797,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorImportDesign'
      *
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -5241,7 +6005,7 @@ class DesignProcessorApi
      * Links data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -5261,7 +6025,7 @@ class DesignProcessorApi
      * Links data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -5457,7 +6221,7 @@ class DesignProcessorApi
      * Links data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -5480,7 +6244,7 @@ class DesignProcessorApi
      * Links data schema to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -5532,7 +6296,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorLinkDataSchema'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel $design_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -5668,7 +6432,7 @@ class DesignProcessorApi
      * Links palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkPalettes'] to see the possible values for this operation
      *
@@ -5688,7 +6452,7 @@ class DesignProcessorApi
      * Links palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkPalettes'] to see the possible values for this operation
      *
@@ -5884,7 +6648,7 @@ class DesignProcessorApi
      * Links palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkPalettes'] to see the possible values for this operation
      *
@@ -5907,7 +6671,7 @@ class DesignProcessorApi
      * Links palettes to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkPalettes'] to see the possible values for this operation
      *
@@ -5959,7 +6723,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorLinkPalettes'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel $design_link_palettes_model Link palettes operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkPalettes'] to see the possible values for this operation
      *
@@ -6095,7 +6859,7 @@ class DesignProcessorApi
      * Links toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkToggleSet'] to see the possible values for this operation
      *
@@ -6115,7 +6879,7 @@ class DesignProcessorApi
      * Links toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkToggleSet'] to see the possible values for this operation
      *
@@ -6311,7 +7075,7 @@ class DesignProcessorApi
      * Links toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkToggleSet'] to see the possible values for this operation
      *
@@ -6334,7 +7098,7 @@ class DesignProcessorApi
      * Links toggle set to the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkToggleSet'] to see the possible values for this operation
      *
@@ -6386,7 +7150,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorLinkToggleSet'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel $design_link_toggle_set_model Link toggle set operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorLinkToggleSet'] to see the possible values for this operation
      *
@@ -6530,7 +7294,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6557,7 +7321,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -6725,7 +7489,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6755,7 +7519,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -6814,7 +7578,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7049,7 +7813,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7076,7 +7840,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -7244,7 +8008,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7274,7 +8038,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7333,7 +8097,7 @@ class DesignProcessorApi
      * @param  bool $stub Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DesignPreviewFormat $format Design preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -7561,7 +8325,7 @@ class DesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorReimportDesign'] to see the possible values for this operation
      *
@@ -7582,7 +8346,7 @@ class DesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorReimportDesign'] to see the possible values for this operation
      *
@@ -7779,7 +8543,7 @@ class DesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorReimportDesign'] to see the possible values for this operation
      *
@@ -7803,7 +8567,7 @@ class DesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorReimportDesign'] to see the possible values for this operation
      *
@@ -7856,7 +8620,7 @@ class DesignProcessorApi
      *
      * @param  string $id Design entity unique identifier. (required)
      * @param  \SplFileObject $source_file Design source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorReimportDesign'] to see the possible values for this operation
      *
@@ -8016,7 +8780,7 @@ class DesignProcessorApi
      * Removes data schema from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8035,7 +8799,7 @@ class DesignProcessorApi
      * Removes data schema from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8195,7 +8959,7 @@ class DesignProcessorApi
      * Removes data schema from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8217,7 +8981,7 @@ class DesignProcessorApi
      * Removes data schema from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8268,7 +9032,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorRemoveDataSchema'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8395,7 +9159,7 @@ class DesignProcessorApi
      * Removes palettes from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemovePalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8414,7 +9178,7 @@ class DesignProcessorApi
      * Removes palettes from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemovePalettes'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8574,7 +9338,7 @@ class DesignProcessorApi
      * Removes palettes from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemovePalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8596,7 +9360,7 @@ class DesignProcessorApi
      * Removes palettes from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemovePalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8647,7 +9411,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorRemovePalettes'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemovePalettes'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8774,7 +9538,7 @@ class DesignProcessorApi
      * Removes toggle set from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8793,7 +9557,7 @@ class DesignProcessorApi
      * Removes toggle set from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveToggleSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -8953,7 +9717,7 @@ class DesignProcessorApi
      * Removes toggle set from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -8975,7 +9739,7 @@ class DesignProcessorApi
      * Removes toggle set from the design file.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9026,7 +9790,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorRemoveToggleSet'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorRemoveToggleSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -9153,7 +9917,7 @@ class DesignProcessorApi
      * Updates design file and metadata in storage.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -9176,7 +9940,7 @@ class DesignProcessorApi
      * Updates design file and metadata in storage.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -9375,7 +10139,7 @@ class DesignProcessorApi
      * Updates design file and metadata in storage.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -9401,7 +10165,7 @@ class DesignProcessorApi
      * Updates design file and metadata in storage.
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -9456,7 +10220,7 @@ class DesignProcessorApi
      * Create request for operation 'designProcessorUpdate'
      *
      * @param  string $id Design entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $design_params_name Design name. (optional)
      * @param  string $design_params_path Design location (folder path). (optional)
      * @param  array<string,mixed> $design_params_custom_fields Design custom attributes. (optional)
@@ -9617,7 +10381,7 @@ class DesignProcessorApi
      *
      * Validates the design import settings.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorValidateDesignImportSettings'] to see the possible values for this operation
      *
@@ -9636,7 +10400,7 @@ class DesignProcessorApi
      *
      * Validates the design import settings.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorValidateDesignImportSettings'] to see the possible values for this operation
      *
@@ -9761,7 +10525,7 @@ class DesignProcessorApi
      *
      * Validates the design import settings.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorValidateDesignImportSettings'] to see the possible values for this operation
      *
@@ -9783,7 +10547,7 @@ class DesignProcessorApi
      *
      * Validates the design import settings.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorValidateDesignImportSettings'] to see the possible values for this operation
      *
@@ -9834,7 +10598,7 @@ class DesignProcessorApi
     /**
      * Create request for operation 'designProcessorValidateDesignImportSettings'
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \SplFileObject $marker_shortcuts_file Marker shortcuts config file. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['designProcessorValidateDesignImportSettings'] to see the possible values for this operation
      *

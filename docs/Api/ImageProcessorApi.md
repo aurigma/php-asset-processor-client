@@ -4,11 +4,90 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**imageProcessorExportImage()**](ImageProcessorApi.md#imageProcessorExportImage) | **GET** /api/processor/v1/images/{id}/export | Returns a content of an existing image file. If &#x60;pageIndex&#x60; is set, extracts a page from an existing multi-page image and returns its content as a separate file. |
 | [**imageProcessorImportImage()**](ImageProcessorApi.md#imageProcessorImportImage) | **POST** /api/processor/v1/images/import | Imports image from source file and saves it to storage. |
 | [**imageProcessorPreparePreview()**](ImageProcessorApi.md#imageProcessorPreparePreview) | **GET** /api/processor/v1/images/{id}/preview/{namespace}/{name}/{width}x{height} | Creates preview image for image taken from storage. |
 | [**imageProcessorPreparePreviewUrl()**](ImageProcessorApi.md#imageProcessorPreparePreviewUrl) | **GET** /api/processor/v1/images/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates preview image for image taken from storage. |
 | [**imageProcessorUpdate()**](ImageProcessorApi.md#imageProcessorUpdate) | **POST** /api/processor/v1/images/{id}/update | Updates image file and metadata in storage. |
 
+
+## `imageProcessorExportImage()`
+
+```php
+imageProcessorExportImage($id, $page_index, $tenant_id): \SplFileObject
+```
+
+Returns a content of an existing image file. If `pageIndex` is set, extracts a page from an existing multi-page image and returns its content as a separate file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\ImageProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Image unique identifier.
+$page_index = 56; // int | Zero-based image page index. If not set, whole multi-page file stream will be returned.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->imageProcessorExportImage($id, $page_index, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ImageProcessorApi->imageProcessorExportImage: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Image unique identifier. | |
+| **page_index** | **int**| Zero-based image page index. If not set, whole multi-page file stream will be returned. | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+**\SplFileObject**
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/octet-stream`, `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `imageProcessorImportImage()`
 
@@ -54,7 +133,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\ImageProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Image source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Image name.
 $path = 'path_example'; // string | Image location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Image custom attributes.
@@ -82,7 +161,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Image source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Image name. | [optional] |
 | **path** | **string**| Image location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Image custom attributes. | [optional] |
@@ -117,7 +196,7 @@ try {
 ## `imageProcessorPreparePreview()`
 
 ```php
-imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id): \SplFileObject
+imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id): \SplFileObject
 ```
 
 Creates preview image for image taken from storage.
@@ -167,11 +246,12 @@ $fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\Imag
 $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode | Image preview interpolation mode
 $background = 'background_example'; // string | Background color for transparent images
 $apply_auto_crop = false; // bool | Indicates if the image should be automatically cropped.
+$page_index = 56; // int | Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
-    $result = $apiInstance->imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id);
+    $result = $apiInstance->imageProcessorPreparePreview($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageProcessorApi->imageProcessorPreparePreview: ', $e->getMessage(), PHP_EOL;
@@ -192,8 +272,9 @@ try {
 | **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
 | **background** | **string**| Background color for transparent images | [optional] |
 | **apply_auto_crop** | **bool**| Indicates if the image should be automatically cropped. | [optional] [default to false] |
+| **page_index** | **int**| Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -215,7 +296,7 @@ try {
 ## `imageProcessorPreparePreviewUrl()`
 
 ```php
-imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id): string
+imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id): string
 ```
 
 Creates preview image for image taken from storage.
@@ -265,11 +346,12 @@ $fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\Imag
 $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode | Image preview interpolation mode
 $background = 'background_example'; // string | Background color for transparent images
 $apply_auto_crop = false; // bool | Indicates if the image should be automatically cropped.
+$page_index = 56; // int | Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
-    $result = $apiInstance->imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $force, $tenant_id);
+    $result = $apiInstance->imageProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $jpeg_quality, $fit_mode, $interpolation_mode, $background, $apply_auto_crop, $page_index, $force, $tenant_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ImageProcessorApi->imageProcessorPreparePreviewUrl: ', $e->getMessage(), PHP_EOL;
@@ -290,8 +372,9 @@ try {
 | **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\ImagePreviewInterpolationMode**](../Model/.md)| Image preview interpolation mode | [optional] |
 | **background** | **string**| Background color for transparent images | [optional] |
 | **apply_auto_crop** | **bool**| Indicates if the image should be automatically cropped. | [optional] [default to false] |
+| **page_index** | **int**| Zero-based index of image page (applies to multi-page image formats only, e.g. PDF and TIFF).  Zero by default. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -354,7 +437,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\ImageProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Image entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Image name.
 $path = 'path_example'; // string | Image location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Image custom attributes.
@@ -373,7 +456,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Image entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Image name. | [optional] |
 | **path** | **string**| Image location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Image custom attributes. | [optional] |

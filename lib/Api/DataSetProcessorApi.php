@@ -146,7 +146,7 @@ class DataSetProcessorApi
      * Checks if data set taken from storage has any problems.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorCheck'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -165,7 +165,7 @@ class DataSetProcessorApi
      * Checks if data set taken from storage has any problems.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorCheck'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -325,7 +325,7 @@ class DataSetProcessorApi
      * Checks if data set taken from storage has any problems.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -347,7 +347,7 @@ class DataSetProcessorApi
      * Checks if data set taken from storage has any problems.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -398,7 +398,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorCheck'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorCheck'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -525,7 +525,7 @@ class DataSetProcessorApi
      * Embeds linked data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -544,7 +544,7 @@ class DataSetProcessorApi
      * Embeds linked data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -739,7 +739,7 @@ class DataSetProcessorApi
      * Embeds linked data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -761,7 +761,7 @@ class DataSetProcessorApi
      * Embeds linked data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -812,7 +812,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorEmbedDataSchema'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorEmbedDataSchema'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -939,7 +939,7 @@ class DataSetProcessorApi
      * Exports data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExportDataSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -958,7 +958,7 @@ class DataSetProcessorApi
      * Exports data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExportDataSet'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1118,7 +1118,7 @@ class DataSetProcessorApi
      * Exports data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExportDataSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1140,7 +1140,7 @@ class DataSetProcessorApi
      * Exports data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExportDataSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1191,7 +1191,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorExportDataSet'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExportDataSet'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1318,7 +1318,7 @@ class DataSetProcessorApi
      * Extracts data schema from data set and saves it to the specified folder.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -1337,7 +1337,7 @@ class DataSetProcessorApi
      * Extracts data schema from data set and saves it to the specified folder.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -1415,7 +1415,7 @@ class DataSetProcessorApi
      * Extracts data schema from data set and saves it to the specified folder.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -1438,7 +1438,7 @@ class DataSetProcessorApi
      * Extracts data schema from data set and saves it to the specified folder.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -1477,7 +1477,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorExtractDataSchema'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel $data_set_extract_data_schema_model Extract data schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorExtractDataSchema'] to see the possible values for this operation
      *
@@ -1613,7 +1613,7 @@ class DataSetProcessorApi
      * Imports data set and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data set source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -1635,7 +1635,7 @@ class DataSetProcessorApi
      * Imports data set and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data set source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -1798,7 +1798,7 @@ class DataSetProcessorApi
      * Imports data set and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data set source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -1823,7 +1823,7 @@ class DataSetProcessorApi
      * Imports data set and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data set source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -1877,7 +1877,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorImportDataSet'
      *
      * @param  \SplFileObject $source_file Data set source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -2029,7 +2029,7 @@ class DataSetProcessorApi
      * Links data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -2049,7 +2049,7 @@ class DataSetProcessorApi
      * Links data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -2245,7 +2245,7 @@ class DataSetProcessorApi
      * Links data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -2268,7 +2268,7 @@ class DataSetProcessorApi
      * Links data schema to the data set.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -2320,7 +2320,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorLinkDataSchema'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel $data_set_link_data_schema_model Link schema operation parameters. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSetProcessorLinkDataSchema'] to see the possible values for this operation
      *
@@ -2456,7 +2456,7 @@ class DataSetProcessorApi
      * Updates data set file and metadata in storage.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -2479,7 +2479,7 @@ class DataSetProcessorApi
      * Updates data set file and metadata in storage.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -2678,7 +2678,7 @@ class DataSetProcessorApi
      * Updates data set file and metadata in storage.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -2704,7 +2704,7 @@ class DataSetProcessorApi
      * Updates data set file and metadata in storage.
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)
@@ -2759,7 +2759,7 @@ class DataSetProcessorApi
      * Create request for operation 'dataSetProcessorUpdate'
      *
      * @param  string $id Data set entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data set name. (optional)
      * @param  string $path Data set location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data set custom attributes. (optional)

@@ -4,11 +4,399 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**privateMockupProcessorBatchCreateMockupLinks()**](PrivateMockupProcessorApi.md#privateMockupProcessorBatchCreateMockupLinks) | **POST** /api/processor/v1/private-mockups/{id}/batch-create-mockup-links | Creates multiple mockup link files for specified layer groups of an existing 2D-mockup. |
+| [**privateMockupProcessorCheck()**](PrivateMockupProcessorApi.md#privateMockupProcessorCheck) | **POST** /api/processor/v1/private-mockups/{id}/check | Checks if an existing mockup has any problems. |
+| [**privateMockupProcessorCreateMockupLink()**](PrivateMockupProcessorApi.md#privateMockupProcessorCreateMockupLink) | **POST** /api/processor/v1/private-mockups/{id}/create-mockup-link | Creates single mockup link file for specified layers of an existing 2D-mockup. |
+| [**privateMockupProcessorGetArtworkLayers()**](PrivateMockupProcessorApi.md#privateMockupProcessorGetArtworkLayers) | **GET** /api/processor/v1/private-mockups/{id}/artwork-layers | Returns a list of artwork layers descriptions for an existing mockup. |
+| [**privateMockupProcessorGetLayersGroups()**](PrivateMockupProcessorApi.md#privateMockupProcessorGetLayersGroups) | **GET** /api/processor/v1/private-mockups/{id}/groups | Returns a list of layers groups for an existing mockup. |
 | [**privateMockupProcessorImportMockup()**](PrivateMockupProcessorApi.md#privateMockupProcessorImportMockup) | **POST** /api/processor/v1/private-mockups/import | Imports mockup from source file and saves it to private storage. |
 | [**privateMockupProcessorPreparePreview()**](PrivateMockupProcessorApi.md#privateMockupProcessorPreparePreview) | **GET** /api/processor/v1/private-mockups/{id}/preview/{namespace}/{name}/{width}x{height} | Creates preview image for mockup taken from private storage. |
 | [**privateMockupProcessorPreparePreviewUrl()**](PrivateMockupProcessorApi.md#privateMockupProcessorPreparePreviewUrl) | **GET** /api/processor/v1/private-mockups/{id}/preview/{namespace}/{name}/{width}x{height}/url | Creates preview image for mockup taken from private storage. |
 | [**privateMockupProcessorUpdate()**](PrivateMockupProcessorApi.md#privateMockupProcessorUpdate) | **POST** /api/processor/v1/private-mockups/{id}/update | Updates mockup file and metadata in private storage |
 
+
+## `privateMockupProcessorBatchCreateMockupLinks()`
+
+```php
+privateMockupProcessorBatchCreateMockupLinks($id, $tenant_id, $mockup_links_batch_creation_model)
+```
+
+Creates multiple mockup link files for specified layer groups of an existing 2D-mockup.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Mockup unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+$mockup_links_batch_creation_model = new \Aurigma\AssetProcessor\Model\MockupLinksBatchCreationModel(); // \Aurigma\AssetProcessor\Model\MockupLinksBatchCreationModel | Mockup links batch creation parameters.
+
+try {
+    $apiInstance->privateMockupProcessorBatchCreateMockupLinks($id, $tenant_id, $mockup_links_batch_creation_model);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateMockupProcessorApi->privateMockupProcessorBatchCreateMockupLinks: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+| **mockup_links_batch_creation_model** | [**\Aurigma\AssetProcessor\Model\MockupLinksBatchCreationModel**](../Model/MockupLinksBatchCreationModel.md)| Mockup links batch creation parameters. | [optional] |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateMockupProcessorCheck()`
+
+```php
+privateMockupProcessorCheck($id, $tenant_id): \Aurigma\AssetProcessor\Model\MockupProblemDto
+```
+
+Checks if an existing mockup has any problems.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Mockup unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->privateMockupProcessorCheck($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateMockupProcessorApi->privateMockupProcessorCheck: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\MockupProblemDto**](../Model/MockupProblemDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateMockupProcessorCreateMockupLink()`
+
+```php
+privateMockupProcessorCreateMockupLink($id, $tenant_id, $mockup_link_creation_model): \Aurigma\AssetProcessor\Model\MockupDto
+```
+
+Creates single mockup link file for specified layers of an existing 2D-mockup.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Mockup unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+$mockup_link_creation_model = new \Aurigma\AssetProcessor\Model\MockupLinkCreationModel(); // \Aurigma\AssetProcessor\Model\MockupLinkCreationModel | Mockup link creation parameters.
+
+try {
+    $result = $apiInstance->privateMockupProcessorCreateMockupLink($id, $tenant_id, $mockup_link_creation_model);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateMockupProcessorApi->privateMockupProcessorCreateMockupLink: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+| **mockup_link_creation_model** | [**\Aurigma\AssetProcessor\Model\MockupLinkCreationModel**](../Model/MockupLinkCreationModel.md)| Mockup link creation parameters. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\MockupDto**](../Model/MockupDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateMockupProcessorGetArtworkLayers()`
+
+```php
+privateMockupProcessorGetArtworkLayers($id, $tenant_id): \Aurigma\AssetProcessor\Model\MockupArtworkLayerDto[]
+```
+
+Returns a list of artwork layers descriptions for an existing mockup.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Mockup unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->privateMockupProcessorGetArtworkLayers($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateMockupProcessorApi->privateMockupProcessorGetArtworkLayers: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\MockupArtworkLayerDto[]**](../Model/MockupArtworkLayerDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `privateMockupProcessorGetLayersGroups()`
+
+```php
+privateMockupProcessorGetLayersGroups($id, $tenant_id): \Aurigma\AssetProcessor\Model\MockupLayersGroupDto[]
+```
+
+Returns a list of layers groups for an existing mockup.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Mockup unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->privateMockupProcessorGetLayersGroups($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PrivateMockupProcessorApi->privateMockupProcessorGetLayersGroups: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Mockup unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\MockupLayersGroupDto[]**](../Model/MockupLayersGroupDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `privateMockupProcessorImportMockup()`
 
@@ -52,7 +440,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Mockup source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 $name = 'name_example'; // string | Mockup name.
 $path = 'path_example'; // string | Mockup location (folder path).
@@ -81,7 +469,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Mockup source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
 | **name** | **string**| Mockup name. | [optional] |
 | **path** | **string**| Mockup location (folder path). | [optional] |
@@ -167,7 +555,7 @@ $fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\Mock
 $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode | Preview interpolation mode.
 $background = 'background_example'; // string | Color to replace transparent background (e.g. 'White').
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
@@ -192,7 +580,7 @@ try {
 | **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional] |
 | **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
@@ -265,7 +653,7 @@ $fit_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\Mock
 $interpolation_mode = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode(); // \Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode | Preview interpolation mode.
 $background = 'background_example'; // string | Color to replace transparent background (e.g. 'White').
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 
 try {
@@ -290,7 +678,7 @@ try {
 | **interpolation_mode** | [**\Aurigma\AssetProcessor\Model\MockupPreviewInterpolationMode**](../Model/.md)| Preview interpolation mode. | [optional] |
 | **background** | **string**| Color to replace transparent background (e.g. &#39;White&#39;). | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
 
 ### Return type
@@ -354,7 +742,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PrivateMockupProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Mockup entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $owner_id = 'owner_id_example'; // string | Private storage owner identifier.
 $name = 'name_example'; // string | Mockup name.
 $path = 'path_example'; // string | Mockup location (folder path).
@@ -374,7 +762,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Mockup entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **owner_id** | **string**| Private storage owner identifier. | [optional] |
 | **name** | **string**| Mockup name. | [optional] |
 | **path** | **string**| Mockup location (folder path). | [optional] |

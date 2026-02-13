@@ -55,7 +55,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PaletteProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Palette source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Palette name.
 $path = 'path_example'; // string | Palette location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Palette custom attributes.
@@ -79,7 +79,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Palette source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Palette name. | [optional] |
 | **path** | **string**| Palette location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Palette custom attributes. | [optional] |
@@ -157,7 +157,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\PalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\PalettePreviewFormat | Preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->paletteProcessorPreparePreview($id, $namespace, $name, $width, $height, $format, $force, $tenant_id);
@@ -178,7 +178,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **format** | [**\Aurigma\AssetProcessor\Model\PalettePreviewFormat**](../Model/.md)| Preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -247,7 +247,7 @@ $width = 56; // int | Preview image width.
 $height = 56; // int | Preview image height.
 $format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\PalettePreviewFormat(); // \Aurigma\AssetProcessor\Model\PalettePreviewFormat | Preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->paletteProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $format, $force, $tenant_id);
@@ -268,7 +268,7 @@ try {
 | **height** | **int**| Preview image height. | |
 | **format** | [**\Aurigma\AssetProcessor\Model\PalettePreviewFormat**](../Model/.md)| Preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -330,7 +330,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PaletteProcessorApi(
 );
 $id = 'id_example'; // string | Palette entity unique identifier.
 $source_file = "/path/to/file.txt"; // \SplFileObject | Palette source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->paletteProcessorReimportPalette($id, $source_file, $tenant_id);
@@ -346,7 +346,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Palette entity unique identifier. | |
 | **source_file** | **\SplFileObject****\SplFileObject**| Palette source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -409,7 +409,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\PaletteProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Palette entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Palette name.
 $path = 'path_example'; // string | Palette location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Palette custom attributes.
@@ -428,7 +428,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Palette entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Palette name. | [optional] |
 | **path** | **string**| Palette location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Palette custom attributes. | [optional] |

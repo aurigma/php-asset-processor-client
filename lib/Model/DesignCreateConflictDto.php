@@ -59,7 +59,8 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPITypes = [
         'missing_fonts_conflict' => '\Aurigma\AssetProcessor\Model\MissingFontsConflictDto',
         'missing_images_conflict' => '\Aurigma\AssetProcessor\Model\MissingImagesConflictDto',
-        'identification_conflict' => '\Aurigma\AssetProcessor\Model\IdentificationConflictDto',
+        'missing_palettes_conflict' => '\Aurigma\AssetProcessor\Model\MissingPalettesConflictDto',
+        'identification_conflict' => '\Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict',
         'description' => 'string',
         'type' => '\Aurigma\AssetProcessor\Model\ConflictType'
     ];
@@ -74,6 +75,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $openAPIFormats = [
         'missing_fonts_conflict' => null,
         'missing_images_conflict' => null,
+        'missing_palettes_conflict' => null,
         'identification_conflict' => null,
         'description' => null,
         'type' => null
@@ -87,6 +89,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static array $openAPINullables = [
         'missing_fonts_conflict' => true,
         'missing_images_conflict' => true,
+        'missing_palettes_conflict' => true,
         'identification_conflict' => true,
         'description' => true,
         'type' => false
@@ -180,6 +183,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $attributeMap = [
         'missing_fonts_conflict' => 'missingFontsConflict',
         'missing_images_conflict' => 'missingImagesConflict',
+        'missing_palettes_conflict' => 'missingPalettesConflict',
         'identification_conflict' => 'identificationConflict',
         'description' => 'description',
         'type' => 'type'
@@ -193,6 +197,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $setters = [
         'missing_fonts_conflict' => 'setMissingFontsConflict',
         'missing_images_conflict' => 'setMissingImagesConflict',
+        'missing_palettes_conflict' => 'setMissingPalettesConflict',
         'identification_conflict' => 'setIdentificationConflict',
         'description' => 'setDescription',
         'type' => 'setType'
@@ -206,6 +211,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     protected static $getters = [
         'missing_fonts_conflict' => 'getMissingFontsConflict',
         'missing_images_conflict' => 'getMissingImagesConflict',
+        'missing_palettes_conflict' => 'getMissingPalettesConflict',
         'identification_conflict' => 'getIdentificationConflict',
         'description' => 'getDescription',
         'type' => 'getType'
@@ -270,6 +276,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $this->setIfExists('missing_fonts_conflict', $data ?? [], null);
         $this->setIfExists('missing_images_conflict', $data ?? [], null);
+        $this->setIfExists('missing_palettes_conflict', $data ?? [], null);
         $this->setIfExists('identification_conflict', $data ?? [], null);
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
@@ -386,9 +393,43 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets missing_palettes_conflict
+     *
+     * @return \Aurigma\AssetProcessor\Model\MissingPalettesConflictDto|null
+     */
+    public function getMissingPalettesConflict()
+    {
+        return $this->container['missing_palettes_conflict'];
+    }
+
+    /**
+     * Sets missing_palettes_conflict
+     *
+     * @param \Aurigma\AssetProcessor\Model\MissingPalettesConflictDto|null $missing_palettes_conflict missing_palettes_conflict
+     *
+     * @return self
+     */
+    public function setMissingPalettesConflict($missing_palettes_conflict)
+    {
+        if (is_null($missing_palettes_conflict)) {
+            array_push($this->openAPINullablesSetToNull, 'missing_palettes_conflict');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('missing_palettes_conflict', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['missing_palettes_conflict'] = $missing_palettes_conflict;
+
+        return $this;
+    }
+
+    /**
      * Gets identification_conflict
      *
-     * @return \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null
+     * @return \Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict|null
      */
     public function getIdentificationConflict()
     {
@@ -398,7 +439,7 @@ class DesignCreateConflictDto implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets identification_conflict
      *
-     * @param \Aurigma\AssetProcessor\Model\IdentificationConflictDto|null $identification_conflict identification_conflict
+     * @param \Aurigma\AssetProcessor\Model\DesignCreateConflictDtoIdentificationConflict|null $identification_conflict identification_conflict
      *
      * @return self
      */

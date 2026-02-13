@@ -60,7 +60,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static $openAPITypes = [
         'design_id' => 'string',
         'design_surface_index' => 'int',
-        'preserve_print_areas' => 'bool'
+        'preserve_print_areas' => 'bool',
+        'preserve_surface_items' => 'bool',
+        'match_surfaces' => 'bool'
     ];
 
     /**
@@ -73,7 +75,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static $openAPIFormats = [
         'design_id' => null,
         'design_surface_index' => 'int32',
-        'preserve_print_areas' => null
+        'preserve_print_areas' => null,
+        'preserve_surface_items' => null,
+        'match_surfaces' => null
     ];
 
     /**
@@ -84,7 +88,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static array $openAPINullables = [
         'design_id' => true,
         'design_surface_index' => true,
-        'preserve_print_areas' => false
+        'preserve_print_areas' => false,
+        'preserve_surface_items' => false,
+        'match_surfaces' => false
     ];
 
     /**
@@ -175,7 +181,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static $attributeMap = [
         'design_id' => 'designId',
         'design_surface_index' => 'designSurfaceIndex',
-        'preserve_print_areas' => 'preservePrintAreas'
+        'preserve_print_areas' => 'preservePrintAreas',
+        'preserve_surface_items' => 'preserveSurfaceItems',
+        'match_surfaces' => 'matchSurfaces'
     ];
 
     /**
@@ -186,7 +194,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static $setters = [
         'design_id' => 'setDesignId',
         'design_surface_index' => 'setDesignSurfaceIndex',
-        'preserve_print_areas' => 'setPreservePrintAreas'
+        'preserve_print_areas' => 'setPreservePrintAreas',
+        'preserve_surface_items' => 'setPreserveSurfaceItems',
+        'match_surfaces' => 'setMatchSurfaces'
     ];
 
     /**
@@ -197,7 +207,9 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
     protected static $getters = [
         'design_id' => 'getDesignId',
         'design_surface_index' => 'getDesignSurfaceIndex',
-        'preserve_print_areas' => 'getPreservePrintAreas'
+        'preserve_print_areas' => 'getPreservePrintAreas',
+        'preserve_surface_items' => 'getPreserveSurfaceItems',
+        'match_surfaces' => 'getMatchSurfaces'
     ];
 
     /**
@@ -260,6 +272,8 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
         $this->setIfExists('design_id', $data ?? [], null);
         $this->setIfExists('design_surface_index', $data ?? [], null);
         $this->setIfExists('preserve_print_areas', $data ?? [], null);
+        $this->setIfExists('preserve_surface_items', $data ?? [], null);
+        $this->setIfExists('match_surfaces', $data ?? [], null);
     }
 
     /**
@@ -395,6 +409,60 @@ class BlankDesignSourceSettingsModel implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable preserve_print_areas cannot be null');
         }
         $this->container['preserve_print_areas'] = $preserve_print_areas;
+
+        return $this;
+    }
+
+    /**
+     * Gets preserve_surface_items
+     *
+     * @return bool|null
+     */
+    public function getPreserveSurfaceItems()
+    {
+        return $this->container['preserve_surface_items'];
+    }
+
+    /**
+     * Sets preserve_surface_items
+     *
+     * @param bool|null $preserve_surface_items Flag that indicates whether original surface items should be preserved.  If value is `false`, target design surfaces will be blank.
+     *
+     * @return self
+     */
+    public function setPreserveSurfaceItems($preserve_surface_items)
+    {
+        if (is_null($preserve_surface_items)) {
+            throw new \InvalidArgumentException('non-nullable preserve_surface_items cannot be null');
+        }
+        $this->container['preserve_surface_items'] = $preserve_surface_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_surfaces
+     *
+     * @return bool|null
+     */
+    public function getMatchSurfaces()
+    {
+        return $this->container['match_surfaces'];
+    }
+
+    /**
+     * Sets match_surfaces
+     *
+     * @param bool|null $match_surfaces Flag that indicates whether original design surfaces should be places in new design in original order.  If value is `true`, `DesignSurfaceIndex` parameter will be ignored.  If target blank design has more surfaces than the original one, last original surface will be repeated to the end.
+     *
+     * @return self
+     */
+    public function setMatchSurfaces($match_surfaces)
+    {
+        if (is_null($match_surfaces)) {
+            throw new \InvalidArgumentException('non-nullable match_surfaces cannot be null');
+        }
+        $this->container['match_surfaces'] = $match_surfaces;
 
         return $this;
     }

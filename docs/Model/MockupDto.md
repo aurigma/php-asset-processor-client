@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **metadata** | [**\Aurigma\AssetProcessor\Model\MockupMetadataDto**](MockupMetadataDto.md) |  | [optional]
 **private** | **bool** |  | [optional]
 **type** | [**\Aurigma\AssetProcessor\Model\MockupType**](MockupType.md) |  | [optional]
+**has_problems** | **bool** |  | [optional]
 **previews** | [**array<string,\Aurigma\AssetProcessor\Model\PreviewMetadata>**](PreviewMetadata.md) |  | [optional]
 **size** | **int** |  | [optional]
 **descriptor** | **string** |  | [optional]

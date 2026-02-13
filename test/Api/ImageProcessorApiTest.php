@@ -72,6 +72,18 @@ class ImageProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for imageProcessorExportImage
+     *
+     * Returns a content of an existing image file. If `pageIndex` is set, extracts a page from an existing multi-page image and returns its content as a separate file..
+     *
+     */
+    public function testImageProcessorExportImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for imageProcessorImportImage
      *
      * Imports image from source file and saves it to storage..

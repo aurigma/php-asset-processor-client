@@ -137,7 +137,7 @@ class FontProcessorApi
      * Imports font from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Font source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -172,7 +172,7 @@ class FontProcessorApi
      * Imports font from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Font source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -348,7 +348,7 @@ class FontProcessorApi
      * Imports font from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Font source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -386,7 +386,7 @@ class FontProcessorApi
      * Imports font from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Font source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -453,7 +453,7 @@ class FontProcessorApi
      * Create request for operation 'fontProcessorImportFont'
      *
      * @param  \SplFileObject $source_file Font source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -696,7 +696,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -728,7 +728,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -901,7 +901,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -936,7 +936,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1000,7 +1000,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1290,7 +1290,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1322,7 +1322,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1495,7 +1495,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1530,7 +1530,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1594,7 +1594,7 @@ class FontProcessorApi
      * @param  string $background Background color for preview image (optional)
      * @param  string $text_color Text color for preview image (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['fontProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1871,7 +1871,7 @@ class FontProcessorApi
      * Updates font file and metadata in storage.
      *
      * @param  string $id Font entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -1894,7 +1894,7 @@ class FontProcessorApi
      * Updates font file and metadata in storage.
      *
      * @param  string $id Font entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -2093,7 +2093,7 @@ class FontProcessorApi
      * Updates font file and metadata in storage.
      *
      * @param  string $id Font entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -2119,7 +2119,7 @@ class FontProcessorApi
      * Updates font file and metadata in storage.
      *
      * @param  string $id Font entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)
@@ -2174,7 +2174,7 @@ class FontProcessorApi
      * Create request for operation 'fontProcessorUpdate'
      *
      * @param  string $id Font entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Font name. (optional)
      * @param  string $path Font location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Font custom attributes. (optional)

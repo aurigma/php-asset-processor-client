@@ -140,7 +140,7 @@ class PaletteProcessorApi
      * Imports palette from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -168,7 +168,7 @@ class PaletteProcessorApi
      * Imports palette from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -337,7 +337,7 @@ class PaletteProcessorApi
      * Imports palette from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -368,7 +368,7 @@ class PaletteProcessorApi
      * Imports palette from source file and saves it to storage.
      *
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -428,7 +428,7 @@ class PaletteProcessorApi
      * Create request for operation 'paletteProcessorImportPalette'
      *
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -622,7 +622,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -647,7 +647,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -813,7 +813,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -841,7 +841,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -898,7 +898,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1111,7 +1111,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1136,7 +1136,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1302,7 +1302,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1330,7 +1330,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1387,7 +1387,7 @@ class PaletteProcessorApi
      * @param  int $height Preview image height. (required)
      * @param  \Aurigma\AssetProcessor\Model\PalettePreviewFormat $format Preview image format. (optional)
      * @param  bool $force If set to &#39;true&#39;, new preview prepared, even if preview already existed. (optional, default to false)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorPreparePreviewUrl'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1595,7 +1595,7 @@ class PaletteProcessorApi
      *
      * @param  string $id Palette entity unique identifier. (required)
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorReimportPalette'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1615,7 +1615,7 @@ class PaletteProcessorApi
      *
      * @param  string $id Palette entity unique identifier. (required)
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorReimportPalette'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1811,7 +1811,7 @@ class PaletteProcessorApi
      *
      * @param  string $id Palette entity unique identifier. (required)
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorReimportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1834,7 +1834,7 @@ class PaletteProcessorApi
      *
      * @param  string $id Palette entity unique identifier. (required)
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorReimportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1886,7 +1886,7 @@ class PaletteProcessorApi
      *
      * @param  string $id Palette entity unique identifier. (required)
      * @param  \SplFileObject $source_file Palette source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['paletteProcessorReimportPalette'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2032,7 +2032,7 @@ class PaletteProcessorApi
      * Updates palette file and metadata in storage.
      *
      * @param  string $id Palette entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -2055,7 +2055,7 @@ class PaletteProcessorApi
      * Updates palette file and metadata in storage.
      *
      * @param  string $id Palette entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -2254,7 +2254,7 @@ class PaletteProcessorApi
      * Updates palette file and metadata in storage.
      *
      * @param  string $id Palette entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -2280,7 +2280,7 @@ class PaletteProcessorApi
      * Updates palette file and metadata in storage.
      *
      * @param  string $id Palette entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)
@@ -2335,7 +2335,7 @@ class PaletteProcessorApi
      * Create request for operation 'paletteProcessorUpdate'
      *
      * @param  string $id Palette entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Palette name. (optional)
      * @param  string $path Palette location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Palette custom attributes. (optional)

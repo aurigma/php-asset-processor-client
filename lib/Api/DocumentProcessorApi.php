@@ -133,7 +133,7 @@ class DocumentProcessorApi
      *
      * Creates a new blank toggle set and saves it to the storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
@@ -152,7 +152,7 @@ class DocumentProcessorApi
      *
      * Creates a new blank toggle set and saves it to the storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
@@ -347,7 +347,7 @@ class DocumentProcessorApi
      *
      * Creates a new blank toggle set and saves it to the storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
@@ -369,7 +369,7 @@ class DocumentProcessorApi
      *
      * Creates a new blank toggle set and saves it to the storage.
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
@@ -420,7 +420,7 @@ class DocumentProcessorApi
     /**
      * Create request for operation 'documentProcessorCreateBlankToggleSet'
      *
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  \Aurigma\AssetProcessor\Model\CreateBlankToggleSetModel $create_blank_toggle_set_model Operation paramsHolder:. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['documentProcessorCreateBlankToggleSet'] to see the possible values for this operation
      *
@@ -541,7 +541,7 @@ class DocumentProcessorApi
      * Imports a document from the source file and saves it to the storage.
      *
      * @param  \SplFileObject $source_file Document source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -565,7 +565,7 @@ class DocumentProcessorApi
      * Imports a document from the source file and saves it to the storage.
      *
      * @param  \SplFileObject $source_file Document source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -730,7 +730,7 @@ class DocumentProcessorApi
      * Imports a document from the source file and saves it to the storage.
      *
      * @param  \SplFileObject $source_file Document source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -757,7 +757,7 @@ class DocumentProcessorApi
      * Imports a document from the source file and saves it to the storage.
      *
      * @param  \SplFileObject $source_file Document source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -813,7 +813,7 @@ class DocumentProcessorApi
      * Create request for operation 'documentProcessorImportDocument'
      *
      * @param  \SplFileObject $source_file Document source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -977,7 +977,7 @@ class DocumentProcessorApi
      * Updates the document file and metadata in the storage.
      *
      * @param  string $id Document entity ID. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -1002,7 +1002,7 @@ class DocumentProcessorApi
      * Updates the document file and metadata in the storage.
      *
      * @param  string $id Document entity ID. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -1203,7 +1203,7 @@ class DocumentProcessorApi
      * Updates the document file and metadata in the storage.
      *
      * @param  string $id Document entity ID. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -1231,7 +1231,7 @@ class DocumentProcessorApi
      * Updates the document file and metadata in the storage.
      *
      * @param  string $id Document entity ID. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)
@@ -1288,7 +1288,7 @@ class DocumentProcessorApi
      * Create request for operation 'documentProcessorUpdate'
      *
      * @param  string $id Document entity ID. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Document name. (optional)
      * @param  string $path Document location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Document custom attributes. (optional)

@@ -134,7 +134,7 @@ class DataSchemaProcessorApi
      * Gets all links associated with this data schema.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSchemaProcessorGetLinks'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -153,7 +153,7 @@ class DataSchemaProcessorApi
      * Gets all links associated with this data schema.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSchemaProcessorGetLinks'] to see the possible values for this operation
      *
      * @throws \Aurigma\AssetProcessor\ApiException on non-2xx response or if the response body is not in the expected format
@@ -313,7 +313,7 @@ class DataSchemaProcessorApi
      * Gets all links associated with this data schema.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSchemaProcessorGetLinks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -335,7 +335,7 @@ class DataSchemaProcessorApi
      * Gets all links associated with this data schema.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSchemaProcessorGetLinks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -386,7 +386,7 @@ class DataSchemaProcessorApi
      * Create request for operation 'dataSchemaProcessorGetLinks'
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['dataSchemaProcessorGetLinks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -513,7 +513,7 @@ class DataSchemaProcessorApi
      * Imports data schema and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data schema source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -535,7 +535,7 @@ class DataSchemaProcessorApi
      * Imports data schema and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data schema source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -698,7 +698,7 @@ class DataSchemaProcessorApi
      * Imports data schema and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data schema source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -723,7 +723,7 @@ class DataSchemaProcessorApi
      * Imports data schema and saves it to storage.
      *
      * @param  \SplFileObject $source_file Data schema source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -777,7 +777,7 @@ class DataSchemaProcessorApi
      * Create request for operation 'dataSchemaProcessorImportDataSchema'
      *
      * @param  \SplFileObject $source_file Data schema source file. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -929,7 +929,7 @@ class DataSchemaProcessorApi
      * Updates data schema file and metadata in storage.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -952,7 +952,7 @@ class DataSchemaProcessorApi
      * Updates data schema file and metadata in storage.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -1151,7 +1151,7 @@ class DataSchemaProcessorApi
      * Updates data schema file and metadata in storage.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -1177,7 +1177,7 @@ class DataSchemaProcessorApi
      * Updates data schema file and metadata in storage.
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)
@@ -1232,7 +1232,7 @@ class DataSchemaProcessorApi
      * Create request for operation 'dataSchemaProcessorUpdate'
      *
      * @param  string $id Data schema entity unique identifier. (required)
-     * @param  int $tenant_id Tenant identifier (optional)
+     * @param  int $tenant_id Tenant ID. (optional)
      * @param  string $name Data schema name. (optional)
      * @param  string $path Data schema location (folder path). (optional)
      * @param  array<string,mixed> $custom_fields Data schema custom attributes. (optional)

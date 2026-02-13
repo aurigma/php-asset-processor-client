@@ -51,7 +51,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data schema entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->dataSchemaProcessorGetLinks($id, $tenant_id);
@@ -66,7 +66,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data schema entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -127,7 +127,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Data schema source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Data schema name.
 $path = 'path_example'; // string | Data schema location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Data schema custom attributes.
@@ -145,7 +145,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Data schema source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Data schema name. | [optional] |
 | **path** | **string**| Data schema location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes. | [optional] |
@@ -211,7 +211,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSchemaProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data schema entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Data schema name.
 $path = 'path_example'; // string | Data schema location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Data schema custom attributes.
@@ -230,7 +230,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data schema entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Data schema name. | [optional] |
 | **path** | **string**| Data schema location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data schema custom attributes. | [optional] |

@@ -55,7 +55,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->dataSetProcessorCheck($id, $tenant_id);
@@ -70,7 +70,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -131,7 +131,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->dataSetProcessorEmbedDataSchema($id, $tenant_id);
@@ -146,7 +146,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -207,7 +207,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->dataSetProcessorExportDataSet($id, $tenant_id);
@@ -222,7 +222,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -283,7 +283,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $data_set_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel | Extract data schema operation parameters.
 
 try {
@@ -298,7 +298,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **data_set_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DataSetExtractDataSchemaModel**](../Model/DataSetExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
 
 ### Return type
@@ -360,7 +360,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Data set source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Data set name.
 $path = 'path_example'; // string | Data set location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Data set custom attributes.
@@ -378,7 +378,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Data set source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Data set name. | [optional] |
 | **path** | **string**| Data set location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data set custom attributes. | [optional] |
@@ -442,7 +442,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $data_set_link_data_schema_model = new \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel | Link schema operation parameters.
 
 try {
@@ -458,7 +458,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **data_set_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DataSetLinkDataSchemaModel**](../Model/DataSetLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
 
 ### Return type
@@ -522,7 +522,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DataSetProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Data set entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $name = 'name_example'; // string | Data set name.
 $path = 'path_example'; // string | Data set location (folder path).
 $custom_fields = NULL; // array<string,mixed> | Data set custom attributes.
@@ -541,7 +541,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Data set entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **name** | **string**| Data set name. | [optional] |
 | **path** | **string**| Data set location (folder path). | [optional] |
 | **custom_fields** | [**array<string,mixed>**](../Model/array.md)| Data set custom attributes. | [optional] |

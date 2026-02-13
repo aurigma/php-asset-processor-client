@@ -8,7 +8,9 @@ All URIs are relative to http://localhost, except if the operation defines anoth
 | [**designProcessorCheck()**](DesignProcessorApi.md#designProcessorCheck) | **POST** /api/processor/v1/designs/{id}/check | Checks if design taken from storage has any problems. |
 | [**designProcessorCreateBlankDesign()**](DesignProcessorApi.md#designProcessorCreateBlankDesign) | **POST** /api/processor/v1/designs/blank | Creates design using basic settings and saves it to storage. |
 | [**designProcessorCreateDesignFromMockup()**](DesignProcessorApi.md#designProcessorCreateDesignFromMockup) | **POST** /api/processor/v1/designs/from-mockup | Creates design compatible to specified mockup and saves it to storage. |
+| [**designProcessorEmbedAllLinkedData()**](DesignProcessorApi.md#designProcessorEmbedAllLinkedData) | **POST** /api/processor/v1/designs/{id}/embed-all-linked-data | Embeds all linked data to the design file. |
 | [**designProcessorEmbedDataSchema()**](DesignProcessorApi.md#designProcessorEmbedDataSchema) | **POST** /api/processor/v1/designs/{id}/schema/embed | Embeds linked data schema to the design file. |
+| [**designProcessorEmbedImages()**](DesignProcessorApi.md#designProcessorEmbedImages) | **POST** /api/processor/v1/designs/{id}/images/embed | Embeds linked images to the design file. |
 | [**designProcessorEmbedPalettes()**](DesignProcessorApi.md#designProcessorEmbedPalettes) | **POST** /api/processor/v1/designs/{id}/palettes/embed | Embeds linked palettes to the design file. |
 | [**designProcessorEmbedToggleSet()**](DesignProcessorApi.md#designProcessorEmbedToggleSet) | **POST** /api/processor/v1/designs/{id}/toggle-set/embed | Embeds linked toggle set to the design file. |
 | [**designProcessorExportDesign()**](DesignProcessorApi.md#designProcessorExportDesign) | **GET** /api/processor/v1/designs/{id}/export | Exports design file. |
@@ -72,7 +74,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_count_per_sheet_calculation_model = new \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel(); // \Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel | Model to calculate the design count per sheet of the specified size.
 
 try {
@@ -88,7 +90,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_count_per_sheet_calculation_model** | [**\Aurigma\AssetProcessor\Model\DesignCountPerSheetCalculationModel**](../Model/DesignCountPerSheetCalculationModel.md)| Model to calculate the design count per sheet of the specified size. | [optional] |
 
 ### Return type
@@ -150,7 +152,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorCheck($id, $tenant_id);
@@ -165,7 +167,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -225,7 +227,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $create_blank_design_model = new \Aurigma\AssetProcessor\Model\CreateBlankDesignModel(); // \Aurigma\AssetProcessor\Model\CreateBlankDesignModel | Operation parameters.
 
 try {
@@ -240,7 +242,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **create_blank_design_model** | [**\Aurigma\AssetProcessor\Model\CreateBlankDesignModel**](../Model/CreateBlankDesignModel.md)| Operation parameters. | [optional] |
 
 ### Return type
@@ -301,7 +303,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $create_design_from_mockup_model = new \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel(); // \Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel | Operation parameters.
 
 try {
@@ -316,7 +318,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **create_design_from_mockup_model** | [**\Aurigma\AssetProcessor\Model\CreateDesignFromMockupModel**](../Model/CreateDesignFromMockupModel.md)| Operation parameters. | [optional] |
 
 ### Return type
@@ -330,6 +332,82 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `designProcessorEmbedAllLinkedData()`
+
+```php
+designProcessorEmbedAllLinkedData($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
+```
+
+Embeds all linked data to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->designProcessorEmbedAllLinkedData($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DesignProcessorApi->designProcessorEmbedAllLinkedData: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -378,7 +456,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorEmbedDataSchema($id, $tenant_id);
@@ -393,7 +471,83 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
+
+### Return type
+
+[**\Aurigma\AssetProcessor\Model\DesignDto**](../Model/DesignDto.md)
+
+### Authorization
+
+[ApiKey](../../README.md#ApiKey), [OAuth2ClientCredentials](../../README.md#OAuth2ClientCredentials), [OAuth2Code](../../README.md#OAuth2Code), [OAuth2Implicit](../../README.md#OAuth2Implicit), [Bearer](../../README.md#Bearer)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `designProcessorEmbedImages()`
+
+```php
+designProcessorEmbedImages($id, $tenant_id): \Aurigma\AssetProcessor\Model\DesignDto
+```
+
+Embeds linked images to the design file.
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKey
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('X-API-Key', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-Key', 'Bearer');
+
+// Configure OAuth2 access token for authorization: OAuth2ClientCredentials
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Code
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure OAuth2 access token for authorization: OAuth2Implicit
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+// Configure API key authorization: Bearer
+$config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKey('Authorization', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Aurigma\AssetProcessor\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
+
+
+$apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Design entity unique identifier.
+$tenant_id = 56; // int | Tenant ID.
+
+try {
+    $result = $apiInstance->designProcessorEmbedImages($id, $tenant_id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling DesignProcessorApi->designProcessorEmbedImages: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Design entity unique identifier. | |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -454,7 +608,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorEmbedPalettes($id, $tenant_id);
@@ -469,7 +623,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -530,7 +684,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorEmbedToggleSet($id, $tenant_id);
@@ -545,7 +699,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -606,7 +760,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorExportDesign($id, $tenant_id);
@@ -621,7 +775,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -682,7 +836,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_extract_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel | Extract data schema operation parameters.
 
 try {
@@ -697,7 +851,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_extract_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractDataSchemaModel**](../Model/DesignExtractDataSchemaModel.md)| Extract data schema operation parameters. | [optional] |
 
 ### Return type
@@ -759,7 +913,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_extract_palettes_model = new \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel(); // \Aurigma\AssetProcessor\Model\DesignExtractPalettesModel | Extract palettes operation parameters.
 
 try {
@@ -774,7 +928,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_extract_palettes_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractPalettesModel**](../Model/DesignExtractPalettesModel.md)| Extract palettes operation parameters. | [optional] |
 
 ### Return type
@@ -836,7 +990,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_extract_toggle_set_model = new \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel(); // \Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel | Extract toggle set operation parameters.
 
 try {
@@ -851,7 +1005,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_extract_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\DesignExtractToggleSetModel**](../Model/DesignExtractToggleSetModel.md)| Extract toggle set operation parameters. | [optional] |
 
 ### Return type
@@ -913,7 +1067,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorGetDepositPhotos($id, $tenant_id);
@@ -928,7 +1082,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -991,7 +1145,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $source_file = "/path/to/file.txt"; // \SplFileObject | Design source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_params_name = 'design_params_name_example'; // string | Design name.
 $design_params_path = 'design_params_path_example'; // string | Design location (folder path).
 $design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes.
@@ -1017,7 +1171,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **source_file** | **\SplFileObject****\SplFileObject**| Design source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_params_name** | **string**| Design name. | [optional] |
 | **design_params_path** | **string**| Design location (folder path). | [optional] |
 | **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes. | [optional] |
@@ -1089,7 +1243,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_link_data_schema_model = new \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel(); // \Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel | Link schema operation parameters.
 
 try {
@@ -1105,7 +1259,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_link_data_schema_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkDataSchemaModel**](../Model/DesignLinkDataSchemaModel.md)| Link schema operation parameters. | [optional] |
 
 ### Return type
@@ -1167,7 +1321,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_link_palettes_model = new \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel(); // \Aurigma\AssetProcessor\Model\DesignLinkPalettesModel | Link palettes operation parameters.
 
 try {
@@ -1183,7 +1337,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_link_palettes_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkPalettesModel**](../Model/DesignLinkPalettesModel.md)| Link palettes operation parameters. | [optional] |
 
 ### Return type
@@ -1245,7 +1399,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_link_toggle_set_model = new \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel(); // \Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel | Link toggle set operation parameters.
 
 try {
@@ -1261,7 +1415,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_link_toggle_set_model** | [**\Aurigma\AssetProcessor\Model\DesignLinkToggleSetModel**](../Model/DesignLinkToggleSetModel.md)| Link toggle set operation parameters. | [optional] |
 
 ### Return type
@@ -1333,7 +1487,7 @@ $surface_index = 56; // int | Design surface index.  Indicates which design surf
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
 $format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorPreparePreview($id, $namespace, $name, $width, $height, $surface_index, $stub, $format, $force, $tenant_id);
@@ -1356,7 +1510,7 @@ try {
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
 | **format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -1427,7 +1581,7 @@ $surface_index = 56; // int | Design surface index.  Indicates which design surf
 $stub = True; // bool | Design Preview stub contnent switcher.  Indicates whether to show stub content in preview.
 $format = new \Aurigma\AssetProcessor\Model\\Aurigma\AssetProcessor\Model\DesignPreviewFormat(); // \Aurigma\AssetProcessor\Model\DesignPreviewFormat | Design preview image format.
 $force = false; // bool | If set to 'true', new preview prepared, even if preview already existed.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorPreparePreviewUrl($id, $namespace, $name, $width, $height, $surface_index, $stub, $format, $force, $tenant_id);
@@ -1450,7 +1604,7 @@ try {
 | **stub** | **bool**| Design Preview stub contnent switcher.  Indicates whether to show stub content in preview. | [optional] |
 | **format** | [**\Aurigma\AssetProcessor\Model\DesignPreviewFormat**](../Model/.md)| Design preview image format. | [optional] |
 | **force** | **bool**| If set to &#39;true&#39;, new preview prepared, even if preview already existed. | [optional] [default to false] |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -1514,7 +1668,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
 );
 $id = 'id_example'; // string | Design entity unique identifier.
 $source_file = "/path/to/file.txt"; // \SplFileObject | Design source file.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -1531,7 +1685,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
 | **source_file** | **\SplFileObject****\SplFileObject**| Design source file. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type
@@ -1593,7 +1747,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorRemoveDataSchema($id, $tenant_id);
@@ -1608,7 +1762,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -1669,7 +1823,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorRemovePalettes($id, $tenant_id);
@@ -1684,7 +1838,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -1745,7 +1899,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 
 try {
     $result = $apiInstance->designProcessorRemoveToggleSet($id, $tenant_id);
@@ -1760,7 +1914,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 
 ### Return type
 
@@ -1823,7 +1977,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     $config
 );
 $id = 'id_example'; // string | Design entity unique identifier.
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $design_params_name = 'design_params_name_example'; // string | Design name.
 $design_params_path = 'design_params_path_example'; // string | Design location (folder path).
 $design_params_custom_fields = NULL; // array<string,mixed> | Design custom attributes.
@@ -1842,7 +1996,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **id** | **string**| Design entity unique identifier. | |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **design_params_name** | **string**| Design name. | [optional] |
 | **design_params_path** | **string**| Design location (folder path). | [optional] |
 | **design_params_custom_fields** | [**array<string,mixed>**](../Model/array.md)| Design custom attributes. | [optional] |
@@ -1906,7 +2060,7 @@ $apiInstance = new Aurigma\AssetProcessor\Api\DesignProcessorApi(
     new GuzzleHttp\Client(),
     $config
 );
-$tenant_id = 56; // int | Tenant identifier
+$tenant_id = 56; // int | Tenant ID.
 $marker_shortcuts_file = "/path/to/file.txt"; // \SplFileObject | Marker shortcuts config file.
 
 try {
@@ -1921,7 +2075,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tenant_id** | **int**| Tenant identifier | [optional] |
+| **tenant_id** | **int**| Tenant ID. | [optional] |
 | **marker_shortcuts_file** | **\SplFileObject****\SplFileObject**| Marker shortcuts config file. | [optional] |
 
 ### Return type

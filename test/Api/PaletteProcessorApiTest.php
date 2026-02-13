@@ -108,6 +108,18 @@ class PaletteProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for paletteProcessorReimportPalette
+     *
+     * Re-imports palette from source file and updates palette file and metadata in storage..
+     *
+     */
+    public function testPaletteProcessorReimportPalette()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for paletteProcessorUpdate
      *
      * Updates palette file and metadata in storage..

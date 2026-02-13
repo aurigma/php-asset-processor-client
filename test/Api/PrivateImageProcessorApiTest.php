@@ -72,6 +72,18 @@ class PrivateImageProcessorApiTest extends TestCase
     }
 
     /**
+     * Test case for privateImageProcessorExportImage
+     *
+     * Returns a content of an existing image file. If `pageIndex` is set, extracts a page from an existing multi-page image and returns its content as a separate file..
+     *
+     */
+    public function testPrivateImageProcessorExportImage()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for privateImageProcessorImportImage
      *
      * Imports image from source file and saves it to private storage..
