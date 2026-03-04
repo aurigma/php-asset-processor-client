@@ -63,7 +63,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => '\Aurigma\AssetProcessor\Model\MockupArtworkLayerDtoPosition',
         'width' => 'float',
         'height' => 'float',
-        'vector_mask' => 'string'
+        'clipping_mask' => 'string'
     ];
 
     /**
@@ -79,7 +79,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => null,
         'width' => 'float',
         'height' => 'float',
-        'vector_mask' => null
+        'clipping_mask' => null
     ];
 
     /**
@@ -93,7 +93,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => true,
         'width' => false,
         'height' => false,
-        'vector_mask' => true
+        'clipping_mask' => true
     ];
 
     /**
@@ -187,7 +187,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => 'position',
         'width' => 'width',
         'height' => 'height',
-        'vector_mask' => 'vectorMask'
+        'clipping_mask' => 'clippingMask'
     ];
 
     /**
@@ -201,7 +201,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => 'setPosition',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'vector_mask' => 'setVectorMask'
+        'clipping_mask' => 'setClippingMask'
     ];
 
     /**
@@ -215,7 +215,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         'position' => 'getPosition',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'vector_mask' => 'getVectorMask'
+        'clipping_mask' => 'getClippingMask'
     ];
 
     /**
@@ -280,7 +280,7 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('position', $data ?? [], null);
         $this->setIfExists('width', $data ?? [], null);
         $this->setIfExists('height', $data ?? [], null);
-        $this->setIfExists('vector_mask', $data ?? [], null);
+        $this->setIfExists('clipping_mask', $data ?? [], null);
     }
 
     /**
@@ -482,35 +482,35 @@ class MockupArtworkLayerDto implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets vector_mask
+     * Gets clipping_mask
      *
      * @return string|null
      */
-    public function getVectorMask()
+    public function getClippingMask()
     {
-        return $this->container['vector_mask'];
+        return $this->container['clipping_mask'];
     }
 
     /**
-     * Sets vector_mask
+     * Sets clipping_mask
      *
-     * @param string|null $vector_mask Layer vector mask path.
+     * @param string|null $clipping_mask Layer vector mask path.
      *
      * @return self
      */
-    public function setVectorMask($vector_mask)
+    public function setClippingMask($clipping_mask)
     {
-        if (is_null($vector_mask)) {
-            array_push($this->openAPINullablesSetToNull, 'vector_mask');
+        if (is_null($clipping_mask)) {
+            array_push($this->openAPINullablesSetToNull, 'clipping_mask');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('vector_mask', $nullablesSetToNull);
+            $index = array_search('clipping_mask', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['vector_mask'] = $vector_mask;
+        $this->container['clipping_mask'] = $clipping_mask;
 
         return $this;
     }

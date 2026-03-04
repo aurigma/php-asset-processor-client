@@ -9,6 +9,6 @@ Name | Type | Description | Notes
 **position** | [**\Aurigma\AssetProcessor\Model\MockupArtworkLayerDtoPosition**](MockupArtworkLayerDtoPosition.md) |  | [optional]
 **width** | **float** | Width in points. | [optional]
 **height** | **float** | Height in points. | [optional]
-**vector_mask** | **string** | Layer vector mask path. | [optional]
+**clipping_mask** | **string** | Layer vector mask path. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
